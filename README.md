@@ -12,32 +12,30 @@
 |first_name     |string |null: false              |
 |last_name_kana |string |null: false              |
 |first_name_kana|string |null: false              |
-|birth_date     |date   |null: false              |
+|birthday       |date   |null: false              |
 |icon_image     |string |                         |
-|address_id     |integer|foreign_key: true        |
-|credit_card_id |integer|foreign_key: true        |
 ### Association
 - has_many :products
 - has_many :likes
 - has_many :comments
 - has_many :reports
-- has_many :histores
+- has_many :histories
 - has_one :address
 - has_one :credit_card
 
 ## productsテーブル
-|Column      |Type   |Options                       |
-|------------|-------|------------------------------|
-|name        |string |null: false                   |
-|detail      |text   |null: false                   |
-|price       |integer|null: false                   |
-|user_id     |integer|null: false                   |
-|brand_id    |integer|                              |
-|prefecture  |integer|null: false, foreign_key: true|
-|category    |integer|null: false, foreign_key: true|
-|days_to_ship|integer|null: false, foreign_key: true|
-|status      |integer|null: false, foreign_key: true|
-|burden      |integer|null: false, foreign_key: true|
+|Column         |Type      |Options                       |
+|---------------|----------|------------------------------|
+|name           |string    |null: false                   |
+|detail         |text      |null: false                   |
+|price          |integer   |null: false                   |
+|user_id        |references|null: false, foreign_key: true|
+|brand_id       |references|foreign_key: true             |
+|prefecture_id  |references|null: false, foreign_key: true|
+|category_id    |references|null: false, foreign_key: true|
+|days_to_ship_id|references|null: false, foreign_key: true|
+|status_id      |references|null: false, foreign_key: true|
+|burden_id      |references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :brand
@@ -53,29 +51,29 @@
 - belongs_to_active_hash :burden
 
 ## likesテーブル
-|Column    |Type   |Options                       |
-|----------|-------|------------------------------|
-|user_id   |integer|null: false, foreign_key: true|
-|product_id|integer|null: false, foreign_key: true|
+|Column    |Type      |Options                       |
+|----------|----------|------------------------------|
+|user_id   |references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :product
 
 ### commentsテーブル
-|Column    |Type    |Options                       |
-|----------|--------|------------------------------|
-|user_id   |integer |null: false, foreign_key: true|
-|product_id|integer |null: false, foreign_key: true|
-|text      |text    |null: false                   |
+|Column    |Type      |Options                       |
+|----------|----------|------------------------------|
+|user_id   |references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
+|text      |text      |null: false                   |
 ### Association
 - belongs_to :user
 - belongs_to :product
 
 ### reportsテーブル
-|Column    |Type   |Options                       |
-|----------|-------|------------------------------|
-|user_id   |integer|null: false, foreign_key: true|
-|product_id|integer|null: false, foreign_key: true|
+|Column    |Type      |Options                       |
+|----------|----------|------------------------------|
+|user_id   |references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :product
@@ -88,40 +86,42 @@
 - has_many :products
 
 ### imagesテーブル
-|Column    |Type   |Options    |
-|----------|-------|-----------|
-|image     |string |null: false|
-|product_id|integer|null: false, foreign_key: true|
+|Column    |Type      |Options    |
+|----------|----------|-----------|
+|image     |string    |null: false|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
 
 ### addressesテーブル
-|Column      |Type   |Options|
-|------------|-------|-------|
-|postcode    |string |null: false |
-|city        |string |null: false |
-|block       |string |null: false |
-|building    |string |            |
-|phone_number|integer|unique: true|
-|prefecture  |integer|null: false |
+|Column      |Type      |Options                       |
+|------------|----------|------------------------------|
+|postcode    |string    |null: false                   |
+|city        |string    |null: false                   |
+|block       |string    |null: false                   |
+|building    |string    |                              |
+|phone_number|string    |unique: true                  |
+|prefecture  |integer   |null: false                   |
+|user_id     |references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to_active_hash :prefecture
 
 ### credit_cardsテーブル
-|Column       |Type  |Options                  |
-|-------------|------|-------------------------|
-|card_number  |string|null: false, unique: true|
-|expiration   |string|null: false              |
-|security_cord|string|null: false              |
+|Column       |Type      |Options                        |
+|-------------|----------|-------------------------------|
+|card_number  |string    |null: false, unique: true      |
+|expiration   |string    |null: false                    |
+|security_cord|string    |null: false                    |
+|user_id      |references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
 ### historyテーブル
-|Column    |Type   |Options    |
-|----------|-------|-----------|
-|user_id   |integer|null: false|
-|product_id|integer|null: false|
+|Column    |Type      |Options    |
+|----------|----------|-----------|
+|user_id   |references|null: false|
+|product_id|references|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :product
