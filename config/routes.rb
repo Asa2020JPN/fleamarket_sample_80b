@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tops/show'
   root 'items#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :tops, only: :show
 end
