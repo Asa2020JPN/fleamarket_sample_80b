@@ -31,11 +31,11 @@
 |price           |integer   |null: false                   |
 |user_id         |references|null: false, foreign_key: true|
 |brand_id        |references|foreign_key: true             |
-|prefecture_id   |integer   |null: false, foreign_key: true|
-|category_id     |integer   |null: false, foreign_key: true|
-|days_to_ship_id |integer   |null: false, foreign_key: true|
-|status_id       |integer   |null: false, foreign_key: true|
-|shipping_cost_id|integer   |null: false, foreign_key: true|
+|prefecture_id   |integer   |null: false|
+|category_id     |integer   |null: false|
+|days_to_ship_id |integer   |null: false|
+|status_id       |integer   |null: false|
+|shipping_cost_id|integer   |null: false|
 ### Association
 - belongs_to :user
 - belongs_to :brand
@@ -81,7 +81,7 @@
 ## brandsテーブル
 |Column|Type  |Options    |
 |------|------|-----------|
-|name  |string|           |
+|name  |string|null: false|
 ### Association
 - has_many :products
 
@@ -94,26 +94,25 @@
 - belongs_to :product
 
 ## addressesテーブル
-|Column       |Type      |Options                       |
-|-------------|----------|------------------------------|
-|postcode     |string    |null: false                   |
-|city         |string    |null: false                   |
-|block        |string    |null: false                   |
-|building     |string    |                              |
-|phone_number |string    |unique: true                  |
-|prefecture_id|integer   |null: false                   |
-|user_id      |references|null: false, foreign_key: true|
+|Column       |Type      |Options     |
+|-------------|----------|------------|
+|postcode     |string    |null: false |
+|city         |string    |null: false |
+|block        |string    |null: false |
+|building     |string    |            |
+|phone_number |string    |unique: true|
+|prefecture_id|integer   |null: false |
+|user_id      |references|null: false |
 ### Association
 - belongs_to :user
 - belongs_to_active_hash :prefecture
 
 ## credit_cardsテーブル
-|Column       |Type      |Options                        |
-|-------------|----------|-------------------------------|
-|card_number  |string    |null: false, unique: true      |
-|expiration   |string    |null: false                    |
-|security_cord|string    |null: false                    |
-|user_id      |references|null: false, foreign_key: true |
+|Column     |Type      |Options                       |
+|-----------|----------|------------------------------|
+|customer_id|string    |null, false                   |
+|card_id    |string    |null, false                   |
+|user_id    |references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
