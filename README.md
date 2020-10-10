@@ -1,24 +1,126 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# furima DB設計
 
-Things you may want to cover:
+## usersテーブル
+|Column         |Type   |Options                  |
+|---------------|-------|-------------------------|
+|nickname       |string |null: false              |
+|email          |string |null: false, unique: true|
+|password       |string |null: false              |
+|last_name      |string |null: false              |
+|first_name     |string |null: false              |
+|last_name_kana |string |null: false              |
+|first_name_kana|string |null: false              |
+|birthday       |date   |null: false              |
+|icon_image     |string |                         |
+### Association
+- has_many :products
+- has_many :likes
+- has_many :comments
+- has_many :reports
+- has_many :purchase_histories
+- has_one :address
+- has_one :credit_card
 
-* Ruby version
+## productsテーブル
+|Column          |Type      |Options                       |
+|----------------|----------|------------------------------|
+|name            |string    |null: false                   |
+|detail          |text      |null: false                   |
+|price           |integer   |null: false                   |
+|user_id         |references|null: false, foreign_key: true|
+|brand_id        |references|foreign_key: true             |
+|prefecture_id   |integer   |null: false|
+|category_id     |integer   |null: false|
+|days_to_ship_id |integer   |null: false|
+|status_id       |integer   |null: false|
+|shipping_cost_id|integer   |null: false|
+### Association
+- belongs_to :user
+- belongs_to :brand
+- has_many :likes
+- has_many :comments
+- has_many :reports
+- has_many :imeges
+- has_one :purchase_history
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :category
+- belongs_to_active_hash :days_to_ship
+- belongs_to_active_hash :status
+- belongs_to_active_hash :shipping_cost
 
-* System dependencies
+## likesテーブル
+|Column    |Type      |Options                       |
+|----------|----------|------------------------------|
+|user_id   |references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
 
-* Configuration
+## commentsテーブル
+|Column    |Type      |Options                       |
+|----------|----------|------------------------------|
+|user_id   |references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
+|text      |text      |null: false                   |
+### Association
+- belongs_to :user
+- belongs_to :product
 
-* Database creation
+## reportsテーブル
+|Column    |Type      |Options                       |
+|----------|----------|------------------------------|
+|user_id   |references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
 
-* Database initialization
+## brandsテーブル
+|Column|Type  |Options    |
+|------|------|-----------|
+|name  |string|null: false|
+### Association
+- has_many :products
 
-* How to run the test suite
+## imagesテーブル
+|Column    |Type      |Options                       |
+|----------|----------|------------------------------|
+|image     |string    |null: false                   |
+|product_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :product
 
-* Services (job queues, cache servers, search engines, etc.)
+## addressesテーブル
+|Column       |Type      |Options     |
+|-------------|----------|------------|
+|postcode     |string    |null: false |
+|city         |string    |null: false |
+|block        |string    |null: false |
+|building     |string    |            |
+|phone_number |string    |unique: true|
+|prefecture_id|integer   |null: false |
+|user_id      |references|null: false |
+### Association
+- belongs_to :user
+- belongs_to_active_hash :prefecture
 
-* Deployment instructions
+## credit_cardsテーブル
+|Column     |Type      |Options                       |
+|-----------|----------|------------------------------|
+|customer_id|string    |null, false                   |
+|card_id    |string    |null, false                   |
+|user_id    |references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
-* ...
+## purchase_historyテーブル
+|Column    |Type      |Options                        |
+|----------|----------|-------------------------------|
+|user_id   |references|null: false,  foreign_key: true|
+|product_id|references|null: false,  foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
