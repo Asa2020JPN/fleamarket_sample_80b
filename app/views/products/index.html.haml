@@ -58,6 +58,8 @@
                 必須
           .Input-string
             = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Input-warning
+            入力してください
           .Input-string
             = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
           .Input-string
@@ -137,19 +139,36 @@
                 .Coin-box__left
                   ¥
                 .Coin-box__right
-                  = form.text_field :content, class: 'Coin-box__right--input', placeholder: 'type a message'
+                  = form.text_field :content, class: 'Coin-box__right--input', placeholder: '0'
           .Margin-box
             .Margin-box__left
               販売手数料（10%）
             .Margin-box__right
               ー
-          .Margin-box
-            .Margin-box__left
+          .Salesprofit-box
+            .Salesprofit-box__left
               販売利益
-            .Margin-box__right
+            .Salesprofit-box__right
               ー
-          .Resister-btn
-            = form.submit '出品する', class: '#'
+          .Register-btn
+            = form.submit '出品する', class: 'Register-btn__product'
           .Save-btn
-            = form.submit '下書きに保存', class: '#'
-      .Product-wrapper__bottom
+            = form.submit '下書きに保存', class: 'Save-btn__save'
+          .Back-top
+            = link_to "#", class: "Back-top__font" do
+              もどる
+          .Caution-message
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律に
+            より処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+        .Product-wrapper__bottom
+          .Policy-box
+            .Policy-box__left
+              プライバシーポリシー
+            .Policy-box__center
+              フリマ規約
+            .Policy-box__right
+              特定商取引に関する表記
+          .Corporate-logo-white
+            = image_tag 'material/logo/logo-white.png', class: 'Corporate-logo-white__img'
+          .Corporate-inc
+            @Furima.Inc.
