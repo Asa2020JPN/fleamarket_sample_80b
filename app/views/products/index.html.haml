@@ -124,7 +124,6 @@
               配送について
             .Title-box__question
               =icon('fas','question-circle')
-
           .Price-box
             .Price-box__left
               .Registration-item
@@ -134,20 +133,23 @@
                   .Registration-item__right--color
                     必須
             .Price-box__right
-
+              .Coin-box
+                .Coin-box__left
+                  ¥
+                .Coin-box__right
+                  = form.text_field :content, class: 'Coin-box__right--input', placeholder: 'type a message'
           .Margin-box
-            .Mergin-box__right
-              .Registration-item
-                .Registration-item__left
-                  発送までの日数
-                .Registration-item__right
-                  .Registration-item__right--color
-                    必須
+            .Margin-box__left
+              販売手数料（10%）
             .Margin-box__right
               ー
-
-
-      
-      
-      
+          .Margin-box
+            .Margin-box__left
+              販売利益
+            .Margin-box__right
+              ー
+          .Resister-btn
+            = form.submit '出品する', class: '#'
+          .Save-btn
+            = form.submit '下書きに保存', class: '#'
       .Product-wrapper__bottom
