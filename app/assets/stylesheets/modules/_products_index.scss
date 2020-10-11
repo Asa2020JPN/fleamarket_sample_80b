@@ -1,3 +1,125 @@
-.tesuto {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.Product-wrapper {
+  width: 49vw;      //700pxをvwに変換
+  margin: 0 auto;
+  background-color: white;
+  &__top {
+    width: 100%;
+    height: 125px;
+    background-color: whitesmoke;
+  }
+  &__middle {
+    width: 100%;
+    // height: calc(100vh - 345px);
+    // background-color: lightpink;
+  }
+  &__bottom {
+    width: 100%;
+    height: 220px;
+    background-color: lightskyblue;
+  }
+}
+
+.Corporate-logo {
+  &__img {
+    width: 184px;
+    height: 45px;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+  }
+}
+
+.Content-01 {
+  height: 300px;
+  padding: 40px 40px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.Content-02 {
+  height: 487px;
+  padding: 40px 40px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.Registration-item {
+  display: flex;
+  &__left {
+    margin-right: 10px;
+  }
+  &__right {
+    background-color: red;
+    border-radius: 2px;
+    padding: 0 3px;
+    &--color {
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 24px;
+    }
+  }
+}
+
+.Max-uploads {
+  margin: 20px 0;
+}
+
+.Uploads {
+  width: 620px;
+  height: 150px;
+  background-color: gainsboro;
+  border: dotted 3px whitesmoke;
+  &__icon {
+    text-align: center;
+    margin-top: 30px;
+    &--image {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__file {
+    text-align: center;
+  }
+  &__sentence {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.Input-string {
+  margin: 20px 0;
+  &__form {
+    width: 620px;
+    height: 50px;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+    padding: 0 20px;
+  }
+}
+
+.Input-text {
+  margin: 20px 0;
+  &__form {
+    width: 620px;
+    height: 155px;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+    padding: 0 20px;
+  }
+}
+
+.Input-warning {
+  font-size: 13px;
   color: red;
+  margin-bottom: 20px;
 }
