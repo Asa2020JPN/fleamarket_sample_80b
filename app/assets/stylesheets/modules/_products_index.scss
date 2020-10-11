@@ -7,7 +7,7 @@ body {
 }
 
 .Product-wrapper {
-  width: 49vw;      //700pxをvwに変換
+  width: 700px;
   margin: 0 auto;
   background-color: white;
   &__top {
@@ -17,8 +17,6 @@ body {
   }
   &__middle {
     width: 100%;
-    // height: calc(100vh - 345px);
-    // background-color: lightpink;
   }
   &__bottom {
     width: 100%;
@@ -52,6 +50,23 @@ body {
   border-bottom: 1px solid whitesmoke;
 }
 
+.Content-03 {
+  // height: 480px;
+  padding: 40px 40px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.Content-04 {
+  padding: 40px 40px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.Content-05 {
+  height: 210px;
+  padding: 40px 40px;
+  border-bottom: 1px solid whitesmoke;
+}
+
 .Registration-item {
   display: flex;
   &__left {
@@ -62,6 +77,17 @@ body {
     border-radius: 2px;
     padding: 0 3px;
     &--color {
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 24px;
+    }
+  }
+  &__rightgray {
+    background-color: gray;
+    border-radius: 2px;
+    padding: 0 3px;
+    &--gray {
       color: white;
       font-weight: bold;
       font-size: 13px;
@@ -118,8 +144,51 @@ body {
   }
 }
 
+.Count-length {
+  text-align: right;
+  font-size: 10px;
+}
+
 .Input-warning {
   font-size: 13px;
   color: red;
   margin-bottom: 20px;
+}
+
+.Title-03 {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: gray;
+  font-weight: bold;
+
+}
+
+.Title-box {
+  display: flex;
+  &__title04 {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: gray;
+    font-weight: bold;
+  }
+  &__question {
+    margin-left: 5px;
+    font-size: 14px;
+    color: blue;
+    font-weight: bold;
+  }
+}
+
+.Price-box {
+  margin: 20px 0;
+  height: 50px;
+}
+
+
+.Margin-box {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1px solid ;
+  border-bottom: 1px solid whitesmoke;
 }

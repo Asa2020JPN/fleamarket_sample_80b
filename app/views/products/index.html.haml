@@ -43,11 +43,110 @@
                 必須
           .Input-text
             = form.text_field :content, class: 'Input-text__form', placeholder: '商品の説明（必須1000文字以内）'
+          .Count-length
+            0/1000
           .Input-warning
             入力してください
-      
-      
-      
+        .Content-03
+          .Title-03
+            商品の詳細
+          .Registration-item
+            .Registration-item__left
+              カテゴリー
+            .Registration-item__right
+              .Registration-item__right--color
+                必須
+          .Input-string
+            = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Input-string
+            = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Input-string
+            = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Input-warning
+            選択してください
+          .Registration-item
+            .Registration-item__left
+              ブランド
+            .Registration-item__rightgray
+              .Registration-item__rightgray--gray
+                任意
+          .Input-string
+            = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Registration-item
+            .Registration-item__left
+              商品の状態
+            .Registration-item__right
+              .Registration-item__right--color
+                必須
+          .Input-string
+            = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Input-warning
+            入力してください
+        .Content-04
+          .Title-box
+            .Title-box__title04
+              配送について
+            .Title-box__question
+              =icon('fas','question-circle')
+          .Registration-item
+            .Registration-item__left
+              配送料の負担
+            .Registration-item__right
+              .Registration-item__right--color
+                必須
+          .Input-string
+            = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Input-warning
+            入力してください
+          .Registration-item
+            .Registration-item__left
+              発送元の地域
+            .Registration-item__right
+              .Registration-item__right--color
+                必須
+          .Input-string
+            = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Input-warning
+            入力してください
+          .Registration-item
+            .Registration-item__left
+              発送までの日数
+            .Registration-item__right
+              .Registration-item__right--color
+                必須
+          .Input-string
+            = form.text_field :content, class: 'Input-string__form', placeholder: 'type a message'
+          .Input-warning
+            入力してください
+        .Content-05
+          .Title-box
+            .Title-box__title04
+              配送について
+            .Title-box__question
+              =icon('fas','question-circle')
+
+          .Price-box
+            .Price-box__left
+              .Registration-item
+                .Registration-item__left
+                  販売価格
+                .Registration-item__right
+                  .Registration-item__right--color
+                    必須
+            .Price-box__right
+
+          .Margin-box
+            .Mergin-box__right
+              .Registration-item
+                .Registration-item__left
+                  発送までの日数
+                .Registration-item__right
+                  .Registration-item__right--color
+                    必須
+            .Margin-box__right
+              ー
+
+
       
       
       
