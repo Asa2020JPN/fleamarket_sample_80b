@@ -46,7 +46,7 @@ body {
   background-color: whitesmoke;
 }
 
-.Product-wrapper {
+.product-wrapper {
   width: 700px;
   margin: 0 auto;
   background-color: white;
@@ -64,7 +64,7 @@ body {
   }
 }
 
-.Corporate-logo {
+.corporate-logo {
   &__img {
     width: 184px;
     height: 45px;
@@ -73,30 +73,30 @@ body {
   }
 }
 
-.Content-01 {
+.content-01 {
   height: 300px;
   @include padding-borderbottom;
 }
 
-.Content-02 {
+.content-02 {
   height: 487px;
   @include padding-borderbottom;
 }
 
-.Content-03 {
+.content-03 {
   @include padding-borderbottom;
 }
 
-.Content-04 {
+.content-04 {
   @include padding-borderbottom;
 }
 
-.Content-05 {
+.content-05 {
   height: 650 px;
   @include padding-borderbottom;
 }
 
-.Registration-item {
+.registration-item {
   display: flex;
   &__left {
     margin-right: 10px;
@@ -119,11 +119,11 @@ body {
   }
 }
 
-.Max-uploads {
+.max-uploads {
   margin: 20px 0;
 }
 
-.Uploads {
+.uploads {
   width: 620px;
   height: 150px;
   background-color: gainsboro;
@@ -145,7 +145,7 @@ body {
   }
 }
 
-.Input-string {
+.input-string {
   margin: 20px 0;
   &__form {
     height: 50px;
@@ -153,7 +153,7 @@ body {
   }
 }
 
-.Input-text {
+.input-text {
   margin: 20px 0;
   &__form {
     height: 155px;
@@ -161,26 +161,25 @@ body {
   }
 }
 
-.Count-length {
+.count-length {
   text-align: right;
   font-size: 10px;
 }
 
-.Input-warning {
+.input-warning {
   font-size: 13px;
   color: red;
   margin-bottom: 20px;
 }
 
-.Title-03 {
+.title-03 {
   margin-bottom: 20px;
   font-size: 14px;
   color: gray;
   font-weight: bold;
-
 }
 
-.Title-box {
+.title-box {
   display: flex;
   &__title04 {
     margin-bottom: 20px;
@@ -196,7 +195,7 @@ body {
   }
 }
 
-.Price-box {
+.price-box {
   margin-top: 20px;
   height: 50px;
   display: flex;
@@ -206,7 +205,7 @@ body {
   }
 }
 
-.Coin-box {
+.coin-box {
   width: 310px;
   display: flex;
   &__left {
@@ -225,7 +224,7 @@ body {
   }
 }
 
-.Margin-box {
+.margin-box {
   padding: 30px 0;
   margin-bottom: 1px solid;
   display: flex;
@@ -236,7 +235,7 @@ body {
   }
 }
 
-.Salesprofit-box {
+.salesprofit-box {
   padding: 30px 0;
   display: flex;
   justify-content: space-between;
@@ -246,7 +245,7 @@ body {
   }
 }
 
-.Register-btn {
+.register-btn {
   margin: 25px 0;
   text-align: center;
   &__product {
@@ -256,14 +255,14 @@ body {
   }
 }
 
-.Save-btn {
+.save-btn {
   text-align: center;
   &__save {
     @include btn-color;
   }
 }
 
-.Back-top {
+.back-top {
   margin: 25px 0;
   text-align: center;
   &__font {
@@ -272,13 +271,13 @@ body {
   }
 } 
 
-.Caution-message {
+.caution-message {
   width: 610px;
   height: 30px;
   font-size: 12px;
 }
 
-.Policy-box {
+.policy-box {
   display: flex;
   justify-content: center;
   &__left, &__center, &__right {
@@ -287,7 +286,7 @@ body {
   }
 }
 
-.Corporate-logo-white {
+.corporate-logo-white {
   position: relative;
   &__img {
     width: 184px;
@@ -297,7 +296,7 @@ body {
   }
 }
 
-.Corporate-inc {
+.corporate-inc {
   margin: 76px;
   text-align: center;
   font-size: 10px;
