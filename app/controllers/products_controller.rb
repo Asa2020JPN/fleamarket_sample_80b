@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
-  def index
+
+  def new
+    @product = Product.new.order('created_at DESC')
   end
 end

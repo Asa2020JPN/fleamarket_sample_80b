@@ -1,6 +1,6 @@
 .product-wrapper
   %form.form
-    = form_with url: "#", local: true do |form|
+    = form_with model: @product, local: true do |form|
       .product-wrapper__top
         .corporate-logo
           = image_tag 'material/logo/logo.png', class: 'corporate-logo__img'
