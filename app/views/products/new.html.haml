@@ -18,8 +18,8 @@
             .uploads__icon
               = image_tag 'material/icon/icon_camera.png', class: 'uploads__icon--image'
             .uploads__file
-              = form.label :image do
-                = form.file_field :image
+              = form.fields_for :image do |i|
+                = i.file_field :image
             .uploads__sentence
               ドラッグアンドドロップ
             .uploads__sentence
