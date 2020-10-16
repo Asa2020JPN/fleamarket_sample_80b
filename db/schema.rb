@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_162531) do
     t.string "name", null: false
     t.text "detail", null: false
     t.integer "price", null: false
+    t.integer "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -48,8 +48,6 @@
   margin-bottom: 20px;
 }
 
-
-
 body {
   background-color: whitesmoke;
 }
@@ -159,7 +157,7 @@ body {
     .input-string {
       @include input-string;
     }
-    }
+  }
   .content-04 {
     padding: 40px 40px;
     border-bottom: 1px solid whitesmoke;
