@@ -194,15 +194,6 @@ $common-color: #3CCACE;
         &__product {
           margin-bottom: 10px;
           width: calc(100% / 3);
-          a {
-            display: block;
-            margin: 24px 0 8px;
-            color: $common-color;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 22px;
-            position: relative;
-          }
           &--img {
             background-color: #fff;
             width: 220px;
