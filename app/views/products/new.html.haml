@@ -1,174 +1,173 @@
 .product-wrapper
-  %form.form
-    = form_with model: @product, local: true do |form|
-      .product-wrapper__top
-        .corporate-logo
-          = image_tag 'material/logo/logo.png', class: 'corporate-logo__img'
-      .product-wrapper__middle
-        .content-01
-          .registration-item
-            .registration-item__left
-              出品画像
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .max-uploads
-            最大10枚までアップロードできます
-          .uploads
-            .uploads__icon
-              = image_tag 'material/icon/icon_camera.png', class: 'uploads__icon--image'
-            .uploads__file
-              = form.fields_for :image do |i|
-                = i.file_field :image
-            .uploads__sentence
-              ドラッグアンドドロップ
-            .uploads__sentence
-              またはクリックしてファイルをアップロード
-        .content-02
-          .registration-item
-            .registration-item__left
-              商品名
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :name, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-          .registration-item
-            .registration-item__left
-              商品の説明
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-text
-            = form.text_field :detail, class: 'input-text__form', placeholder: '商品の説明（必須1000文字以内）'
-          .count-length
-            0/1000
-          .input-warning
-            入力してください
-        .content-03
-          .title-03
-            商品の詳細
-          .registration-item
-            .registration-item__left
-              カテゴリー
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            選択してください
-          .input-string
-            = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-          .input-string
-            = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            選択してください
-          .registration-item
-            .registration-item__left
-              ブランド
-            .registration-item__rightgray
-              .registration-item__rightgray--gray
-                任意
-          .input-string
-            = form.text_field :brand, class: 'input-string__form', placeholder: 'type a message'
-          .registration-item
-            .registration-item__left
-              商品の状態
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :status, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-        .content-04
-          .title-box
-            .title-box__title04
-              配送について
-            .title-box__question
-              =icon('fas','question-circle')
-          .registration-item
-            .registration-item__left
-              配送料の負担
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :shipping_cost, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-          .registration-item
-            .registration-item__left
-              発送元の地域
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :prefecture, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-          .registration-item
-            .registration-item__left
-              発送までの日数
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :days_to_ship, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-        .content-05
-          .title-box
-            .title-box__title04
-              価格（¥300〜9,999,999）
-            .title-box__question
-              =icon('fas','question-circle')
-          .price-box
-            .price-box__left
-              .registration-item
-                .registration-item__left
-                  販売価格
-                .registration-item__right
-                  .registration-item__right--color
-                    必須
-            .price-box__right
-              .coin-box
-                .coin-box__left
-                  ¥
-                .coin-box__right
-                  = form.text_field :price, class: 'coin-box__right--input', placeholder: '0'
-          .margin-box
-            .margin-box__left
-              販売手数料（10%）
-            .margin-box__right
-              ー
-          .salesprofit-box
-            .salesprofit-box__left
-              販売利益
-            .salesprofit-box__right
-              ー
-          .register-btn
-            = form.submit '出品する', class: 'register-btn__product'
-          .save-btn
-            = form.submit '下書きに保存', class: 'save-btn__save'
-          .back-top
-            = link_to "#", class: "back-top__font" do
-              もどる
-          .caution-message
-            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律に
-            より処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-        .product-wrapper__bottom
-          .policy-box
-            .policy-box__left
-              プライバシーポリシー
-            .policy-box__center
-              フリマ規約
-            .policy-box__right
-              特定商取引に関する表記
-          .corporate-logo-white
-            = image_tag 'material/logo/logo-white.png', class: 'corporate-logo-white__img'
-          .corporate-inc
-            @Furima.Inc.
+  = form_with model: @product, local: true do |form|
+    .product-wrapper__top
+      .corporate-logo
+        = image_tag 'material/logo/logo.png', class: 'corporate-logo__img'
+    .product-wrapper__middle
+      .content-01
+        .registration-item
+          .registration-item__left
+            出品画像
+          .registration-item__right
+            .registration-item__right--color
+              必須
+        .max-uploads
+          最大10枚までアップロードできます
+        .uploads
+          .uploads__icon
+            = image_tag 'material/icon/icon_camera.png', class: 'uploads__icon--image'
+          .uploads__file
+            = form.fields_for :images do |i|
+              = i.file_field :image
+          .uploads__sentence
+            ドラッグアンドドロップ
+          .uploads__sentence
+            またはクリックしてファイルをアップロード
+      .content-02
+        .registration-item
+          .registration-item__left
+            商品名
+          .registration-item__right
+            .registration-item__right--color
+              必須
+        .input-string
+          = form.text_field :name, class: 'input-string__form', placeholder: 'type a message'
+        .input-warning
+          入力してください
+        .registration-item
+          .registration-item__left
+            商品の説明
+          .registration-item__right
+            .registration-item__right--color
+              必須
+        .input-text
+          = form.text_field :detail, class: 'input-text__form', placeholder: '商品の説明（必須1000文字以内）'
+        .count-length
+          0/1000
+        .input-warning
+          入力してください
+      .content-03
+        .title-03
+          商品の詳細
+        .registration-item
+          .registration-item__left
+            カテゴリー
+          .registration-item__right
+            .registration-item__right--color
+              必須
+        .input-string
+          = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
+        .input-warning
+          選択してください
+        .input-string
+          = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
+        .input-string
+          = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
+        .input-warning
+          選択してください
+        .registration-item
+          .registration-item__left
+            ブランド
+          .registration-item__rightgray
+            .registration-item__rightgray--gray
+              任意
+        .input-string
+          = form.text_field :brand, class: 'input-string__form', placeholder: 'type a message'
+        .registration-item
+          .registration-item__left
+            商品の状態
+          .registration-item__right
+            .registration-item__right--color
+              必須
+        .input-string
+          = form.text_field :status, class: 'input-string__form', placeholder: 'type a message'
+        .input-warning
+          入力してください
+      .content-04
+        .title-box
+          .title-box__title04
+            配送について
+          .title-box__question
+            =icon('fas','question-circle')
+        .registration-item
+          .registration-item__left
+            配送料の負担
+          .registration-item__right
+            .registration-item__right--color
+              必須
+        .input-string
+          = form.text_field :shipping_cost, class: 'input-string__form', placeholder: 'type a message'
+        .input-warning
+          入力してください
+        .registration-item
+          .registration-item__left
+            発送元の地域
+          .registration-item__right
+            .registration-item__right--color
+              必須
+        .input-string
+          = form.text_field :prefecture, class: 'input-string__form', placeholder: 'type a message'
+        .input-warning
+          入力してください
+        .registration-item
+          .registration-item__left
+            発送までの日数
+          .registration-item__right
+            .registration-item__right--color
+              必須
+        .input-string
+          = form.text_field :days_to_ship, class: 'input-string__form', placeholder: 'type a message'
+        .input-warning
+          入力してください
+      .content-05
+        .title-box
+          .title-box__title04
+            価格（¥300〜9,999,999）
+          .title-box__question
+            =icon('fas','question-circle')
+        .price-box
+          .price-box__left
+            .registration-item
+              .registration-item__left
+                販売価格
+              .registration-item__right
+                .registration-item__right--color
+                  必須
+          .price-box__right
+            .coin-box
+              .coin-box__left
+                ¥
+              .coin-box__right
+                = form.text_field :price, class: 'coin-box__right--input', placeholder: '0'
+        .margin-box
+          .margin-box__left
+            販売手数料（10%）
+          .margin-box__right
+            ー
+        .salesprofit-box
+          .salesprofit-box__left
+            販売利益
+          .salesprofit-box__right
+            ー
+        .register-btn
+          = form.submit '出品する', class: 'register-btn__product'
+        .save-btn
+          = form.submit '下書きに保存', class: 'save-btn__save'
+        .back-top
+          = link_to "#", class: "back-top__font" do
+            もどる
+        .caution-message
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律に
+          より処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+      .product-wrapper__bottom
+        .policy-box
+          .policy-box__left
+            プライバシーポリシー
+          .policy-box__center
+            フリマ規約
+          .policy-box__right
+            特定商取引に関する表記
+        .corporate-logo-white
+          = image_tag 'material/logo/logo-white.png', class: 'corporate-logo-white__img'
+        .corporate-inc
+          @Furima.Inc.
