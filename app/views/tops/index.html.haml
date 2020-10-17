@@ -4,7 +4,8 @@
       .contena__icon
         = image_tag 'material/logo/logo.png', class: 'icon-furima'
       .contena__searchBox
-        = form_with url: test_path do |f|
+        -# = form_for ("modelのインスタンス") do |f|
+        = form_with url: "#" do |f|
           .input-searchBox
             = f.text_field :content, class: 'message-from', placeholder: 'キーワードから探す'
             %button{type: "submit", class:'search-btn'}
