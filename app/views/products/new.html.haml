@@ -106,7 +106,7 @@
             .registration-item__right--color
               必須
         .input-string
-          -# = form.text_field :prefecture, class: 'input-string__form', placeholder: 'type a message'
+          = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
         .input-warning
           入力してください
         .registration-item
@@ -116,7 +116,7 @@
             .registration-item__right--color
               必須
         .input-string
-          -# = form.collection_select :days_to_ship_id, Days_to_ship.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
+          -# = form.collection_select :shipping_cost_id, Days_to_ship.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
         .input-warning
           入力してください
       .content-05
