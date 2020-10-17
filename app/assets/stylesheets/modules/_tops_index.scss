@@ -1,4 +1,4 @@
-.wrapper{
+.topWrapper{
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
@@ -377,10 +377,13 @@
     display: flex;
     justify-content: center;
     margin: 20px auto 0;
+    .appIcon{
+      padding-right: 10px;
+    }
   }
 }
 
-.footer{
+.footer-contena{
   padding: 60px 0;
   color: #fff;
   background-color: #272727;
@@ -434,7 +437,6 @@
     margin-bottom: 5px;
   }
   &__test{
-    // width: 60%;
     vertical-align: bottom;
     
   }
