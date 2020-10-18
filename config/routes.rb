@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     devise_scope :user do
     get 'identifications', to: 'users/registrations#new_identification'
     post 'identifications', to: 'users/registrations#create_identification'
+
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
   end
   root 'items#index'
   resources :purchases, only: [:index, :new]
