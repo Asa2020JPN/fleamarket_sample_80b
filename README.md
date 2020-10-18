@@ -124,3 +124,11 @@
 ### Association
 - belongs_to :user
 - belongs_to :product
+
+## categoriesテーブル
+|Column    |Type      |Options                        |
+|----------|----------|-------------------------------|
+|name      |string    |null: false,       unique: true|
+|ancestry  |string    |                               |
+### Association
+- has_ancestry
