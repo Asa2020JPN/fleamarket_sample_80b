@@ -33,7 +33,7 @@
 |brand_id        |references|foreign_key: true             |
 |prefecture_id   |integer   |null: false|
 |category_id     |integer   |null: false|
-|days_to_ship_id |integer   |null: false|
+|shipping_id     |integer   |null: false|
 |status_id       |integer   |null: false|
 |shipping_cost_id|integer   |null: false|
 ### Association
@@ -48,7 +48,7 @@
 - belongs_to_active_hash :category
 - belongs_to_active_hash :days_to_ship
 - belongs_to_active_hash :status
-- belongs_to_active_hash :shipping_cost
+- belongs_to_active_hash :shipping
 
 ## likesテーブル
 |Column    |Type      |Options                       |
