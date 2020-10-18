@@ -121,7 +121,7 @@
 - belongs_to :user
 - belongs_to :product
 
-## Identificationsテーブル
+## identificationsテーブル
 |Column         |Type      |Options                       |
 |---------------|----------|------------------------------|
 |user_id        |references|null: false, foreign_key: true|

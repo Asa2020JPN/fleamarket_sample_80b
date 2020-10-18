@@ -14,7 +14,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
     end
-    
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @identification = @user.build_identification
+    render :new_identification
   end
 
   # GET /resource/sign_up
