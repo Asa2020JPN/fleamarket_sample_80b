@@ -20,6 +20,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_identification
   end
 
+  def create_identification
+    @user = User.new(session["devise.regist_data"]["user"])
+    @identification = Identification.new(identification_params)
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -54,7 +59,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+   protected
+
+   def identification_params
+    params.require(:identification).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :birthday)
+   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
