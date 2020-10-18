@@ -28,6 +28,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
+  def create_address
+    @address 
+  end
   # GET /resource/sign_up
   # def new
   #   super
