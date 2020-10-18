@@ -1,0 +1,54 @@
+.purchases-header
+  .header__btn
+    =link_to image_tag("material/logo/logo.png", width: "185px", height: "50px"), '#', class: 'black-logo'
+.purchases-wrapper
+  .section
+    %section.content
+      %h2.content__check 購入内容の確認
+    %section.product
+      .detail
+        .image
+          = image_tag 'material/water.png', class: 'product-img'
+        .product-info
+          %p.product-info__name おいしい水ですよーーーーーーーーーーーーーーーー
+          .product-info__price
+            %span.product-info__price--tax 送料込み（税込）
+            %span.product-info__price--number ¥2,000
+    %section.pay-fee
+      .total
+        %p.total__font 支払金額
+        .total__price
+          %p.total__price
+          %p ¥5,678
+    %section.pay-method
+      .payment
+        .payment-top
+          %h3.title 支払い方法
+          = link_to "変更します >", "purchases/new", class: "change-btn"
+        .payment__method
+          %p.credit-card クレジットカード
+          %p.number 00000000000
+          %p.expiration 有効期限 01/01
+    %section.address
+      .address__user
+        .address__user--top
+          %h3.title 配送先
+          = link_to "変更します >", "purchases/edit", class: "change-btn"
+        .address-font
+          %p.address-font--postcode 000-0000
+          %p.address-font--city 東京都練馬区
+          %p.address-font--name 佐藤匠
+    %section.buy-button
+      .btn
+      =link_to "購入する", "#", class: "btn--purchase"
+.purchases-info
+  %ul.menu
+    %li.menu--list
+    = link_to "プライバシーポリシー", "#", class: "menu--list"
+    %li.menu--list
+    = link_to "FURIMA利用規約", "#", class: "menu--list"
+    %li.menu--list
+    = link_to "特許商取引に関する表記", "#", class: "menu--list"
+  .icon
+    =link_to image_tag("material/logo/logo-white.png", width: "160px", height: "40px"), '#', class: 'white-logo'
+  %p.copyright © FURIMA
