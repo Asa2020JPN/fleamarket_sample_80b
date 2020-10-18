@@ -8,12 +8,6 @@
 |nickname       |string |null: false              |
 |email          |string |null: false, unique: true|
 |password       |string |null: false              |
-|last_name      |string |null: false              |
-|first_name     |string |null: false              |
-|last_name_kana |string |null: false              |
-|first_name_kana|string |null: false              |
-|birthday       |date   |null: false              |
-|icon_image     |string |                         |
 ### Association
 - has_many :products
 - has_many :likes
@@ -22,6 +16,8 @@
 - has_many :purchase_histories
 - has_one :address
 - has_one :credit_card
+- has_one :identification
+- has_one :profiles
 
 ## productsテーブル
 |Column          |Type      |Options                       |
@@ -124,3 +120,24 @@
 ### Association
 - belongs_to :user
 - belongs_to :product
+
+## Identificationsテーブル
+|Column         |Type      |Options                       |
+|---------------|----------|------------------------------|
+|user_id        |references|null: false, foreign_key: true|
+|last_name      |string    |null: false                   |
+|first_name     |string    |null: false                   |
+|last_name_kana |string    |null: false                   |
+|first_name_kana|string    |null: false                   |
+|birthday       |date      |null: false                   |
+
+### Assocuation
+- belongs_to :user
+
+## profilesテーブル
+|Column         |Type      |Options                       |
+|---------------|----------|------------------------------|
+|user_id        |references|null: false, foreign_key: true|
+|icon_image     |string |
+### Association
+- belongs_to :user
