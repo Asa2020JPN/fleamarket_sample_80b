@@ -8,6 +8,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  def create
+    @user = User.new(sign_up_params)
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
+      render :new and return
+    end
+    
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
