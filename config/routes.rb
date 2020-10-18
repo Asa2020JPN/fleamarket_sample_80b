@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'purchases/edit', to: 'purchases#edit'
   resources :tops, only: :show
   resources :products, only: [:index]
+  resources :registrations, only: [:index]
 end
