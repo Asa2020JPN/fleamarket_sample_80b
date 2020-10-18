@@ -30,6 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     session["debise.regist_data"] = {identification: @identification.attribute}
+    @address = @user.@identification.build_address
   end
 
   # GET /resource/sign_up
