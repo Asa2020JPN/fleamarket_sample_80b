@@ -17,8 +17,10 @@
           .uploads__icon
             = image_tag 'material/icon/icon_camera.png', class: 'uploads__icon--image'
           .uploads__file
-            = form.fields_for :images do |i|
-              = i.file_field :image
+            #image-box
+              = form.fields_for :images do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  = image.file_field :image, class: 'js-file'
           .uploads__sentence
             ドラッグアンドドロップ
           .uploads__sentence
