@@ -21,16 +21,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_identification
-    @user = User.new(session["devise.regist_data"]["user"])
+    # @user = User.new(session["devise.regist_data"]["user"])
     @identification = Identification.new(identification_params)
-    unless @identification.valid?
-      flash.now[:alert] = @identification.errors.full_messages
-      render :new_identification and return
-    end
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    session["debise.regist_data"] = {identification: @identification.attribute}
-    @address = @user.@identification.build_address
+    session["devise.regist_data2"] = {identification: @identification.attributes}
+    @address = @identification.build_identification
+    render :new_address
   end
 
   # GET /resource/sign_up
