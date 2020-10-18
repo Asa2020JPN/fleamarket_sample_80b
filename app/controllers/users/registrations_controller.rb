@@ -23,7 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_identification
     # @user = User.new(session["devise.regist_data"]["user"])
     @identification = Identification.new(identification_params)
-    session["devise.regist_data2"] = {identification: @identification.attributes}
+    session["devise.ident_data"] = {identification: @identification.attributes}
     @address = @identification.build_identification
     render :new_address
   end
