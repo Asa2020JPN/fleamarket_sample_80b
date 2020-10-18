@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
     devise_scope :user do
-    get 'identifications', to: 'users/registrations#new__identification'
-    post 'identifications', to: 'users/registrations#create__identification'
+    get 'identifications', to: 'users/registrations#new_identification'
+    post 'identifications', to: 'users/registrations#create_identification'
   end
   root 'items#index'
   resources :purchases, only: [:index, :new]

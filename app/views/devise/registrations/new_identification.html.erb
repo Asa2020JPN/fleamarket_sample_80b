@@ -1,0 +1,36 @@
+<h2>本人確認情報</h2>
+
+<%= form_for @identification do |f| %>
+  <%= render "devise/shared/error_messages", resource: @identification %>
+
+  <div class="field">
+    <%= f.label :last_name, "姓" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name, "名" %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_kana, "姓（カナ）" %><br />
+    <%= f.text_field :last_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name_kana, "名（カナ）" %><br />
+    <%= f.text_field :first_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday, "生年月日" %><br />
+    <%= f.date_select :birthday %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
