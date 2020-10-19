@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :nickname ,presence: true
+  #alidates format: {with: "/\A\S+@\S+\.\S+\z/"} 
+  validates :email, format: { with:  /\A\S+@\S+\.\S+\z/}
   has_one :identification
   has_one :address
-end
+end 

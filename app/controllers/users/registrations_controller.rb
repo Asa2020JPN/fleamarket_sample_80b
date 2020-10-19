@@ -21,15 +21,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_identification
-    # @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session["devise.regist_data"]["user"])
     @identification = Identification.new(identification_params)
+    unless @identification.valid?
+      flash.now[:alert] = @identification.errors.full_messages
+      render :new_identification and return
+    end
     session["devise.ident_data"] = {identification: @identification.attributes}
-    @address = @identification.build_identification
+    @address = @user.build_address
     render :new_address
   end
 
   def create_address
-    @address 
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(address_params)
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
+    end
+    @user.build_address(@address.attributes)
+    @user.build_identification(session["devise.ident_data"]["identification"])
+    @user.save
+    session["devise.ident_data"]["identification"].clear
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
   end
   # GET /resource/sign_up
   # def new
@@ -69,6 +84,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    def identification_params
     params.require(:identification).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :birthday)
+   end
+
+   def address_params
+    params.require(:address).permit(:postcode, :city, :block, :building, :phone_number, :prefecture_id )
    end
 
   # If you have extra params to permit, append them to the sanitizer.
