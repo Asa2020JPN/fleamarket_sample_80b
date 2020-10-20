@@ -99,6 +99,10 @@
 |phone_number |string    |unique: true|
 |prefecture_id|integer   |null: false |
 |user_id      |references|null: false |
+|last_name      |string    |null: false                   |
+|first_name     |string    |null: false                   |
+|last_name_kana |string    |null: false                   |
+|first_name_kana|string    |null: false                   |
 ### Association
 - belongs_to :user
 - belongs_to_active_hash :prefecture
