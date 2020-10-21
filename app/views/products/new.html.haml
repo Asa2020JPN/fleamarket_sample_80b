@@ -22,7 +22,7 @@
               #previews
                 - if @product.persisted?
                   - @product.images.each_with_index do |image, i|
-                    = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+                    = image_tag image.image.url, data: { index: i }, width: '100', height: '200'
               = form.fields_for :images do |image|
                 .js-file_group{"data-index": "#{image.index}"}
                   = image.file_field :image, class: 'js-file'
