@@ -102,7 +102,7 @@
             .registration-item__right--color
               必須
         .input-string
-          = form.collection_select :shipping_cost_id, Shipping_cost.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
+          = form.collection_select :shippingcost_id, Shippingcost.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
         .registration-item
           .registration-item__left
             発送元の地域

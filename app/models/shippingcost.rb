@@ -1,4 +1,4 @@
-class Shipping_cost < ActiveHash::Base
+class Shippingcost < ActiveHash::Base
   include ActiveHash::Associations
   has_many :products
   self.data = [
