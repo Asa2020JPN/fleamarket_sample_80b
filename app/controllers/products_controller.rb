@@ -1,9 +1,15 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def new
     @product = Product.new
     @product.images.new
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["選択してください"]
+    #categoriesから親カテゴリーの名前のみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
@@ -15,6 +21,7 @@ class ProductsController < ApplicationController
     end
   end
 
+
   def edit
   end
 
@@ -24,6 +31,18 @@ class ProductsController < ApplicationController
     # else
     #   render :edit
     # end
+
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    # binding.pry
+  #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+  #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private

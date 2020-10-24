@@ -64,14 +64,14 @@
             .registration-item__right--color
               必須
         .input-string
-          -# = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-        .input-warning
+          = form.select :category, @category_parent_array, {}, {class: 'input-string__form', id: 'parent-category'}
+        -# .input-warning
           選択してください
-        .input-string
+        -# .input-string
           -# = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-        .input-string
+        -# .input-string
           -# = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-        .input-warning
+        -# .input-warning
           選択してください
         .registration-item
           .registration-item__left
@@ -80,7 +80,7 @@
             .registration-item__rightgray--gray
               任意
         .input-string
-          -# = form.text_field :brand, class: 'input-string__form', placeholder: 'type a message'
+          = form.text_field :brand, class: 'input-string__form', placeholder: 'type a message'
         .registration-item
           .registration-item__left
             商品の状態
