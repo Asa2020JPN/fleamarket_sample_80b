@@ -10,7 +10,7 @@ $(function() {
   function appendChildrenBox(insertHTML) {
     let childrenSelectHtml = '';
     childrenSelectHtml = `<div class="input-string__category" id="child-wrapper">
-    <select class="input-string__category--form" id="child-category" name="product[category]"><option value="">選択してください</option>
+    <select class="input-string__category--form" id="child-category" name="product[category]"><option value="", data-category="">選択してください</option>
     ${insertHTML}
     </select>
     </div>`;
@@ -31,9 +31,7 @@ $(function() {
 
 // 親カテゴリー選択後のイベント
   $("#parent-category").on('change', function(){
-    console.log(this)
     let parentCategory = $("#parent-category").val();
-    // debugger
     if (parentCategory != "選択してください") { //親カテゴリーが初期値でないことを確認してAjax通信を開始
       $.ajax( {
         type: 'GET',
@@ -42,34 +40,25 @@ $(function() {
         dataType: 'json'
       })
       .done(function(children) {
-        // console.log(children)
         $('#child-wrapper').remove(); //親が変更された時、子以下を削除する
-        $('#child-category').remove();
-        // let html = appendOption(children)
-        // console.log(html)
         let insertHTML = '';
         children.forEach(function(children){
           insertHTML += appendOption(children);
         });
-        // console.log(insertHTML)
         appendChildrenBox(insertHTML);
       })
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
-      }) 
+      });
     }
-    else { //親カテゴリーが初期値の場合は、子以下を削除するする
+    else { //親カテゴリーが初期値の場合は、子以下を削除する
       $('#child-wrapper').remove();
-      $('#child-category').remove(); 
     }
-  })
+  });
 // 子カテゴリー選択後のイベント
-$('.input-string__category').on('change', '#child-category', function(){
-// $('.input-string__category').on('change', '#child-category', function(){
-    console.log(this);
+  $('.input-string__category').on('change', '#child-category', function(){
     let childID = $('#child-category option:selected').data('category');
-    // debugger
-    if (childID != "") { //子カテゴリーが初期値でないことを確認してAjax通信を開始
+    if (childID != "") { //子カテゴリーが空でないことを確認してAjax通信を開始
       $.ajax({
         type: 'GET',
         url: 'get_category_grandchildren',
@@ -77,8 +66,8 @@ $('.input-string__category').on('change', '#child-category', function(){
         dataType: 'json'
       })
       .done(function(grandchildren){
-        // console.log(grandchildren)
         if(grandchildren.length != 0) {
+          $('#grandchild-wrapper').remove(); //子が変更された時、孫を選択し直す
           let insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -88,7 +77,10 @@ $('.input-string__category').on('change', '#child-category', function(){
       })
       .fail(function() {
         alert('カテゴリー取得に失敗しました');
-      })
+      });
     }
-  })
-})
+    else { //子カテゴリーが初期値の場合は、孫以下を削除する
+      $('#grandchild-wrapper').remove();
+    }
+  });
+});
