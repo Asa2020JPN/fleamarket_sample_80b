@@ -7,19 +7,23 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(product_params)
-    redirect_to new_product_path
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
+    # if @product.update(product_params)
+    #   redirect_to root_path
+    # else
+    #   render :edit
+    # end
   end
 
   private
