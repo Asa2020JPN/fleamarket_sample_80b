@@ -64,15 +64,8 @@
             .registration-item__right--color
               必須
         .input-string
-          = form.select :category, @category_parent_array, {}, {class: 'input-string__form', id: 'parent-category'}
-        -# .input-warning
-          選択してください
-        -# .input-string
-          -# = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-        -# .input-string
-          -# = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-        -# .input-warning
-          選択してください
+          .input-string__category
+            = form.select :category, @category_parent_array, {}, {class: 'input-string__category--form', id: 'parent-category'}
         .registration-item
           .registration-item__left
             ブランド
