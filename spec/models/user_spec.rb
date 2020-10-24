@@ -5,7 +5,6 @@ describe User do
 
     it "nicknameとemail、passwordとpassword_confirmationが存在すれば登録できること" do
       user = build(:user)
-      user.valid?
       expect(user).to be_valid
     end
 
@@ -21,13 +20,13 @@ describe User do
       expect(user.errors[:password]).to include("can't be blank") 
     end
 
-    it "passwordが6　登録できない" do
+    it "passwordが6文字以下　登録できない" do
       user = build(:user, password: "0000")
       user.valid?
       expect(user.errors[:password]).to include("is too short (minimum is 7 characters)") 
     end
 
-    it "passwordが6以上の場合登録できる" do
+    it "passwordが７以上の場合登録できる" do
       user = build(:user, password: "0123456789", password_confirmation: "0123456789")
       user.valid?
       expect(user).to be_valid
