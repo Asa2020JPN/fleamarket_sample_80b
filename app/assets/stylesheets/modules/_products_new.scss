@@ -156,6 +156,16 @@ body {
     }
     .input-string {
       @include input-string;
+      &__category {
+        margin: 20px 0;
+        &--form {
+          height: 50px;
+        width: 620px;
+        border: 0.5px solid lightgray;
+        border-radius: 5px;
+        padding: 0 20px;
+        }
+      }
     }
   }
   .content-04 {
