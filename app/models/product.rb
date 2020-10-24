@@ -9,7 +9,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :shipping
 
-  
   validates :images, presence: true
   validates :name, presence: true
   validates :detail, presence: true

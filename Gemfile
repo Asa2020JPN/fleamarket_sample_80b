@@ -79,3 +79,4 @@ gem 'pry-rails'
 gem 'jquery-rails'
 
 gem 'ancestry'
+
