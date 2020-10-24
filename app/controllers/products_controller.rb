@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      render :new
+      render new_product_path
     end
   end
 
@@ -26,11 +26,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # if @product.update(product_params)
-    #   redirect_to root_path
-    # else
-    #   render :edit
-    # end
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      redirect_to new_product_path
+    end
   end
 
   # 親カテゴリーが選択された後に動くアクション
