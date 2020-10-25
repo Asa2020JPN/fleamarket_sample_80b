@@ -5,12 +5,12 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.new
     #セレクトボックスの初期値設定
-    # @category_parent_array = ["選択してください"]
-    #categoriesから親カテゴリーの名前のみ抽出し、配列化
-    # Category.where(ancestry: nil).each do |parent|
-    #   @category_parent_array << parent.name
-    # end
-    @category_parent_array = Category.where(ancestry: nil)
+    @category_parent_array = [""]
+    # categoriesから親カテゴリーの名前のみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    # @category_parent_array = Category.where(ancestry: nil)
   end
 
   def create
@@ -36,7 +36,9 @@ class ProductsController < ApplicationController
 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_id]}", ancestry: nil).children
+    # binding.pry
+    @category_children = Category.find("#{params[:parent_id]}").children
+    # @category_children = Category.find_by(name: "#{params[:parent_id]}", ancestry: nil).children
   end
 
   # 子カテゴリーが選択された後に動くアクション
