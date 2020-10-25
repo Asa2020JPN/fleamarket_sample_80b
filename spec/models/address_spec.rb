@@ -33,11 +33,7 @@ RSpec.describe Address, type: :model do
         expect(build(:address, first_name_kana: "タロウ")).to be_valid
       end
 
-      it "first_name_kanaにカナを入力で保存できる" do
-        expect(build(:address, first_name_kana: "タロウ")).to be_valid
-      end
-
-      it '10けた保存で保存できる' do
+      it '10桁保存で保存できる' do
         expect(build(:address, phone_number: "1234567890")).to be_valid
       end
 
@@ -127,6 +123,18 @@ RSpec.describe Address, type: :model do
       
       it "first_name_kanaに半角英字を入力すると保存できない" do
         address = build(:address, first_name_kana: "taro")
+        address.valid?
+        expect(address.errors[:first_name_kana]).to include("is invalid")
+      end
+
+      it "last_name_kanaにひらがなを入力すると保存できない" do
+        address = build(:address, last_name_kana: "やまだ")
+        address.valid?
+        expect(address.errors[:last_name_kana]).to include("is invalid")
+      end
+      
+      it "first_name_kanaにひらがなを入力すると保存できない" do
+        address = build(:address, first_name_kana: "たろう")
         address.valid?
         expect(address.errors[:first_name_kana]).to include("is invalid")
       end
