@@ -21,13 +21,14 @@ ladies_grandchild_array = [
                             ['トップス','アウター','インナー','ワンピース','パンツ/スパッツ','スカート','パジャマ','授乳服','その他'], 
                             ['コスプレ','下着','その他']
                           ]
-parent = Category.create(name: 'レディース')
-ladies_child_array.each_with_index do |child, i|
-  child = parent.children.create(name: child)
-  ladies_grandchild_array[i].each do |grandchild|
-    child.children.create(name: grandchild)
-  end
-end
+
+# parent = Category.create(name: 'レディース')
+# ladies_child_array.each_with_index do |child, i|
+#   child = parent.children.create(name: child)
+#   ladies_grandchild_array[i].each do |grandchild|
+#     child.children.create(name: grandchild)
+#   end
+# end
 
 
 # parents = ["レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム",
