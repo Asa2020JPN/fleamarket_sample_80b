@@ -65,7 +65,7 @@
               必須
         .input-string
           .input-string__category
-            = form.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択してください'}, {class: 'input-string__category--form', id: 'parent_category'}
+            = form.collection_select :category, Category.roots, :id, :name, {prompt: '選択してください'}, {class: 'input-string__category--form', id: 'parent-category'}
             -# = form.select :category, @category_parent_array, {}, {class: 'input-string__category--form', id: 'parent-category'}
         .registration-item
           .registration-item__left
