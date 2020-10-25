@@ -31,12 +31,12 @@ $(function() {
 
 // 親カテゴリー選択後のイベント
   $("#parent-category").on('change', function(){
-    let parentCategory = $("#parent-category").val();
-    if (parentCategory != "選択してください") { //親カテゴリーが初期値でないことを確認してAjax通信を開始
+    let parentID = $("#parent-category").val();
+    if (parentID != "") { //親カテゴリーが初期値でないことを確認してAjax通信を開始
       $.ajax( {
         type: 'GET',
         url: 'get_category_children',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentID },
         dataType: 'json'
       })
       .done(function(children) {
