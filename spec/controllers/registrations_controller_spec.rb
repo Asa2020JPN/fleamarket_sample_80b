@@ -11,7 +11,7 @@ RSpec.describe  Users::RegistrationsController, type: :controller do
   end
 
   describe 'GET #new' do
-    it "renders the :new template" do
+    it "get newアクションでnewに遷移" do
       get :new
       expect(response).to render_template :new
     end
@@ -25,23 +25,23 @@ RSpec.describe  Users::RegistrationsController, type: :controller do
         session["devise.regist_data"] = FactoryBot.attributes_for(:user)
       end
 
-      it "レスポンスが成功すること" do
+      it "レスポンスが成功する" do
         get :create_identification
         expect(response).to be_successful
       end
 
-      it 'まだ保存はされていない' do
+      it '保存はされていない' do
         expect{
           post :create_identification, params: @identification
         }.not_to change(Identification, :count)
       end
 
-      it '200 ok' do
+      it 'リクエストは200 okとなる' do
         post :create_identification, params: @identification
         expect(response.status).to eq 200
       end
 
-      it 'renders the :new_address template' do
+      it 'post create_identiifcationアクションでnew_addressに遷移する' do
         post :create_identification, params: @identification
         expect(response).to render_template :new_address
       end
@@ -53,12 +53,12 @@ RSpec.describe  Users::RegistrationsController, type: :controller do
         session["devise.regist_data"] = FactoryBot.attributes_for(:user)
       end
 
-      it 'miss 200 ok' do
+      it 'リクエストは200 okとなる' do
         post :create_identification, params: @invalid_identification
         expect(response.status).to eq 200
       end
 
-      it "renders the :new_identification template" do
+      it "post create_identiifcationアクションでnew_identificationに遷移する" do
         post :create_identification, params: @invalid_identification
         expect(response).to render_template :new_identification
       end
