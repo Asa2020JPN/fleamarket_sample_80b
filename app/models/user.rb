@@ -8,3 +8,4 @@ class User < ApplicationRecord
   has_one :identification
   has_one :address
 end 
+
