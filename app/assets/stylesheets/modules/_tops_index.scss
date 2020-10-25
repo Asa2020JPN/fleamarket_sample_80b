@@ -8,6 +8,8 @@
 }
 .header-contena{
   padding: 0 60px;
+  background-color: white;
+  padding-bottom: 11px;
   &__inner{
     display: flex;
     margin-top: 20px;
@@ -80,11 +82,9 @@
 }
 
 .main{
-  margin-top: 11px;
   .mainVisual{
     width: auto;
     height: 560px;
-    background-color: red; 
     position: relative;
     padding: 0 60px;
     display: flex;
@@ -117,7 +117,7 @@
     }
   }
   .usage{
-    padding: 60px 20px;
+    padding: 60px 0;
     .reasonText{
       text-align: center;
       font-size: 26px;
@@ -141,12 +141,11 @@
     .reasonImageLists{
       text-align: center;
       display: flex;
-      max-width: 1020px;
+      justify-content: space-around;
       width: 100%;
-      margin: 0 auto;
       .reasonImageList{
         width: 30%;
-        margin: 16px 5% 0 0;
+
         text-align: left;
         display: flex;
         flex-direction: column;

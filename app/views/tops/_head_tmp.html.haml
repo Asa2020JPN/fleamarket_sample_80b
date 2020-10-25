@@ -1,0 +1,22 @@
+.header-contena
+  .header-contena__inner
+    .contena__icon
+      = image_tag 'material/logo/logo.png', class: 'icon-furima'
+    .contena__searchBox
+      -# = form_for ("modelのインスタンス") do |f|
+      = form_with url: "#" do |f|
+        .input-searchBox
+          = f.text_field :content, class: 'message-from', placeholder: 'キーワードから探す'
+          %button{type: "submit", class:'search-btn'}
+            = image_tag 'material/icon/icon-search 1.png', class: 'icon-search'
+  .header-contena__nav
+    %ul.listLeft
+      %li.listLeft__category
+        = link_to "カテゴリ", 'www', {class: 'link-text'}
+      %li.listLeft__brand
+        = link_to "ブランド", 'www', {class: 'link-text'}
+    %ul.listRight
+      %li.listRight__login
+        = link_to "ログイン", 'www', {class: 'link-text'}
+      %li.listRight__signUP
+        = link_to "新規会員登録", 'www', {class: 'link-text'}
