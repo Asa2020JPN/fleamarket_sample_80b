@@ -1,6 +1,6 @@
-# bundle exec rspec spec/controllers/registrations_controller_spec.rb
-
 require 'rails_helper'
+
+# bundle exec rspec spec/controllers/registrations_controller_spec.rb
 
 RSpec.describe  Users::RegistrationsController, type: :controller do
 
