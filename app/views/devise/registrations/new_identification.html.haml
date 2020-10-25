@@ -1,0 +1,26 @@
+%h2 本人確認情報
+= form_for @identification do |f|
+  = render "devise/shared/error_messages", resource: @identification
+  .field
+    = f.label :last_name, "姓"
+    %br/
+    = f.text_field :last_name, autofocus: true
+  .field
+    = f.label :first_name, "名"
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :last_name_kana, "姓（カナ）"
+    %br/
+    = f.text_field :last_name_kana
+  .field
+    = f.label :first_name_kana, "名（カナ）"
+    %br/
+    = f.text_field :first_name_kana
+  .field
+    = f.label :birthday, "生年月日"
+    %br/
+    = f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year), default: Date.new(1989, 1, 1)
+  .actions
+    = f.submit "Next"
+= render "devise/shared/links"

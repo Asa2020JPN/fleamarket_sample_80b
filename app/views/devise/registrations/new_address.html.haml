@@ -1,0 +1,46 @@
+%h2 商品送付先住所情報
+= form_for @address do |f|
+  = render "devise/shared/error_messages", resource: @address
+  .field
+    = f.label :last_name, "姓"
+    %br/
+    = f.text_field :last_name, autofocus: true
+  .field
+    = f.label :first_name, "名"
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :last_name_kana, "姓（カナ）"
+    %br/
+    = f.text_field :last_name_kana
+  .field
+    = f.label :first_name_kana, "名（カナ）"
+    %br/
+    = f.text_field :first_name_kana
+  .field
+    = f.label :postcode
+    %br/
+    = f.text_field :postcode
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city
+  .field
+    = f.label :block
+    %br/
+    = f.text_field :block
+  .field
+    = f.label :building
+    %br/
+    = f.text_field :building
+  .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  .field
+    = f.label :prefecture_id
+    %br/
+    = f.text_field :prefecture_id
+  .actions
+    = f.submit "Sign Up"
+= render "devise/shared/links"
