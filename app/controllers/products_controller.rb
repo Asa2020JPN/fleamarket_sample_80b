@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+    @product.build_brand
     #セレクトボックスの初期値設定
     @category_parent_array = [""]
     # categoriesから親カテゴリーの名前のみ抽出し、配列化
@@ -50,7 +51,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :price, :status_id, :prefecture_id, :category_id, :shippingcost_id, :shipping_id, images_attributes: [:image, :_destroy, :id])
+    params.require(:product).permit(:name, :detail, :price, :status_id, :prefecture_id, :category_id, :shippingcost_id, :shipping_id, brand_attributes: [:id, :name], images_attributes: [:image, :_destroy, :id])
   end
 
   def set_product

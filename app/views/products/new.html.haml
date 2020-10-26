@@ -74,7 +74,9 @@
             .registration-item__rightgray--gray
               任意
         .input-string
-          -# = form.text_field :brand, class: 'input-string__form', placeholder: 'type a message'
+          = form.fields_for :brand do |brand|
+            = brand.text_field :name, placeholder: "例）シャネル", value: "", class: 'input-string__form'
+            -# = form.text_field :brand_id, class: 'input-string__form', placeholder: 'type a message'
         .registration-item
           .registration-item__left
             商品の状態
