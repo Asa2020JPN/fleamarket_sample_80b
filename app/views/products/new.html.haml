@@ -66,7 +66,6 @@
         .input-string
           .input-string__category
             = form.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択してください'}, {class: 'input-string__category--form', id: 'parent-category'}
-            -# = form.select :category, @category_parent_array, {}, {class: 'input-string__category--form', id: 'parent-category'}
         .registration-item
           .registration-item__left
             ブランド
@@ -76,7 +75,6 @@
         .input-string
           = form.fields_for :brand do |brand|
             = brand.text_field :name, placeholder: "例）シャネル", value: "", class: 'input-string__form'
-            -# = form.text_field :brand_id, class: 'input-string__form', placeholder: 'type a message'
         .registration-item
           .registration-item__left
             商品の状態

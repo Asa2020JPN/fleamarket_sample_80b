@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_10_18_074457) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "product_id", null: false
+    t.string "name"
+    t.bigint "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_brands_on_product_id"
