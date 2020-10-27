@@ -1,101 +1,126 @@
 .topWrapper{
   height: 100vh;
   width: 100%;
-  box-sizing: border-box;
-  .pickupContainer:last-child{
-    padding-bottom: 80px;
-  }
-}
-.header-contena{
-  padding: 0 60px;
   background-color: white;
-  padding-bottom: 11px;
-  &__inner{
-    display: flex;
-    margin-top: 20px;
-    margin-left: 6px;
+}
+
+.header-top{
+  padding: 0 60px;
+  .header-contena{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    &__top{
+      position: relative;
+      display: flex;
+      align-items: center;
+      .top-icon{
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        .a-image{
+          width: 140px;
+          display: block;
+          img{
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+      }
+      .top-searchBox{
+        margin-left: auto;
+        width: 100%;
+        form{
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          .keyWordFrom{
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          .keyWordFromBtn{
+            width: 36px;
+            border: 0;
+            cursor: pointer;
+            background-color: #3CCACE;
+            padding: 8px;
+            &__icon{
+              width: 100%;
+              vertical-align: bottom;
+            }
+          }
+        }
+      }
+    }
+    &__nav{
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      .link-text{
+        color: #333;
+        text-decoration: none;
+        line-height: 32px;
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: 18px;
+      }
+      .link-text:hover{
+        color: #FFB340;
+        text-decoration: none;
+      }
+      .fastCategory{
+        text-decoration: none;
+        padding: 0;
+      }
+      .listLeft{
+        position: relative;
+        display: flex;
+        &__item{
+          display: flex;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+        }
+      }
+      .listRight{
+        margin-left: auto;
+        display: flex;
+        &__login{
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+        }
+        &__new{
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 10px;
+        }
+      }
+    }
   }
-  .input-searchBox{
-    display: flex;
-    .message-from{
-      margin-top: 5px;
-      width: 728px;
-      height: 30px;
-    }
-    .search-btn{
-      margin-top: 5px;
-      width: 38px;
-      height: 35px;
-      background-color: #3CCACE;
-      border: none;
-    }
-  }
 }
 
-.icon-search{
-  width: 20px;
-  height: 20px;
-}
-
-.icon-furima{
-  width: 140px;
-  height: auto;
-  margin-right: 30px;
-}
-
-
-.header-contena__nav{
-  padding-top: 10px;
-  position: relative;
-  display: flex;
-  .listLeft{
-    display: flex;
-      &__category{
-      width: 100px;
-    }
-      &__brand{
-      width: 100px;
-    }
-  }
-  .listRight{
-    display: flex;
-    margin-left: auto;
-    &__login{
-      width: 100px;
-    }
-    &__brand{
-      width: 100px;
-    }
-  }
-}
-
-//aタグ共通
-.link-text:hover{
-  color: #FFB340;
-  text-decoration: none;
-}
-
-.link-text{
-  color: black;
-  text-decoration: none;
-  font-size: 10pt
-}
 
 .main{
+  background: #f8f8f8;
   .mainVisual{
-    width: auto;
+    width: 100%;
     height: 560px;
+    background-image: url("material/pict/bg-mainVisual-pict_pc.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
     position: relative;
     padding: 0 60px;
     display: flex;
     align-items: center;
-    background-image: url("material/pict/bg-mainVisual-pict_pc.jpg");
-    background-size:cover;
     .content{
-      width: 945px;
-      height: 336px;
+      max-width: 1280px;
+      width: 100%;
       margin: 0 auto;
-      padding: 20px 20px 20px 20px;
+      padding: 35px 0 0 0;
       .subTitle{
         margin-top: 50px;
         padding-top: 50px;
@@ -112,12 +137,13 @@
         margin: 16px 0 0 0;
       }
       .contentbtn{
-        margin-top: 20px;
+        display: flex;
+        margin: 24px 0 0 0;
       }
     }
   }
   .usage{
-    padding: 60px 0;
+    padding: 60px 20px;
     .reasonText{
       text-align: center;
       font-size: 26px;
@@ -141,11 +167,12 @@
     .reasonImageLists{
       text-align: center;
       display: flex;
-      justify-content: space-around;
+      max-width: 1020px;
       width: 100%;
+      margin: 0 auto;
       .reasonImageList{
         width: 30%;
-
+        margin: 16px 5% 0 0;
         text-align: left;
         display: flex;
         flex-direction: column;
@@ -185,6 +212,9 @@
           line-height: 1.5;
           margin: 16px 0 0;
         }
+      }
+      .list-last{
+        margin: 16px 0 0;
       }
     }
   }
@@ -275,8 +305,8 @@
   }
   .pickupContainer{
     padding: 80px 0 0;
-    background-color: #f8f8f8;
     height: 100%;
+    background-color: #f8f8f8;
     .head{
       text-align: center;
       font-size: 28px;
@@ -302,7 +332,6 @@
         display: inline-block;
         float: left;
         &__link{
-          background-color: #fff;
           display: inline-block;
         }
         &__img{
@@ -349,6 +378,10 @@
         }
       }
     }
+  }
+  .last-child{
+    padding-bottom: 80px;
+    background-color: #f8f8f8;
   }
 }
 .appAd{

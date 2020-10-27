@@ -13,7 +13,8 @@
         .contentbtn
           = link_to image_tag("material/stricon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
           = link_to image_tag("material/stricon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
-    
+
+
     %section.usage
       %h2.reasonText
         FURIMAが選ばれる3つの理由
@@ -40,7 +41,7 @@
           めんどくさい入力は必要なく、検索も
           %br
           購入もスムーズ！
-        %li.reasonImageList
+        %li.reasonImageList.list-last
           .listImg
             %span.number 3
             = image_tag 'material/pict/pict-reason-03.jpg', class: 'reasonimg'
@@ -49,6 +50,8 @@
             %span.text 業界最安値
           %p.listDescription
           最大3%でお得に出品＆購入！
+
+
     %section.ad
       .ad__DIinnre
         %h2.ad__DIinnre--title
@@ -162,7 +165,7 @@
                     1
                 %p.tax (税込)
 
-    %section.pickupContainer
+    %section.pickupContainer.last-child
       %h2.head
         ピックアップブランド
       .productBOX
@@ -234,4 +237,4 @@
                     = icon('fa', 'star')
                     1
                 %p.tax (税込)
-  = render 'footer_tmp'
+    = render 'footer_tmp'
