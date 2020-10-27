@@ -60,7 +60,7 @@ $red-color: #ea352d;
   color: #0095ee;
 }
 
-.purchases-header {
+.form-header {
   height: 125px;
   width: 100vw;
   background-color: $main-back-color;
@@ -69,7 +69,7 @@ $red-color: #ea352d;
   justify-content: center;
 }
 
-.purchases-wrapper {
+.form-wrapper {
   width: 100vw;
   background-color: $main-back-color;
   display: flex;
@@ -222,7 +222,7 @@ $red-color: #ea352d;
   }
 }
 
-.purchases-info {
+.form-info {
   width: 100vw;
   background-color:$main-back-color;
   padding: 40px 0;

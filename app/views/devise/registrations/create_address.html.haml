@@ -1,2 +1,10 @@
-%h2 登録が完了しました
-= link_to "トップへ戻る", new_user_session_path
+= render "purchases/form-header"
+.form-wrapper
+  .section
+    %section.section-top
+      %h2.title 登録が完了しました
+    .devise-form
+      .contents
+        .top-back
+          = link_to "トップへ戻る", new_user_session_path, class: "top-back__btn"
+= render "purchases/form-info"
