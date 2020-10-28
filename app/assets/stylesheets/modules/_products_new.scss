@@ -48,8 +48,6 @@
   margin-bottom: 20px;
 }
 
-
-
 body {
   background-color: whitesmoke;
 }
@@ -78,7 +76,6 @@ body {
   &__middle {
     width: 100%;
     .content-01 {
-      height: 300px;
       padding: 40px 40px;
       border-bottom: 1px solid whitesmoke;
       .registration-item {
@@ -90,7 +87,6 @@ body {
     }
     .uploads {
       width: 620px;
-      height: 150px;
       background-color: gainsboro;
       border: dotted 3px whitesmoke;
       &__icon {
@@ -103,7 +99,6 @@ body {
         }
       }
       &__file {
-        display: none;
         text-align: center;
       }
       &__sentence {
@@ -158,8 +153,18 @@ body {
     }
     .input-string {
       @include input-string;
+      &__category {
+        margin: 20px 0;
+        &--form {
+          height: 50px;
+        width: 620px;
+        border: 0.5px solid lightgray;
+        border-radius: 5px;
+        padding: 0 20px;
+        }
+      }
     }
-    }
+  }
   .content-04 {
     padding: 40px 40px;
     border-bottom: 1px solid whitesmoke;
