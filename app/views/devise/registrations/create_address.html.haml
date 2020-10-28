@@ -1,10 +1,9 @@
 = render "purchases/form-header"
-.form-wrapper
-  .section
-    %section.section-top
-      %h2.title 登録が完了しました
-    .devise-form
-      .contents
-        .top-back
-          = link_to "トップへ戻る", new_user_session_path, class: "top-back__btn"
+.regi-wrapper
+  .completion
+    %section.completion__top
+      %h2.completion__top--title 登録が完了しました
+    %section.completion__btn
+      .top-back
+        = link_to "トップへ戻る", new_user_session_path, class: "top-back__btn"
 = render "purchases/form-info"

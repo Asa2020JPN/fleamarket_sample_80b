@@ -21,11 +21,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_identification
-    # binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
     params[:identification][:birthday] = birthday_join
     @identification = Identification.new(identification_params)
-    # binding.pry
     unless @identification.valid?
       flash.now[:alert] = @identification.errors.full_messages
       render :new_identification and return
@@ -85,20 +83,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    protected
 
-   def identification_params
+  def identification_params
     params.require(:identification).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :birthday)
-   end
+  end
 
-   def birthday_join
-    # binding.pry
+  def birthday_join
     date = params[:birthday]
+    params[:identification][:birthday] = Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
+  end
 
-    Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
-   end
-
-   def address_params
+  def address_params
     params.require(:address).permit(:postcode, :city, :block, :building, :phone_number, :prefecture_id, :last_name, :first_name, :last_name_kana, :first_name_kana)
-   end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

@@ -77,3 +77,36 @@
   margin-left: 8px;
 }
 
+.regi-wrapper {
+  width: 100vw;
+  background-color: $main-back-color;
+  display: flex;
+  justify-content: center;
+  margin: 80px 0;
+  .completion {
+    width: 700px;
+    background-color: #ffffff;
+    &__top {
+      @include section-info();
+      text-align: center;
+      &--title {
+        @include title-font();
+      }
+    }
+    &__btn {
+      @include section-info();
+      border-top: $border-info;
+      padding: 80px 0;
+      .top-back {
+        text-align: center;
+        &__btn {
+          @include btn-info();
+          border: 1px solid $red-color;
+          font-size: 14px;
+          line-height: 48px;
+        }
+      }
+    }
+  }
+}
+
