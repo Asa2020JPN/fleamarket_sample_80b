@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
-    # @category_parent_array = Category.where(ancestry: nil)
   end
 
   def create
@@ -37,9 +36,7 @@ class ProductsController < ApplicationController
 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
-    # binding.pry
     @category_children = Category.find("#{params[:parent_id]}").children
-    # @category_children = Category.find_by(name: "#{params[:parent_id]}", ancestry: nil).children
   end
 
   # 子カテゴリーが選択された後に動くアクション
