@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'items#index'
+  root 'tops#index'
   get 'purchases/edit', to: 'purchases#edit'
   resources :purchases, only: [:index, :new]
   resources :tops, only: [:index, :show]
@@ -11,3 +11,4 @@ Rails.application.routes.draw do
     end
   end
 end
+
