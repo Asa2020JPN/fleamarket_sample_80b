@@ -36,13 +36,13 @@ class ProductsController < ApplicationController
 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
-    @category_children = Category.find("#{params[:parent_id]}").children
+    Category.find("#{params[:parent_id]}").children
   end
 
   # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
+    Category.find("#{params[:child_id]}").children
   end
 
   private
