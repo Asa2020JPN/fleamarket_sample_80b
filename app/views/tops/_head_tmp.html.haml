@@ -1,0 +1,23 @@
+.header-top
+  .header-contena
+    .header-contena__top
+      %h1.top-icon
+        = link_to image_tag('material/logo/logo.png', alt: "FURIMA画像"), 'www/###', {class: 'a-image'}
+        -# = image_tag 'material/logo/logo.png', class: 'icon-furima'
+      .top-searchBox
+        -# = form_for ("modelのインスタンス") do |f|
+        = form_with url: "#" do |f|
+          = f.text_field :content, class: 'keyWordFrom', placeholder: 'キーワードから探す'
+          %button{type: "submit", class:'keyWordFromBtn'}
+            = image_tag 'material/icon/icon-search 1.png', class: 'keyWordFromBtn__icon'
+    .header-contena__nav
+      %ul.listLeft
+        %li.listLeft__item.fastCategory
+          = link_to "カテゴリー", 'www', {class: 'link-text'}
+        %li.listLeft__item
+          = link_to "ブランド", 'www', {class: 'link-text'}
+      %ul.listRight
+        %li.listRight__login
+          = link_to "ログイン", 'www', {class: 'link-text'}
+        %li.listRight__new
+          = link_to "新規会員登録", 'www', {class: 'link-text'}
