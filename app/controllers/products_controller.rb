@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :set_product, except: [:index, :show, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index
-    
+    @newProduct = Product.includes(:images).limit(3)
   end
 
   def new
@@ -15,6 +15,10 @@ class ProductsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+  end
+
+  def show
+
   end
 
   def create
