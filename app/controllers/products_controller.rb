@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
+  def index
+    
+  end
+
   def new
     @product = Product.new
     @product.images.new
