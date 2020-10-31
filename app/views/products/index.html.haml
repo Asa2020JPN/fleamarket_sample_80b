@@ -99,20 +99,23 @@
         .productHead
           = link_to "新規投稿商品", '#', {class: 'productHead__text'}
         .productLists
-          .productList
-            - @newProduct.each do |product|
-              = link_to "", '###', {class: 'productList__link'}
-              .productList__img
-                = image_tag 'material/productimgs/a001.png', class: 'productImg'
-              .productList__body
-                %h3.name テスト
-                .details
-                  %ul 
-                    %li 1000円
-                    %li 
-                      = icon('fa', 'star')
-                      1
-                  %p.tax (税込)
+          - @newproduct.each do |product|
+            .productList
+              = link_to product_path(product), {class: 'productList__link'} do
+                .productList__img
+                  = image_tag product.images[0].image.url, alt: "image_url", class: 'productImg'
+                .productList__body
+                  %h3.name
+                    = product.name
+                  .details
+                    %ul 
+                      %li
+                        =product.price
+                        円
+                      %li 
+                        = icon('fa', 'star')
+                        1
+                    %p.tax (税込)
           -# .productList
           -#   = link_to "", '###', {class: 'productList__link'}
           -#   .productList__img
@@ -173,69 +176,73 @@
         .productHead
           = link_to "新規投稿商品", '#', {class: 'productHead__text'}
         .productLists
-          .productList
-            = link_to "", '###', {class: 'productList__link'}
-            .productList__img
-              = image_tag 'material/productimgs/a001.png', class: 'productImg'
-            .productList__body
-              %h3.name テスト
-              .details
-                %ul 
-                  %li 1000円
-                  %li 
-                    = icon('fa', 'star')
-                    1
-                %p.tax (税込)
-          .productList
-            = link_to "", '###', {class: 'productList__link'}
-            .productList__img
-              = image_tag 'material/productimgs/a002.png', class: 'productImg'
-            .productList__body
-              %h3.name テスト
-              .details
-                %ul 
-                  %li 1000円
-                  %li 
-                    = icon('fa', 'star')
-                    1
-                %p.tax (税込)
-          .productList
-            = link_to "", '###', {class: 'productList__link'}
-            .productList__img
-              = image_tag 'material/productimgs/a003.png', class: 'productImg'
-            .productList__body
-              %h3.name テスト
-              .details
-                %ul 
-                  %li 1000円
-                  %li 
-                    = icon('fa', 'star')
-                    1
-                %p.tax (税込)
-          .productList
-            = link_to "", '###', {class: 'productList__link'}
-            .productList__img
-              = image_tag 'material/productimgs/a004.png', class: 'productImg'
-            .productList__body
-              %h3.name テスト
-              .details
-                %ul 
-                  %li 1000円
-                  %li 
-                    = icon('fa', 'star')
-                    1
-                %p.tax (税込)
-          .productList
-            = link_to "", '###', {class: 'productList__link'}
-            .productList__img
-              = image_tag 'material/productimgs/a005.png', class: 'productImg'
-            .productList__body
-              %h3.name テスト
-              .details
-                %ul 
-                  %li 1000円
-                  %li 
-                    = icon('fa', 'star')
-                    1
-                %p.tax (税込)
+          - @newproduct.each do |product|
+            .productList
+              = link_to product_path(product), {class: 'productList__link'} do
+                .productList__img
+                  = image_tag product.images[0].image.url, alt: "image_url", class: 'productImg'
+                .productList__body
+                  %h3.name
+                    = product.name
+                  .details
+                    %ul 
+                      %li
+                        =product.price
+                        円
+                      %li 
+                        = icon('fa', 'star')
+                        1
+                    %p.tax (税込)
+          -# .productList
+          -#   = link_to "", '###', {class: 'productList__link'}
+          -#   .productList__img
+          -#     = image_tag 'material/productimgs/a002.png', class: 'productImg'
+          -#   .productList__body
+          -#     %h3.name テスト
+          -#     .details
+          -#       %ul 
+          -#         %li 1000円
+          -#         %li 
+          -#           = icon('fa', 'star')
+          -#           1
+          -#       %p.tax (税込)
+          -# .productList
+          -#   = link_to "", '###', {class: 'productList__link'}
+          -#   .productList__img
+          -#     = image_tag 'material/productimgs/a003.png', class: 'productImg'
+          -#   .productList__body
+          -#     %h3.name テスト
+          -#     .details
+          -#       %ul 
+          -#         %li 1000円
+          -#         %li 
+          -#           = icon('fa', 'star')
+          -#           1
+          -#       %p.tax (税込)
+          -# .productList
+          -#   = link_to "", '###', {class: 'productList__link'}
+          -#   .productList__img
+          -#     = image_tag 'material/productimgs/a004.png', class: 'productImg'
+          -#   .productList__body
+          -#     %h3.name テスト
+          -#     .details
+          -#       %ul 
+          -#         %li 1000円
+          -#         %li 
+          -#           = icon('fa', 'star')
+          -#           1
+          -#       %p.tax (税込)
+          -# .productList
+          -#   = link_to "", '###', {class: 'productList__link'}
+          -#   .productList__img
+          -#     = image_tag 'material/productimgs/a005.png', class: 'productImg'
+          -#   .productList__body
+          -#     %h3.name テスト
+          -#     .details
+          -#       %ul 
+          -#         %li 1000円
+          -#         %li 
+          -#           = icon('fa', 'star')
+          -#           1
+          -#       %p.tax (税込)
     = render 'footer_tmp'
