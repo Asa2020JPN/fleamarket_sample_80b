@@ -1,174 +1,145 @@
-.product-wrapper
-  %form.form
-    = form_with url: "#", local: true do |form|
-      .product-wrapper__top
-        .corporate-logo
-          = image_tag 'material/logo/logo.png', class: 'corporate-logo__img'
-      .product-wrapper__middle
-        .content-01
-          .registration-item
-            .registration-item__left
-              出品画像
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .max-uploads
-            最大10枚までアップロードできます
-          .uploads
-            .uploads__icon
-              = image_tag 'material/icon/icon_camera.png', class: 'uploads__icon--image'
-            .uploads__file
-              = form.label :image do
-                = form.file_field :image
-            .uploads__sentence
-              ドラッグアンドドロップ
-            .uploads__sentence
-              またはクリックしてファイルをアップロード
-        .content-02
-          .registration-item
-            .registration-item__left
-              商品名
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :name, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-          .registration-item
-            .registration-item__left
-              商品の説明
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-text
-            = form.text_field :detail, class: 'input-text__form', placeholder: '商品の説明（必須1000文字以内）'
-          .count-length
-            0/1000
-          .input-warning
-            入力してください
-        .content-03
-          .title-03
-            商品の詳細
-          .registration-item
-            .registration-item__left
-              カテゴリー
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            選択してください
-          .input-string
-            = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-          .input-string
-            = form.text_field :category, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            選択してください
-          .registration-item
-            .registration-item__left
-              ブランド
-            .registration-item__rightgray
-              .registration-item__rightgray--gray
-                任意
-          .input-string
-            = form.text_field :brand, class: 'input-string__form', placeholder: 'type a message'
-          .registration-item
-            .registration-item__left
-              商品の状態
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :status, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-        .content-04
-          .title-box
-            .title-box__title04
-              配送について
-            .title-box__question
-              =icon('fas','question-circle')
-          .registration-item
-            .registration-item__left
-              配送料の負担
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :shipping_cost, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-          .registration-item
-            .registration-item__left
-              発送元の地域
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :prefecture, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-          .registration-item
-            .registration-item__left
-              発送までの日数
-            .registration-item__right
-              .registration-item__right--color
-                必須
-          .input-string
-            = form.text_field :days_to_ship, class: 'input-string__form', placeholder: 'type a message'
-          .input-warning
-            入力してください
-        .content-05
-          .title-box
-            .title-box__title04
-              価格（¥300〜9,999,999）
-            .title-box__question
-              =icon('fas','question-circle')
-          .price-box
-            .price-box__left
-              .registration-item
-                .registration-item__left
-                  販売価格
-                .registration-item__right
-                  .registration-item__right--color
-                    必須
-            .price-box__right
-              .coin-box
-                .coin-box__left
-                  ¥
-                .coin-box__right
-                  = form.text_field :price, class: 'coin-box__right--input', placeholder: '0'
-          .margin-box
-            .margin-box__left
-              販売手数料（10%）
-            .margin-box__right
-              ー
-          .salesprofit-box
-            .salesprofit-box__left
-              販売利益
-            .salesprofit-box__right
-              ー
-          .register-btn
-            = form.submit '出品する', class: 'register-btn__product'
-          .save-btn
-            = form.submit '下書きに保存', class: 'save-btn__save'
-          .back-top
-            = link_to "#", class: "back-top__font" do
-              もどる
-          .caution-message
-            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律に
-            より処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-        .product-wrapper__bottom
-          .policy-box
-            .policy-box__left
-              プライバシーポリシー
-            .policy-box__center
-              フリマ規約
-            .policy-box__right
-              特定商取引に関する表記
-          .corporate-logo-white
-            = image_tag 'material/logo/logo-white.png', class: 'corporate-logo-white__img'
-          .corporate-inc
-            @Furima.Inc.
+.topWrapper
+  = render 'head_tmp'
+
+  .main
+    %section.mainVisual
+      .content
+        %h2.subTitle
+          人生を変えるフリマアプリ
+        %p.contentText
+          FURIMAはだれでもかんたんに出品・購入できる
+          %br
+          フリマアプリです。
+        .contentbtn
+          = link_to image_tag("material/stricon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
+          = link_to image_tag("material/stricon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
+
+
+    %section.usage
+      %h2.reasonText
+        FURIMAが選ばれる3つの理由
+      %ul.reasonImageLists
+        %li.reasonImageList
+          .listImg
+            %span.number 1
+            = image_tag 'material/pict/pict-reason-01.jpg', class: 'reasonimg'
+          .listText
+            %span.text 3分
+            ですぐに出品
+          %p.listDescription
+          スマホで入力するだけで簡単に出品で 
+          %br
+          きる！
+        %li.reasonImageList
+          .listImg
+            %span.number 2
+            = image_tag 'material/pict/pict-reason-02.jpg', class: 'reasonimg'
+          .listText
+            %span.text シンプル
+            で使いやすい
+          %p.listDescription
+          めんどくさい入力は必要なく、検索も
+          %br
+          購入もスムーズ！
+        %li.reasonImageList.list-last
+          .listImg
+            %span.number 3
+            = image_tag 'material/pict/pict-reason-03.jpg', class: 'reasonimg'
+          .listText
+            手数料
+            %span.text 業界最安値
+          %p.listDescription
+          最大3%でお得に出品＆購入！
+
+
+    %section.ad
+      .ad__DIinnre
+        %h2.ad__DIinnre--title
+          会員数日本一
+        %p.ad__DIinnre--text
+          FURIMAは、フリマアプリで最も人気。
+          %br
+          出品・購入回数も凝塊最多です！
+          %br
+          ほしかったあの商品に出会えるかもしれません。
+        .contentbtn
+          = link_to image_tag("material/stricon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
+          = link_to image_tag("material/stricon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
+
+    %section.description
+      %h2.description__text
+        FURIMAの特徴
+      .description__items
+        %section.item
+          .item__img
+            = image_tag 'material/icon/icon-01.png', class: 'item__img--icon'
+          %h3.itemTitl
+            簡単に売り買いできる
+          %P.itemDetail
+            スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+        %section.item
+          .item__img
+            = image_tag 'material/icon/icon-03.png', class: 'item__img--icon'
+          %h3.itemTitl
+            売上金は即日振込みに対応
+          %p.itemDetail
+            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+        %section.item
+          .item__img
+            = image_tag 'material/icon/icon-04.png', class: 'item__img--icon'
+          %h3.itemTitl
+            様々な支払いに対応
+          %p.itemDetail
+            お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+    %section.pickupContainer
+      %h2.head
+        ピックアップカテゴリー
+      .productBOX
+        .productHead
+          = link_to "新規投稿商品", '#', {class: 'productHead__text'}
+        .productLists
+          - @newproduct.each do |product|
+            -unless product.buyer_id.present? 
+              .productList
+                = link_to product_path(product), {class: 'productList__link'} do
+                  .productList__img
+                    = image_tag product.images[0].image.url, alt: "image_url", class: 'productImg'
+                  .productList__body
+                    %h3.name
+                      = product.name
+                    .details
+                      %ul 
+                        %li
+                          =product.price
+                          円
+                        %li 
+                          = icon('fa', 'star')
+                          1
+                      %p.tax (税込)
+    %section.pickupContainer.last-child
+      %h2.head
+        ピックアップブランド
+      .productBOX
+        .productHead
+          = link_to "新規投稿商品", '#', {class: 'productHead__text'}
+        .productLists
+          - @newproduct.each do |product|
+            -unless product.buyer_id.present? 
+              .productList
+                = link_to product_path(product), {class: 'productList__link'} do
+                  .productList__img
+                    = image_tag product.images[0].image.url, alt: "image_url", class: 'productImg'
+                  .productList__body
+                    %h3.name
+                      = product.name
+                    .details
+                      %ul 
+                        %li
+                          =product.price
+                          円
+                        %li 
+                          = icon('fa', 'star')
+                          1
+                      %p.tax (税込)
+    = render 'footer_tmp'

@@ -1,10 +1,15 @@
 @import "reset";
-@import "modules/products_index";
+@import "modules/products_new";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "modules/products_index";
 @import "modules/purchases";
 @import "modules/purchases-edit";
 @import "modules/purchases-new";
+<<<<<<< HEAD
 @import "modules/tops_show";
 @import "modules/devise";
 @import "modules/errorMsgText";
+=======
+@import "modules/products_show";
+>>>>>>> master

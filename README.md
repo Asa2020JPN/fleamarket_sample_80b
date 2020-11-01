@@ -19,6 +19,7 @@
 - has_one :identification
 - has_one :profiles
 
+
 ## productsテーブル
 |Column          |Type      |Options                       |
 |----------------|----------|------------------------------|
@@ -27,11 +28,11 @@
 |price           |integer   |null: false                   |
 |user_id         |references|null: false, foreign_key: true|
 |brand_id        |references|foreign_key: true             |
-|prefecture_id   |integer   |null: false|
-|category_id     |integer   |null: false|
-|days_to_ship_id |integer   |null: false|
-|status_id       |integer   |null: false|
-|shipping_cost_id|integer   |null: false|
+|prefecture_id   |integer   |null: false                   |
+|category_id     |integer   |null: false                   |
+|shipping_id     |integer   |null: false                   |
+|status_id       |integer   |null: false                   |
+|shippingcost_id |integer   |null: false                   | 
 ### Association
 - belongs_to :user
 - belongs_to :brand
@@ -41,10 +42,10 @@
 - has_many :imeges
 - has_one :purchase_history
 - belongs_to_active_hash :prefecture
-- belongs_to_active_hash :category
+- belongs_to :category
 - belongs_to_active_hash :days_to_ship
 - belongs_to_active_hash :status
-- belongs_to_active_hash :shipping_cost
+- belongs_to_active_hash :shipping
 
 ## likesテーブル
 |Column    |Type      |Options                       |
@@ -125,6 +126,7 @@
 - belongs_to :user
 - belongs_to :product
 
+
 ## identificationsテーブル
 |Column         |Type      |Options                       |
 |---------------|----------|------------------------------|
@@ -145,3 +147,11 @@
 |icon_image     |string |
 ### Association
 - belongs_to :user
+
+## categoriesテーブル
+|Column    |Type      |Options                        |
+|----------|----------|-------------------------------|
+|name      |string    |null: false,       unique: true|
+|ancestry  |string    |                               |
+### Association
+- has_ancestry
