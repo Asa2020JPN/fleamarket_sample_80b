@@ -1,0 +1,145 @@
+.topWrapper
+  = render 'head_tmp'
+
+  .main
+    %section.mainVisual
+      .content
+        %h2.subTitle
+          人生を変えるフリマアプリ
+        %p.contentText
+          FURIMAはだれでもかんたんに出品・購入できる
+          %br
+          フリマアプリです。
+        .contentbtn
+          = link_to image_tag("material/stricon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
+          = link_to image_tag("material/stricon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
+
+
+    %section.usage
+      %h2.reasonText
+        FURIMAが選ばれる3つの理由
+      %ul.reasonImageLists
+        %li.reasonImageList
+          .listImg
+            %span.number 1
+            = image_tag 'material/pict/pict-reason-01.jpg', class: 'reasonimg'
+          .listText
+            %span.text 3分
+            ですぐに出品
+          %p.listDescription
+          スマホで入力するだけで簡単に出品で 
+          %br
+          きる！
+        %li.reasonImageList
+          .listImg
+            %span.number 2
+            = image_tag 'material/pict/pict-reason-02.jpg', class: 'reasonimg'
+          .listText
+            %span.text シンプル
+            で使いやすい
+          %p.listDescription
+          めんどくさい入力は必要なく、検索も
+          %br
+          購入もスムーズ！
+        %li.reasonImageList.list-last
+          .listImg
+            %span.number 3
+            = image_tag 'material/pict/pict-reason-03.jpg', class: 'reasonimg'
+          .listText
+            手数料
+            %span.text 業界最安値
+          %p.listDescription
+          最大3%でお得に出品＆購入！
+
+
+    %section.ad
+      .ad__DIinnre
+        %h2.ad__DIinnre--title
+          会員数日本一
+        %p.ad__DIinnre--text
+          FURIMAは、フリマアプリで最も人気。
+          %br
+          出品・購入回数も凝塊最多です！
+          %br
+          ほしかったあの商品に出会えるかもしれません。
+        .contentbtn
+          = link_to image_tag("material/stricon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
+          = link_to image_tag("material/stricon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",width: '180', alt: "サンプル画像"), 'www', {class: 'test'}
+
+    %section.description
+      %h2.description__text
+        FURIMAの特徴
+      .description__items
+        %section.item
+          .item__img
+            = image_tag 'material/icon/icon-01.png', class: 'item__img--icon'
+          %h3.itemTitl
+            簡単に売り買いできる
+          %P.itemDetail
+            スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+        %section.item
+          .item__img
+            = image_tag 'material/icon/icon-03.png', class: 'item__img--icon'
+          %h3.itemTitl
+            売上金は即日振込みに対応
+          %p.itemDetail
+            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+        %section.item
+          .item__img
+            = image_tag 'material/icon/icon-04.png', class: 'item__img--icon'
+          %h3.itemTitl
+            様々な支払いに対応
+          %p.itemDetail
+            お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+    %section.pickupContainer
+      %h2.head
+        ピックアップカテゴリー
+      .productBOX
+        .productHead
+          = link_to "新規投稿商品", '#', {class: 'productHead__text'}
+        .productLists
+          - @newproduct.each do |product|
+            -unless product.buyer_id.present? 
+              .productList
+                = link_to product_path(product), {class: 'productList__link'} do
+                  .productList__img
+                    = image_tag product.images[0].image.url, alt: "image_url", class: 'productImg'
+                  .productList__body
+                    %h3.name
+                      = product.name
+                    .details
+                      %ul 
+                        %li
+                          =product.price
+                          円
+                        %li 
+                          = icon('fa', 'star')
+                          1
+                      %p.tax (税込)
+    %section.pickupContainer.last-child
+      %h2.head
+        ピックアップブランド
+      .productBOX
+        .productHead
+          = link_to "新規投稿商品", '#', {class: 'productHead__text'}
+        .productLists
+          - @newproduct.each do |product|
+            -unless product.buyer_id.present? 
+              .productList
+                = link_to product_path(product), {class: 'productList__link'} do
+                  .productList__img
+                    = image_tag product.images[0].image.url, alt: "image_url", class: 'productImg'
+                  .productList__body
+                    %h3.name
+                      = product.name
+                    .details
+                      %ul 
+                        %li
+                          =product.price
+                          円
+                        %li 
+                          = icon('fa', 'star')
+                          1
+                      %p.tax (税込)
+    = render 'footer_tmp'
