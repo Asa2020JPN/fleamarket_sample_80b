@@ -1,9 +1,7 @@
-.purchases-header
-  .header__btn
-    =link_to image_tag("material/logo/logo.png", width: "185px", height: "50px"), '#', class: 'black-logo'
-.purchases-wrapper
+= render "purchases/form-header"
+.form-wrapper
   .section
-    .section-top
+    %section.section-top
       %h2.title 支払い方法
     %form.payments
       = form_with do |f|
@@ -33,14 +31,4 @@
             = link_to "選択した支払い方法を使う", "#", class: "enter-button"
           .button__back
             = link_to "もどる", purchases_path, class: "back-button"
-.purchases-info
-  %ul.menu
-    %li.menu--list
-    = link_to "プライバシーポリシー", "#", class: "menu--list"
-    %li.menu--list
-    = link_to "メルカリ利用規約", "#", class: "menu--list"
-    %li.menu--list
-    = link_to "特許商取引に関する表記", "#", class: "menu--list"
-  .icon
-    =link_to image_tag("material/logo/logo-white.png", width: "160px", height: "40px"), '#', class: 'white-logo'
-  %p.copyright © FURIMA
+= render "purchases/form-info"
