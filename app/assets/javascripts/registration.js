@@ -30,10 +30,8 @@ $(function() {
 
       if (removeHyphen.length < 4) {
         $(this).val(display(removeHyphen));
-      } else if (removeHyphen.length > 3) {
-        $(this).val(insertStr(removeHyphen));
       } else {
-        console.log('error');
+        $(this).val(insertStr(removeHyphen));
       }
     }
   });
