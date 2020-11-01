@@ -12,26 +12,45 @@
             %span.field--required 必須
             %br/
             = f.text_field :last_name, autofocus: true, class: "input--style half", placeholder: "例）山田"
+            - if @identification.errors.include?(:last_name)
+              %p.error-text
+                = @identification.errors.messages[:last_name][0]
+
           %section.field
             = f.label :first_name, "名", class: "field--name"
             %span.field--required 必須
             %br/
             = f.text_field :first_name, class: "input--style half", placeholder: "例）太郎"
+            - if @identification.errors.include?(:first_name)
+              %p.error-text
+                = @identification.errors.messages[:first_name][0]
+
           %section.field
             = f.label :last_name_kana, "姓（カナ）", class: "field--name"
             %span.field--required 必須
             %br/
             = f.text_field :last_name_kana, class: "input--style", placeholder: "例）ヤマダ"
+            - if @identification.errors.include?(:last_name_kana)
+              %p.error-text
+                = @identification.errors.messages[:last_name_kana][0]
+
           %section.field
             = f.label :first_name_kana, "名（カナ）", class: "field--name"
             %span.field--required 必須
             %br/
             = f.text_field :first_name_kana, class: "input--style", placeholder: "例）タロウ"
+            - if @identification.errors.include?(:last_name_kana)
+              %p.error-text
+                = @identification.errors.messages[:last_name_kana][0]
+
           %section.field
             = f.label :birthday, "生年月日", class: "field--name"
             %span.field--required 必須
             %br/
             != sprintf(f.date_select(:birthday, prefix:'birthday', with_css_classes:'XXXXX', prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+            - if @identification.errors.include?(:birthday)
+              %p.error-text
+                = @identification.errors.messages[:birthday][0]
           .actions
             = f.submit "次へ進む", class: "actions__btn"
       //= render "devise/shared/links"

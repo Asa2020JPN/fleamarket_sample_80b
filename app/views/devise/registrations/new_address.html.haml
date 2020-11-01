@@ -13,54 +13,87 @@
             %br/
             .input
               = f.text_field :last_name, autofocus: true, class: "input--style", placeholder: "例）山田"
+            - if @address.errors.include?(:last_name)
+              %p.error-text
+                = @address.errors.messages[:last_name][0]
+
           %section.field
             = f.label :first_name, "名", class: "field--name"
             %span.field--required 必須
             %br/
             .input
               = f.text_field :first_name, class: "input--style", placeholder: "例）太郎"
+            - if @address.errors.include?(:first_name)
+              %p.error-text
+                = @address.errors.messages[:first_name][0]
+
           %section.field
             = f.label :last_name_kana, "姓（カナ）", class: "field--name"
             %span.field--required 必須
             %br/
             .input
               = f.text_field :last_name_kana, class: "input--style", placeholder: "例）ヤマダ"
+            - if @address.errors.include?(:last_name_kana)
+              %p.error-text
+                = @address.errors.messages[:last_name_kana][0]
+
           %section.field
             = f.label :first_name_kana, "名（カナ）", class: "field--name"
             %span.field--required 必須
             %br/
             .input
               = f.text_field :first_name_kana, class: "input--style", placeholder: "例）タロウ"
+            - if @address.errors.include?(:first_name_kana)
+              %p.error-text
+                = @address.errors.messages[:first_name_kana][0]
+
           %section.field
             = f.label :postcode, "郵便番号",class: "field--name"
             %span.field--required 必須
             %br/
             .input
               = f.text_field :postcode, class: "input--style", placeholder: "例）123-4567", maxlength: '8'
+            - if @address.errors.include?(:postcode)
+              %p.error-text
+                = @address.errors.messages[:postcode][0]
+
           %section.field
             = f.label :prefecture_id, "都道府県",class: "field--name"
             %span.field--required 必須
             %br/
             .input
               = f.text_field :prefecture_id, class: "input--style", placeholder: "例）activeHash"
+            - if @address.errors.include?(:prefecture_id)
+              %p.error-text
+                = @address.errors.messages[:prefecture_id][0]
+
           %section.field
             = f.label :city, "市区町村",class: "field--name"
             %span.field--required 必須
             %br/
             .input
               = f.text_field :city, class: "input--style", placeholder: "例）渋谷区"
+            - if @address.errors.include?(:city)
+              %p.error-text
+                = @address.errors.messages[:city][0]
+
           %section.field
             = f.label :block, "番地",class: "field--name"
             %span.field--required 必須
             %br/
             .input
               = f.text_field :block, class: "input--style", placeholder: "例）道玄坂2-10-12"
+            - if @address.errors.include?(:block)
+              %p.error-text
+                = @address.errors.messages[:block][0]
+
           %section.field
             = f.label :building, "建物名",class: "field--name"
             %span.field--any 任意
             %br/
             .input
               = f.text_field :building, class: "input--style", placeholder: "例）新大荘８階"
+
           %section.field
             = f.label :phone_number, "電話番号",class: "field--name"
             %span.field--any 任意
