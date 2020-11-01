@@ -89,6 +89,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def birthday_join
     date = params[:birthday]
+
+    if date["birthday(1i)"].empty? || date["birthday(2i)"].empty? || date["birthday(3i)"].empty?
+      return
+    end
+
     params[:identification][:birthday] = Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
   end
 

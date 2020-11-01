@@ -5,7 +5,6 @@
       %h2.head--title ユーザー情報登録
     .devise-form
       = form_for(@user, url: user_registration_path) do |f|
-        -# = render "devise/shared/error_messages", resource: @user
         .contents
           %section#top-field.field
             = f.label :nickname, "ニックネーム", class: "field--name"

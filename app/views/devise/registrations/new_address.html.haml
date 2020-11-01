@@ -5,7 +5,7 @@
       %h2.head--title 商品送付先住所情報
     .devise-form
       = form_for @address do |f|
-        = render "devise/shared/error_messages", resource: @address
+        -# = render "devise/shared/error_messages", resource: @address
         .contents
           %section#top-field.field
             = f.label :last_name, "姓", class: "field--name"
@@ -36,7 +36,7 @@
             %span.field--required 必須
             %br/
             .input
-              = f.text_field :postcode, class: "input--style", placeholder: "例）123-4567"
+              = f.text_field :postcode, class: "input--style", placeholder: "例）123-4567", maxlength: '8'
           %section.field
             = f.label :prefecture_id, "都道府県",class: "field--name"
             %span.field--required 必須
