@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :show, :new, :create, :get_category_children, :get_category_grandchildren]
-  before_action :move_to_index, except: [:index,]
+  # before_action :move_to_index, except: [:index,]
   def index
     @newproduct = Product.includes(:images).where(buyer_id: nil).order('created_at DESC').limit(5)
    end
@@ -63,9 +63,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
-  end
+  # def move_to_index
+  #   unless user_signed_in?
+  #     redirect_to action: :index
+  #   end
+  # end
 end
