@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :purchases, only: [:index, :new]
   get 'purchases/edit', to: 'purchases#edit'
-  get 'test', to: 'purchases#test'
   resources :tops, only: :show
   resources :products, only: [:index]
   resources :registrations, only: [:index]

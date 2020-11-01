@@ -243,21 +243,3 @@ $red-color: #ea352d;
     color: $main-font-color;
   }
 }
-
-.wrapper-test {
-  display: flex;
-  width: 100vw;
-  .section {
-    height: 100vh;
-    margin-top: 40px;
-    margin: 0 auto;
-    background-color: #ea352d;
-    .left {
-      width: 280px;
-      margin-right: 40px;
-    }
-    .right {
-      width: 700px;
-    }
-  }
-}

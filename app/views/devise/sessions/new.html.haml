@@ -7,13 +7,9 @@
     .sign-in-form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         %section#top-field.field
-          -# = f.label :email
-          -# %br/
           .input
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "input--style"
         %section.field
-          -# = f.label :password
-          -# %br/
           .input
             = f.password_field :password, placeholder: "パスワード", class: "input--style", autocomplete: "current-password"
         -# - if devise_mapping.rememberable?
@@ -23,5 +19,4 @@
         .actions
           = f.submit "ログイン", class: "actions__btn"
         = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "forgotPassword"
-        -# = render "devise/shared/links"
 = render "purchases/form-info"
