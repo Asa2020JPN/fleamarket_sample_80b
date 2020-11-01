@@ -1,0 +1,44 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              blank: ニックネームが入力されていません
+            email: 
+              blank: 有効なアドレスではありません
+            password:
+              blank: 有効なパスワードではありません
+            password_confirmation:
+              blank: 数字になっています。入力してください
+        identification:
+          attributes:
+            last_name:
+              blank: 入力された文字が有効ではありません
+            first_name:
+              blank: 入力された文字が有効ではありません
+            last_name_kana:
+              blank: 入力された文字が有効ではありません
+            first_name_kana:
+              blank: 入力された文字が有効ではありません
+            birthday:
+              blank: 入力された文字が有効ではありません
+        address:
+          attributes:
+            last_name:
+              blank: 入力された文字が有効ではありません
+            first_name:
+              blank: 入力された文字が有効ではありません
+            last_name_kana:
+              blank: 入力された文字が有効ではありません
+            first_name_kana:
+              blank: 入力された文字が有効ではありません
+            postcode:
+              blank: 郵便番号が入力されていません
+            prefecture_id:
+              blank: 都道府県が入力されていません
+            city:
+              blank: 市区町村が入力されていません
+            block:
+              blank: 番地が入力がされていません
