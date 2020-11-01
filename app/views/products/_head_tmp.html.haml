@@ -13,11 +13,17 @@
     .header-contena__nav
       %ul.listLeft
         %li.listLeft__item.fastCategory
-          = link_to "カテゴリー", 'www', {class: 'link-text'}
+          = link_to "カテゴリー", '#', {class: 'link-text'}
         %li.listLeft__item
-          = link_to "ブランド", 'www', {class: 'link-text'}
+          = link_to "ブランド", '#', {class: 'link-text'}
       %ul.listRight
-        %li.listRight__login
-          = link_to "ログイン", 'www', {class: 'link-text'}
-        %li.listRight__new
-          = link_to "新規会員登録", 'www', {class: 'link-text'}
+        - if user_signed_in?
+          %li.listRight__login
+            = link_to "マイページ", '#', {class: 'link-text'}
+        - else
+          %li.listRight__new
+            = link_to "ログイン", new_user_session_path, {class: 'link-text'}
+          %li.listRight__new
+            = link_to "新規会員登録", new_user_registration_path, {class: 'link-text'}
+          
+

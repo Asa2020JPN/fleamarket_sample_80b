@@ -81,7 +81,7 @@
         &__item{
           display: flex;
           line-height: 38px;
-          padding: 0 0 0 16px;
+          padding: 0 16px 0 0;
         }
       }
       .listRight{
@@ -138,7 +138,9 @@
       }
       .contentbtn{
         display: flex;
-        margin: 24px 0 0 0;
+        .test {
+          margin-right: 10px;
+        }
       }
     }
   }
