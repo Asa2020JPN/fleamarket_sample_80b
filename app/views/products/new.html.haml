@@ -35,6 +35,9 @@
                   = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
                   %span.js-remove
                     削除
+              - if @product.errors.include?(:images)
+                %p.error-text
+                  = @product.errors.messages[:images][0]
       .content-02
         .registration-item
           .registration-item__left
@@ -44,6 +47,9 @@
               必須
         .input-string
           = form.text_field :name, class: 'input-string__form', maxlength: 11, placeholder: 'type a message'
+          - if @product.errors.include?(:name)
+            %p.error-text
+              = @product.errors.messages[:name][0]
         .registration-item
           .registration-item__left
             商品の説明
@@ -52,6 +58,9 @@
               必須
         .input-text
           = form.text_field :detail, class: 'input-text__form', placeholder: '商品の説明（必須1000文字以内）'
+          - if @product.errors.include?(:detail)
+            %p.error-text
+              = @product.errors.messages[:detail][0]
         .count-length
           0/1000
       .content-03
@@ -66,6 +75,10 @@
         .input-string
           .input-string__category
             = form.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択してください'}, {class: 'input-string__category--form', id: 'parent-category'}
+            - if @product.errors.include?(:category)
+              %p.error-text
+                = @product.errors.messages[:category][1]
+        
         .registration-item
           .registration-item__left
             ブランド
@@ -83,6 +96,9 @@
               必須
         .input-string
           = form.collection_select :status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
+          - if @product.errors.include?(:status_id)
+            %p.error-text
+              = @product.errors.messages[:status_id][0]
       .content-04
         .title-box
           .title-box__title04
@@ -97,6 +113,9 @@
               必須
         .input-string
           = form.collection_select :shippingcost_id, Shippingcost.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
+          - if @product.errors.include?(:shippingcost_id)
+            %p.error-text
+              = @product.errors.messages[:shippingcost_id][0]
         .registration-item
           .registration-item__left
             発送元の地域
@@ -105,6 +124,9 @@
               必須
         .input-string
           = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
+          - if @product.errors.include?(:prefecture_id)
+            %p.error-text
+              = @product.errors.messages[:prefecture_id][0]
         .registration-item
           .registration-item__left
             発送までの日数
@@ -113,6 +135,9 @@
               必須
         .input-string
           = form.collection_select :shipping_id, Shipping.all, :id, :name, {include_blank: "選択してください"}, {class: 'input-string__form'}
+          - if @product.errors.include?(:shipping_id)
+            %p.error-text
+              = @product.errors.messages[:shipping_id][0]
       .content-05
         .title-box
           .title-box__title04
@@ -133,6 +158,9 @@
                 ¥
               .coin-box__right
                 = form.text_field :price, class: 'coin-box__right--input', placeholder: '0'
+                - if @product.errors.include?(:price)
+                  %p.error-text
+                    = @product.errors.messages[:price][0]
         .margin-box
           .margin-box__left
             販売手数料（10%）

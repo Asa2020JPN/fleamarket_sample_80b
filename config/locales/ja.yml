@@ -42,3 +42,19 @@ ja:
               blank: 市区町村が入力されていません
             block:
               blank: 番地が入力がされていません
+        product:
+          attributes:
+            name:
+              blank: 商品名が入力されていません
+            detail:
+              blank: 商品名説明が入力されていません
+            status_id:
+              blank: 商品状態が選択されていません
+            shippingcost_id:
+              blank: 配送料の負担が選択されていません
+            prefecture_id:
+              blank: 発送元の地域が選択されていません
+            shipping_id:
+              blank: 発送までの日数が選択されていません
+            price:
+              blank: 販売価格が入力されていません

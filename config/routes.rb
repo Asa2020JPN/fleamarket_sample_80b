@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  root 'items#index'
+  # root 'items#index'
   resources :purchases, only: [:index, :new]
   get 'purchases/edit', to: 'purchases#edit'
   resources :tops, only: :show
@@ -27,4 +27,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
