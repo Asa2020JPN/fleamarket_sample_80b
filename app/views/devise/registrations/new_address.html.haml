@@ -58,7 +58,7 @@
                 = @address.errors.messages[:postcode][0]
 
           %section.field
-            = f.label :prefecture_id, "都道府県",class: "field--name"
+            = f.collection_select :shipping_id, Shipping.all, :id, :name, {include_blank: "選択してください"}, {class: 'field--name'}
             %span.field--required 必須
             %br/
             .input
