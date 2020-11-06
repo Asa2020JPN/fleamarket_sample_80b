@@ -1,0 +1,118 @@
+.show-top
+  = render 'head_tmp'
+
+.show-wrapper
+  .show-main
+    .contents
+      .top-content
+        .product
+          %h2.product__name
+            = @selectedproduct.name
+          .product__body
+            %ul
+              %li
+                = image_tag @selectedproduct.images[0].image.url
+                %ul
+                  - @selectedproduct.images.each_with_index do |productimage|
+                    %li
+                      = image_tag productimage.image.url
+          .product__price
+            %span
+              ¥
+              = @selectedproduct.price
+            .product__price--detail
+              (税込)送料込み
+          .product__description
+            = @selectedproduct.detail
+          .table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td hoge
+                %tr
+                  %th カテゴリー
+                  %td
+                    - @categories.each do |grandchildren|
+                      - if @selectedproduct.category_id == grandchildren.id
+                        = link_to category_path(grandchildren.parent.parent.id) do
+                          = grandchildren.parent.parent.name
+                          %br
+                        = link_to category_path(grandchildren.parent.id) do
+                          = grandchildren.parent.name
+                          %br
+                        = link_to category_path(grandchildren.id) do
+                          = grandchildren.name
+                          %br
+                %tr
+                  %th ブランド
+                  %td
+                    = @selectedproduct.brand.name
+                %tr
+                  %th 商品のサイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td
+                    = @selectedproduct.status.name
+                %tr
+                  %th 配送料の負担
+                  %td
+                    = @selectedproduct.shippingcost.name
+                %tr
+                  %th 発送元の地域
+                  %td
+                    = link_to @selectedproduct.prefecture.name, "#"
+                %tr
+                  %th 発送日の目安
+                  %td
+                    = @selectedproduct.shipping.name
+          .optional-area
+            %ul.like
+              %li.like-btn
+                = icon('fa', 'star')
+                お気に入り1
+            %ul.report
+              %li.report-btn
+                = link_to "#" do
+                  = icon('fa', 'flag')
+                  = "不適切な商品の通報"
+        .comment-box
+          = form_with url: '#', class: "comment-box__new", method: :get, local: true do |form|
+            = form.text_area :comment, class: "comment-box__new--body"
+            %p.notice-msg
+              相手のことを考え丁寧なコメントを心がけましょう。<br>不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = button_tag type: 'submit', class: "comment-box__new--btn" do
+              = icon('fa', 'comment')
+              = "コメントする"
+      %ul.links
+        %li
+          = link_to "#" do
+            = icon('fa', 'angle-left')
+            %span
+              = "前の商品"
+        %li
+          = link_to "#" do
+            %sapn
+              = "後の商品"
+            = icon('fa', 'angle-right')
+      .related-items
+        = link_to 'ベビー・キッズをもっと見る', "#"
+        .related-items__lists
+          .related-items__lists__product
+            = link_to "#" do
+              %figure.related-items__lists__product--img
+                = image_tag 'material/pict/a001.png'
+              .related-items__lists__product--body
+                %h3.product-name product1
+                .product-price
+                  %ul
+                    %li
+                      1000円
+                    %li
+                      = icon('fa', 'star')
+                      1
+                  %p
+                    （税込）
+.app-banner
+.footer
