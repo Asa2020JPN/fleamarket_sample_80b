@@ -1,0 +1,20 @@
+.header-top
+  = render 'products/head_tmp'
+  
+.category-wrapper
+  .category
+    %h1.category__name
+      = @categories.name
+    %p.category__list
+      - if @categories.root?
+      - elsif @categories.has_children?
+        = link_to category_path(@categories.parent.id) do
+          = @categories.parent.name
+      - else
+        = link_to category_path(@categories.parent.parent.id) do
+          = @categories.parent.parent.name
+        >
+        = link_to category_path(@categories.parent.id) do
+          = @categories.parent.name
+
+  = render 'products/footer_tmp'
