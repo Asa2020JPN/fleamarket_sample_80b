@@ -1,6 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
+  def index
+    @newproduct = Product.includes(:images).order('created_at DESC').limit(5)
+  end
+
+  def show
+    @selectedproduct = Product.includes(:images).find(params[:id])
+    @categories = Category.all
+  end
+
   def new
     @product = Product.new
     @product.images.new
