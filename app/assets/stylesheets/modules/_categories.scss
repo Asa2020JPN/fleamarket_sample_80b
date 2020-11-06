@@ -1,0 +1,105 @@
+.category-wrapper {
+  .category {
+    max-width: 70%;
+    padding: 40px 0px;
+    margin: 0px auto;
+    &__name {
+      font-size: 24px;
+      line-height: 34px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    &__list {
+      font-size: 14px;
+      margin-bottom: 24px;
+      a {
+        text-decoration: none;
+      }
+    }
+    .products-list {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px;
+        li {
+          padding: 10px;
+          width: 20%;
+          .product {
+            &__style {
+              width: 100%;
+              display: inline-block;
+              position: relative;
+              text-decoration: none;
+              vertical-align: top;
+              figure {
+                width: 100%;
+                align-items: center;
+                display: flex;
+                position: relative;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0,0,0,.18);
+                flex-direction: column-reverse;
+                vertical-align: baseline;
+                margin: 0;
+                overflow: hidden;
+                z-index: 0;
+                figcaption {
+                  height: 64px;
+                  color: #222;
+                  font-size: 14px;
+                  line-height: 1.4em;
+                  padding: 12px;
+                  white-space: normal;
+                  word-break: break-word;
+                  align-items: center;
+                  display: flex;
+                  position: relative;
+                  width: 100%;
+                  span {
+                    display: inline-block;
+                    height: 2.8em;
+                    overflow: hidden;
+                    position: relative;
+                  }
+                }
+                .thumbnail {
+                  height: 0;
+                  overflow: hidden;
+                  padding: 0 0 100%;
+                  position: relative;
+                  width: 100%;
+                  span {
+                    align-items: center;
+                    background-color: rgba(0,0,0,.4);
+                    border-radius: 0 14px 14px 0;
+                    bottom: 8px;
+                    box-sizing: border-box;
+                    color: #fff;
+                    display: inline-flex;
+                    font-size: 17px;
+                    height: 28px;
+                    letter-spacing: .02em;
+                    margin: 0;
+                    padding: 0 12px;
+                    position: absolute;
+                    z-index: 2;
+                  }
+                  img {
+                    bottom: 0;
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    object-fit: cover;
+                    vertical-align: top;
+                    width: 100%;
+                    z-index: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
