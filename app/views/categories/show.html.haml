@@ -4,18 +4,18 @@
 .category-wrapper
   .category
     %h1.category__name
-      = @categories.name
+      = @category.name
     %p.category__list
-      - if @categories.root?
-      - elsif @categories.has_children?
-        = link_to category_path(@categories.parent.id) do
-          = @categories.parent.name
+      - if @category.root?
+      - elsif @category.has_children?
+        = link_to category_path(@category.parent.id) do
+          = @category.parent.name
       - else
-        = link_to category_path(@categories.parent.parent.id) do
-          = @categories.parent.parent.name
+        = link_to category_path(@category.parent.parent.id) do
+          = @category.parent.parent.name
         >
-        = link_to category_path(@categories.parent.id) do
-          = @categories.parent.name
+        = link_to category_path(@category.parent.id) do
+          = @category.parent.name
     .products-list
       %ul
         %li
@@ -24,7 +24,7 @@
               %figure
                 %figcaption
                   %span
-                  = @categories.products.name
+                  = @category.products.name
                 .thumbnail
                   %span ¥2,500
                   = image_tag 'material/pict/a001.png'
