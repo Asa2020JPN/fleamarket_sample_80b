@@ -26,22 +26,37 @@
       = image_tag "user-bg.jpg", size: "700x200"
       .mypage__right-main__user__icon
         = image_tag "mypage-logo.jpg", size: "50x50"
-    .mypage__right-main__bottom
-      = link_to "購入した商品", "#", class: "class"
-    .mypage__right-main__bottom__tab
-      .tab-active1.tab
-        = link_to "出品中", "#", class: "class"
-      .tab-active2.tab 
-        = link_to "過去の取引", "#", class: "class"
-    .main-mypagebox__content-area  
-      .tab1-content.content.show
-        .tab1-coment 出品中の商品はありません
-        = image_tag "logo-white.png", size: "350x110"
-      .tab2-content.content
-        .tab2-coment 過去の取引商品はありません
-        = image_tag "logo-white.png", size: "350x110"
-
     
+    %ul.menu
+      %li.menu__list
+        %a#about.menu_item.active{:href => "#"} 出品中の商品
+      %li.menu__list
+        %a#about.menu_item.active{:href => "#"} 過去の取引商品
+    %ul.contents
+    %li.content.show
+      出品中の商品はありません
+      = image_tag "logo-white.png", size: "350x110"
+    %li.content 
+      過去の取引商品はありません
+      = image_tag "logo-white.png", size: "350x110"
+    -# .mypage__right-main__bottom
+    -#   = link_to "購入した商品", "#", class: "class"
+    -# .mypage__right-main__bottom__tab
+    -#   .tab-active1.tab
+    -#     = link_to "出品中", "#", class: "class"
+    -#   .tab-active2.tab 
+    -#     = link_to "過去の取引", "#", class: "class"
+    
+  
+    
+    
+    -# .main-mypagebox__content-area  
+    -#   .tab1-content.content.show
+    -#     .tab1-coment 出品中の商品はありません
+    -#     = image_tag "logo-white.png", size: "350x110"
+    -#   .tab2-content.content
+    -#     .tab2-coment 過去の取引商品はありません
+    -#     = image_tag "logo-white.png", size: "350x110"
         
 
     -# .side-bar-navi 
