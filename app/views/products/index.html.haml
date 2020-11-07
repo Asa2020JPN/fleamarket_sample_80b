@@ -99,7 +99,7 @@
         .productHead
           = link_to "新規投稿商品", '#', {class: 'productHead__text'}
         .productLists
-          - @newproduct.each do |product|
+          - @new_products.each do |product|
             -unless product.buyer_id.present? 
               .productList
                 = link_to product_path(product), {class: 'productList__link'} do
@@ -111,7 +111,7 @@
                     .details
                       %ul 
                         %li
-                          =product.price
+                          = product.price
                           円
                         %li 
                           = icon('fa', 'star')
@@ -124,8 +124,8 @@
         .productHead
           = link_to "新規投稿商品", '#', {class: 'productHead__text'}
         .productLists
-          - @newproduct.each do |product|
-            -unless product.buyer_id.present? 
+          - @new_products.each do |product|
+            -unless product.buyer_id.present?
               .productList
                 = link_to product_path(product), {class: 'productList__link'} do
                   .productList__img
@@ -134,11 +134,11 @@
                     %h3.name
                       = product.name
                     .details
-                      %ul 
+                      %ul
                         %li
                           =product.price
                           円
-                        %li 
+                        %li
                           = icon('fa', 'star')
                           1
                       %p.tax (税込)

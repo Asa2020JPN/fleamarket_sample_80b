@@ -46,9 +46,11 @@ $common-color: #3CCACE;
                   display: flex;
                   justify-content: center;
                   margin-top: 10px;
+                  width: 560px;
                   li {
                     width: 25%;
-                    margin-right: 10px;
+                    margin: 0 10px 0 0;
+                    // margin-right: 10px;
                     img {
                       object-fit: cover;
                       height: 87px;

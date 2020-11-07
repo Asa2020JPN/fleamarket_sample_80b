@@ -2,7 +2,7 @@ $(function() {
   // 子カテゴリーにてoptionタグの作成
   function appendOption(category) {
     let html = 
-      `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`
+      `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`
     return html;
   }
 
@@ -10,7 +10,7 @@ $(function() {
   function appendChildrenBox(insertHTML) {
     let childrenSelectHtml = '';
     childrenSelectHtml = `<div class="input-string__category" id="child-wrapper">
-    <select class="input-string__category--form" id="child-category" name="product[category]"><option value="", data-category="">選択してください</option>
+    <select class="input-string__category--form" id="child-category" name="product[category_id]"><option value="", data-category="">選択してください</option>
     ${insertHTML}
     </select>
     </div>`;
@@ -21,7 +21,7 @@ $(function() {
   function appendGrandchidrenBox(insertHTML){
     let grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class="input-string__category" id="grandchild-wrapper">
-    <select class="input-string__category--form" id="grandchild-category" name="product[category]"><option value="">選択してください</option>
+    <select class="input-string__category--form" id="grandchild-category" name="product[category_id]"><option value="">選択してください</option>
     ${insertHTML}
     </select>
     </div>`;

@@ -1,0 +1,77 @@
+.header-top
+  = render 'products/head_tmp'
+  
+.category-wrapper
+  .category
+    %h1.category__name
+      = @category.name
+    %p.category__list
+      - if @category.root?
+      - elsif @category.has_children?
+        = link_to category_path(@category.parent.id) do
+          = @category.parent.name
+      - else
+        = link_to category_path(@category.parent.parent.id) do
+          = @category.parent.parent.name
+        >
+        = link_to category_path(@category.parent.id) do
+          = @category.parent.name
+    .products-list
+      %ul
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span
+                  = @category.products.name
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+
+  = render 'products/footer_tmp'
