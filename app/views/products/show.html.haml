@@ -7,23 +7,23 @@
       .top-content
         .product
           %h2.product__name
-            = @selectedproduct.name
+            = @selected_product.name
           .product__body
             %ul
               %li
-                = image_tag @selectedproduct.images[0].image.url
+                = image_tag @selected_product.images[0].image.url
                 %ul
-                  - @selectedproduct.images.each_with_index do |productimage|
+                  - @selected_product.images.each_with_index do |productimage|
                     %li
                       = image_tag productimage.image.url
           .product__price
             %span
               ¥
-              = @selectedproduct.price
+              = @selected_product.price
             .product__price--detail
               (税込)送料込み
           .product__description
-            = @selectedproduct.detail
+            = @selected_product.detail
           .table
             %table
               %tbody
@@ -34,7 +34,7 @@
                   %th カテゴリー
                   %td
                     - @categories.each do |grandchildren|
-                      - if @selectedproduct.category_id == grandchildren.id
+                      - if @selected_product.category_id == grandchildren.id
                         = link_to category_path(grandchildren.parent.parent.id) do
                           = grandchildren.parent.parent.name
                           %br
@@ -47,26 +47,26 @@
                 %tr
                   %th ブランド
                   %td
-                    = @selectedproduct.brand.name
+                    = @selected_product.brand.name
                 %tr
                   %th 商品のサイズ
                   %td
                 %tr
                   %th 商品の状態
                   %td
-                    = @selectedproduct.status.name
+                    = @selected_product.status.name
                 %tr
                   %th 配送料の負担
                   %td
-                    = @selectedproduct.shippingcost.name
+                    = @selected_product.shippingcost.name
                 %tr
                   %th 発送元の地域
                   %td
-                    = link_to @selectedproduct.prefecture.name, "#"
+                    = link_to @selected_product.prefecture.name, "#"
                 %tr
                   %th 発送日の目安
                   %td
-                    = @selectedproduct.shipping.name
+                    = @selected_product.shipping.name
           .optional-area
             %ul.like
               %li.like-btn
