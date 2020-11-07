@@ -73,8 +73,6 @@ ActiveRecord::Schema.define(version: 2020_10_20_162347) do
     t.integer "prefecture_id", null: false
     t.integer "shipping_id", null: false
     t.integer "category_id", null: false
-    t.integer "buyer_id"
-    t.integer "saler_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
