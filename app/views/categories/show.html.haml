@@ -16,5 +16,62 @@
         >
         = link_to category_path(@categories.parent.id) do
           = @categories.parent.name
+    .products-list
+      %ul
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span
+                  = @categories.products.name
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
+        %li
+          .product
+            =link_to "#",{class: "product__style"} do
+              %figure
+                %figcaption
+                  %span カレーライス
+                .thumbnail
+                  %span ¥2,500
+                  = image_tag 'material/pict/a001.png'
 
   = render 'products/footer_tmp'
