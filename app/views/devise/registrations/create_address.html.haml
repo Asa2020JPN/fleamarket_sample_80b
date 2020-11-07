@@ -1,0 +1,9 @@
+= render "purchases/form-header"
+.regi-wrapper
+  .completion
+    %section.completion__top
+      %h2.completion__top--title 登録が完了しました
+    %section.completion__btn
+      .top-back
+        = link_to "トップへ戻る", new_user_session_path, class: "top-back__btn"
+= render "purchases/form-info"

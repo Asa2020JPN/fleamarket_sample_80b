@@ -1,0 +1,179 @@
+.devise-form {
+  padding: 24px 16px 40px 16px;
+  border-top: 1px solid #f5f5f5;
+  .contents {
+    margin: 0 162.5px;
+    #top-field {
+      margin: 0;
+    }
+    .field {
+      width: 100%;
+      margin-top: 24px;
+      .field_with_errors {
+        display: inline;
+      }
+      &--name {
+        @include section-detail-font;
+        font-weight: 600;
+      }
+      &--required {
+        background-color: $red-color;
+        @include necessity-label();
+      }
+      &--any {
+        background-color: #ccc;
+        @include necessity-label();
+      }
+      .input {
+        &--style {
+          box-sizing: border-box;
+          width: 100%;
+          margin-top: 8px;
+          padding: 10px 16px 8px 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+        }
+      }
+    }
+    .actions {
+      margin-top: 24px;
+      text-align: center;
+      &__btn {
+        @include btn-info();
+        border: 1px solid $red-color;
+        font-size: 14px;
+        line-height: 48px;
+        width: 100%;
+      }
+    }
+    .top-back {
+      &__btn {
+        @include btn-info();
+        text-align: center;
+        font-size: 17px;
+        height: 45px;
+        line-height: 45px;
+        font-weight: bold;
+      }
+      &__btn:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.year, .month, .day {
+  margin-top: 8px;
+  margin-right: 4px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 48px;
+  line-height: 48px;
+}
+
+.month, .day {
+  margin-left: 8px;
+}
+
+.regi-wrapper {
+  width: 100vw;
+  background-color: $main-back-color;
+  display: flex;
+  justify-content: center;
+  margin: 80px 0;
+  .completion {
+    width: 700px;
+    background-color: #ffffff;
+    &__top {
+      @include section-info();
+      text-align: center;
+      &--title {
+        @include title-font();
+      }
+    }
+    &__btn {
+      @include section-info();
+      border-top: $border-info;
+      padding: 80px 0;
+      .top-back {
+        text-align: center;
+        &__btn {
+          @include btn-info();
+          border: 1px solid $red-color;
+          font-size: 14px;
+          line-height: 48px;
+        }
+      }
+    }
+  }
+}
+
+.form-wrapper {
+  .section-in {
+    width: 460px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    .sign-up {
+      padding: 40px 64px;
+      &--explain {
+        text-align: center;
+        font-size: 14px;
+        color: #333333;
+      }
+      &--btn {
+        @include btn-info;
+        margin-top: 8px;
+        background-color: #0099e8;
+        text-align: center;
+        font-size: 14px;
+        height: 45px;
+        line-height: 45px;
+        // font-weight: bold;
+      }
+    }
+    .sign-in-form {
+      padding: 32px 64px;
+      border-top: $border-info;
+
+      .field {
+        width: 100%;
+        margin-top: 24px;
+        .input {
+          &--style {
+            box-sizing: border-box;
+            width: 100%;
+            // margin-top: 8px;
+            padding: 10px 16px 8px 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+          }
+        }
+      }
+      #top-field {
+        margin: 0;
+      }
+      .actions {
+        margin-top: 40px;
+        text-align: center;
+        &__btn {
+          @include btn-info();
+          border: 1px solid $red-color;
+          font-size: 14px;
+          line-height: 48px;
+          width: 100%;
+        }
+      }
+      .forgotPassword {
+        display: block;
+        margin-top: 40px;
+        text-decoration: none;
+        color: #0099e8;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
