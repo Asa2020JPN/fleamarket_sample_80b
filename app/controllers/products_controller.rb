@@ -26,10 +26,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
   def create
     @product = Product.new(product_params)
     if @product.save
