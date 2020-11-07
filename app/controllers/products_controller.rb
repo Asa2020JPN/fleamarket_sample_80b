@@ -2,15 +2,11 @@ class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :show, :new, :create, :get_category_children, :get_category_grandchildren]
   # before_action :move_to_index, except: [:index,]
   def index
-    @newproduct = Product.includes(:images).where(buyer_id: nil).order('created_at DESC').limit(5)
+    @new_products = Product.includes(:images).where(buyer_id: nil).order('created_at DESC').limit(5)
    end
 
-  def index
-    @newproduct = Product.includes(:images).order('created_at DESC').limit(5)
-  end
-
   def show
-    @selectedproduct = Product.includes(:images).find(params[:id])
+    @selected_product = Product.includes(:images).find(params[:id])
     @categories = Category.all
   end
 
