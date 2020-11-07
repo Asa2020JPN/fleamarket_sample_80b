@@ -99,7 +99,7 @@
         .productHead
           = link_to "新規投稿商品", '#', {class: 'productHead__text'}
         .productLists
-          - @newproduct.each do |product|
+          - @new_products.each do |product|
             -unless product.buyer_id.present? 
               .productList
                 = link_to product_path(product), {class: 'productList__link'} do
@@ -124,7 +124,7 @@
         .productHead
           = link_to "新規投稿商品", '#', {class: 'productHead__text'}
         .productLists
-          - @newproduct.each do |product|
+          - @new_products.each do |product|
             -unless product.buyer_id.present?
               .productList
                 = link_to product_path(product), {class: 'productList__link'} do
