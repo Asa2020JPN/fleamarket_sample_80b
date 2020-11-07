@@ -1,10 +1,10 @@
-.body-logout
-  .logout-wrapper
+=render partial: "mypages/header" 
+.logout
+  .logout-body
     =render "mypages/side_bar"
-    .header-mypage
-    .mainbox-mypage__logout
-      .side-bar__logout
-      .main-bar__items__logout
-      .top-box-mypage__logout 
-      .main-mypagebox__logout
-      .text__logout ログアウト
+    .logout-content
+      .logout-message
+        .logout-message__text
+          ログアウト
+
+=render partial: "mypages/footer" 
