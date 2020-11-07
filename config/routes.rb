@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [:show]
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
