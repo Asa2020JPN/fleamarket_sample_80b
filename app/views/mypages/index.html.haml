@@ -24,16 +24,17 @@
       .menu-head__tab 購入した商品
       %ul.menu
         %li.menu__list.active
-          %a#about.menu__item{:href => "#"} 出品中の商品
+          #about.menu__item 過去の取引商品
         %li.menu__list.non-active
-          %a#about.menu__item{:href => "#"} 過去の取引商品
+          #about.menu__item 出品中の商品
       %ul.contents
         %li.content.show
           出品中の商品はありません
-          = image_tag "logo-white.png", size: "350x110"
+          .content-image
+            = image_tag "logo-white.png", size: "250x80"
         %li.content.no-display
-          過去の取引商品はありません
-          = image_tag "logo-white.png", size: "350x110"
+          過去の取引はありません
+          = image_tag "logo-white.png", size: "250x80"
   =render partial: "footer"
 
       

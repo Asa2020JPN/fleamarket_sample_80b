@@ -17,17 +17,6 @@ window.addEventListener("load", function() {
     $(this).removeClass('non-active');
     $(this).addClass('active');
 
-    return false;
-
-    // 全てのactiveクラスのうち、最初の要素を削除（"[0]は、最初の要素の意味"）
-    // let activedList = document.getElementsByClassName("active")[0];    
-    // activedList.classList.remove("active");
-    // activedList.classList.add("non-active");
-
-    // let nonactivedList = document.getElementsByClassName("nonactive")[0];
-    // nonactivedList.classList.remove("non-active");
-    // nonactivedList.classList.add("active");
-
     document.getElementsByClassName("active")[0].classList.remove("active");
 
     // クリックしたタブにactiveクラスを追加
@@ -53,8 +42,6 @@ window.addEventListener("load", function() {
     
   });
 });
-
-
 
 // $(function() {
 //   let tabs = $(".tab"); // tabのクラスを全て取得し、変数tabsに配列で定義
