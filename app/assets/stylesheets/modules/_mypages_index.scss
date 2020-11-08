@@ -86,33 +86,42 @@
       }
     }
   }
-  // &__user{
-  //   position:  relative;
-  //   &__icon{
-  //     position: absolute;
-  //     border-radius: 10px;
-  //     width: 60px;
-  //     // display: flex;
-  //     align-items: center;
-  //     top: 30%;
-  //     left: 0;
-  //     right: 0;
-  //     bottom: 0;
-  //     margin: auto;
-  //   }
-  // }
+  .menu-head__tab{
+    line-height: 70px;
+    padding: 0 16px; 
+    background-color: #f5f5f5;
+  }
   .menu {
     display: flex;
     &__list{
       width: 350px;
-      text-align: center
+      line-height: 70px;
+      text-align: center;
+      font-size: 20px;
     }
-    .menu_item.active{
+    .menu__list.active{
       width: 350px;
       line-height: 70px;
       height: 70px;
       padding: 0 4%;
-      font-size: 20px;
+      font-size: 20px;  
+      background-color: #ffffff;
+    }
+    .menu__list.non-active{
+      width: 350px;
+      line-height: 70px;
+      height: 70px;
+      padding: 0 4%;
+      font-size: 20px;  
+      background-color:#d3d3d3;
+    }
+  }
+  .contents{
+    display: flex;
+    .content{
+     padding: 160px 0 60px;
+     text-align: center;
+     color: white;
     }
   }
 }
