@@ -38,6 +38,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'factory_bot_rails'
+  gem 'faker', "~> 2.8"
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -67,4 +71,27 @@ end
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
 
 gem 'font-awesome-sass'
+
+gem 'devise'
+
 gem 'jquery-rails'
+
+gem 'rails-i18n'
+
+gem 'devise-i18n-views'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'active_hash'
+
+gem 'pry-rails'
+
+gem 'jquery-rails'
+
+gem 'ancestry'
+
+gem 'fog-aws'
+
+gem 'tzinfo-data'

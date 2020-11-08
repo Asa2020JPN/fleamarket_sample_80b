@@ -1,0 +1,245 @@
+$border-info: 1px solid rgb(245, 245, 245);
+$main-back-color: #f5f5f5;
+$main-font-color: #333333;
+$red-color: #ea352d;
+
+@mixin section-info {
+  padding: 32px 16px;
+  margin: 0 162.5px;
+}
+
+@mixin section-detail-font {
+  font-size: 14px;
+  color: #333333;
+}
+
+@mixin pay-fee-font {
+  display: block;
+  color: #333333;
+  font-weight: bold;
+}
+
+@mixin btn-info {
+  display: block;
+  text-decoration: none;
+  background-color: #ea352d;
+  color: #fff;
+  border-radius: 4px;
+}
+
+@mixin title-font {
+  font-size: 24px;
+  color: #333333;
+  font-weight: bold;
+  display: block;
+}
+
+@mixin necessity-label {
+  color: #ffffff;
+  font-size: 12px;
+  padding: 2px 4px;
+  margin-left: 8px;
+  border-radius: 2px;
+}
+
+@mixin info-desc {
+  font-size: 12px;
+  margin-left: 16px;
+  text-decoration: none;
+  color: #333333;
+}
+
+@mixin info-desc-hover {
+  opacity: 0.5;
+  text-decoration: underline;
+}
+
+@mixin change-btn {
+  font-size: 14px;
+  text-decoration: none;
+  color: #0095ee;
+}
+
+.form-header {
+  height: 125px;
+  width: 100vw;
+  background-color: $main-back-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-wrapper {
+  width: 100vw;
+  background-color: $main-back-color;
+  display: flex;
+  justify-content: center;
+  .section {
+    width: 700px;
+    background-color: #ffffff;
+    .content {
+      @include section-info();
+      text-align: center;
+      &__check {
+        @include title-font();
+      }
+    }
+    .product {
+      @include section-info();
+      border-top: $border-info;
+      .detail {
+        display: flex;
+        justify-content: space-between;
+        .image {
+          .product-img {
+            height: 80px;
+            width: 80px;
+          }
+        }
+        .product-info {
+          margin-left: 16px;
+          &__name {
+            @include section-detail-font;
+            margin-bottom: 8px;
+          }
+          &__price {
+            font-size: 15px;
+            text-align: right;
+            &--tax {
+              font-size: 12px;
+              color: $main-font-color;
+            }
+            &--number {
+              font-size: 15px;
+              font-weight: bold;
+              margin-left: 8px;
+              color: $main-font-color;
+            }
+          }
+        }
+      }
+    }
+    .pay-fee {
+      @include section-info();
+      border-top: $border-info;
+      .total {
+        display: flex;
+        justify-content: space-between;
+        &__font {
+          @include pay-fee-font();
+          font-size: 18px;
+        }
+        &__price {
+          @include pay-fee-font();
+          font-size: 24px;
+        }
+      }
+    }
+    .pay-method {
+      @include section-info();
+      border-top: $border-info;
+      .payment {
+        .payment-top {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          .title {
+            @include section-detail-font;
+            font-weight: bold;
+          }
+          .change-btn {
+            @include change-btn();
+          }
+          .change-btn:hover {
+            text-decoration: underline;
+            opacity: 0.5;
+          }
+        }
+        .payment__method {
+          .credit-card {
+            @include section-detail-font;
+          }
+          .number {
+            @include section-detail-font;
+          }
+          .expiration {
+            @include section-detail-font;
+          }
+        }
+      }
+    }
+    .address {
+      @include section-info();
+      border-top: $border-info;
+      &__user {
+        &--top {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          .title {
+            @include section-detail-font;
+            font-weight: bold;
+          }
+          .change-btn {
+            @include change-btn();
+          }
+          .change-btn:hover {
+            text-decoration: underline;
+            opacity: 0.5;
+          }
+        }
+      }
+      .address-font {
+        &--postcode {
+          @include section-detail-font;
+        }
+        &--city {
+          @include section-detail-font;
+        }
+        &--name {
+          @include section-detail-font;
+        }
+      }
+    }
+    .buy-button {
+      @include section-info();
+      padding-bottom: 56px;
+      border-top: $border-info;
+      .btn {
+        &--purchase {
+          @include btn-info();
+          text-align: center;
+          font-size: 17px;
+          height: 45px;
+          line-height: 45px;
+          font-weight: bold;
+        }
+        &--purchase:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.form-info {
+  width: 100vw;
+  background-color:$main-back-color;
+  padding: 40px 0;
+  text-align: center;
+  .menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    &--list {
+      @include info-desc();
+    }
+    &--list:hover {
+      @include info-desc-hover();
+    }
+  }
+  .copyright {
+    font-size: 12px;
+    color: $main-font-color;
+  }
+}

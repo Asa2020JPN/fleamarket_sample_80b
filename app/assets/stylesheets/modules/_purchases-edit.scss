@@ -1,0 +1,62 @@
+.head {
+  text-align: center;
+  &--title {
+    padding: 8px 24px;
+    @include title-font();
+  }
+}
+
+.form-addresses {
+  padding: 24px 16px 40px 16px;
+  border-top: 1px solid #f5f5f5;
+  .contents {
+    margin: 0 162.5px;
+    #top-group {
+      margin: 0;
+    }
+    .group {
+      width: 100%;
+      margin-top: 24px;
+      &--name {
+        @include section-detail-font;
+        font-weight: 600;
+      }
+      &--required {
+        background-color: $red-color;
+        @include necessity-label();
+      }
+      &--any {
+        background-color: #ccc;
+        @include necessity-label();
+      }
+      .input {
+        &--style {
+          box-sizing: border-box;
+          width: 100%;
+          margin-top: 8px;
+          padding: 10px 16px 8px 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+        }
+      }
+      .error-message {
+        color: $red-color;
+        font-size: 14px;
+        &--text {
+          margin-top: 8px;
+        }
+      }
+    }
+    .change {
+      margin-top: 24px;
+      text-align: center;
+      &__btn {
+        @include btn-info();
+        border: 1px solid $red-color;
+        font-size: 14px;
+        line-height: 48px;
+      }
+    }
+  }
+}
