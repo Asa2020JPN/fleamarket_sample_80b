@@ -58,11 +58,11 @@
                 = @address.errors.messages[:postcode][0]
 
           %section.field
-            = f.collection_select :shipping_id, Shipping.all, :id, :name, {include_blank: "選択してください"}, {class: 'field--name'}
+            = f.label :prefecture_id, "都道府県",class: "field--name"
             %span.field--required 必須
             %br/
             .input
-              = f.text_field :prefecture_id, class: "input--style", placeholder: "例）activeHash"
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: 'input--style'}
             - if @address.errors.include?(:prefecture_id)
               %p.error-text
                 = @address.errors.messages[:prefecture_id][0]
