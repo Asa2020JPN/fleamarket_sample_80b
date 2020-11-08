@@ -1,6 +1,5 @@
 .mypage-left
   .mypage-left__content
-    -# %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"}
     = link_to mypages_path, class: "button" do
       .text-box
         .text-box__left
@@ -82,77 +81,3 @@
           ログアウト
         .text-box__right
           = icon("fas", "chevron-right")
-
--# .body-mypage
--#   .wrapper-mypage
--#     .header__mypage
--#     -# %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"}
--#     .mainbox__mypage
--#       .side-bar
--#         %ul.side-bar__items
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active マイページ 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon",)
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active いいね一覧 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 出品する 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 下書き一覧 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 出品した商品−出品中 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 出品した商品−売却済み 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 購入した商品−取引中 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 購入した商品−過去の取引 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 評価一覧
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#         .side-bar-navi 
--#           .side-bar-navi__content 設定
--#         %ul.side-bar__items
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active プロフィール
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 発送元・お届け先住所変更 
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           = link_to "#" do
--#             %li.side-bar__items-boxes
--#               .side-bar__items-boxes--active 支払い方法
--#               .side-bar__item-box--active-mark
--#                 = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active メール /パスワード
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           %li.side-bar__items-boxes
--#             .side-bar__items-boxes--active 電話番号の確認（保留）
--#             .side-bar__item-box--active-mark
--#               = icon("fas", "chevron-right", class: "angle-icon")
--#           = link_to users_path do
--#             %li.side-bar__items-boxes
--#               .side-bar__items-boxes--active ログアウト
--#               .side-bar__item-box--active-mark
--#                 = icon("fas", "chevron-right", class: "angle-icon")
-          
