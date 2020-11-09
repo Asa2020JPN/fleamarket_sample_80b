@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :show, :new, :create, :edit, :update, :get_category_children, :get_category_grandchildren]
+  before_action :set_product, except: [:index, :show, :new, :create, :get_category_children, :get_category_grandchildren]
   # before_action :move_to_index, except: [:index,]
   def index
     @new_products = Product.includes(:images).where(buyer_id: nil).order('created_at DESC').limit(5)
@@ -33,9 +33,11 @@ class ProductsController < ApplicationController
 
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to root_path
     else
@@ -57,7 +59,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :price, :status_id, :prefecture_id, :category_id, :shippingcost_id, :shipping_id, brand_attributes: [:id, :name], images_attributes: [:image, :_destroy, :id])
+   params.require(:product).permit(:name, :detail, :price, :status_id, :prefecture_id, :category_id, :shippingcost_id, :shipping_id, brand_attributes: [:id, :name], images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id)
   end
 
   def set_product
