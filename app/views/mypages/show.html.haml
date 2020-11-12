@@ -1,0 +1,96 @@
+.show-top
+  = render 'products/head_tmp'
+
+- if current_user.id == @selected_product.saler_id
+  .show-wrapper
+    .show-main
+      .contents
+        .top-content
+          .product
+            %h2.product__name
+              = @selected_product.name
+            .product__body
+              %ul
+                %li
+                  = image_tag @selected_product.images[0].image.url
+                  %ul
+                    - @selected_product.images.each_with_index do |productimage|
+                      %li
+                        = image_tag productimage.image.url
+            .product__price
+              %span
+                ¥
+                = @selected_product.price
+              .product__price--detail
+                (税込)送料込み
+            .product__description
+              = @selected_product.detail
+            .table
+              %table
+                %tbody
+                  %tr
+                    %th 出品者
+                    %td hoge
+                  %tr
+                    %th カテゴリー
+                    %td
+                      - @categories.each do |grandchildren|
+                        - if @selected_product.category_id == grandchildren.id
+                          = link_to category_path(grandchildren.parent.parent.id) do
+                            = grandchildren.parent.parent.name
+                            %br
+                          = link_to category_path(grandchildren.parent.id) do
+                            = grandchildren.parent.name
+                            %br
+                          = link_to category_path(grandchildren.id) do
+                            = grandchildren.name
+                            %br
+                  %tr
+                    %th ブランド
+                    %td
+                      = @selected_product.brand.name
+                  %tr
+                    %th 商品のサイズ
+                    %td
+                  %tr
+                    %th 商品の状態
+                    %td
+                      = @selected_product.status.name
+                  %tr
+                    %th 配送料の負担
+                    %td
+                      = @selected_product.shippingcost.name
+                  %tr
+                    %th 発送元の地域
+                    %td
+                      = link_to @selected_product.prefecture.name, "#"
+                  %tr
+                    %th 発送日の目安
+                    %td
+                      = @selected_product.shipping.name
+          .edit-box
+            = link_to '商品の編集', "#"
+            %p
+              or
+            = link_to 'この商品を削除する', "#", id: "delete"
+          .comment-box
+            = form_with url: '#', class: "comment-box__new", method: :get, local: true do |form|
+              = form.text_area :comment, class: "comment-box__new--body"
+              %p.notice-msg
+                相手のことを考え丁寧なコメントを心がけましょう。<br>不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              = button_tag type: 'submit', class: "comment-box__new--btn" do
+                = icon('fa', 'comment')
+                = "コメントする"
+  = render 'products/footer_tmp'
+
+- else
+  .not-found
+    .error
+      %h1.error__text
+        ページが見つかりませんでした。
+      %p.error__msg
+        お探しのページはアドレスが間違っているか、<br>
+        削除された可能性があります。
+      .error__image
+        = image_tag 'material/logo/logo.png', alt: "FURIMA画像", class: "error__image--logo"
+  = render 'products/footer_tmp'
