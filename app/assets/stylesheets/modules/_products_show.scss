@@ -272,28 +272,3 @@ $common-color: #3CCACE;
     }
   }
 }
-
-.not-found {
-  background-color: #fff;
-  margin: 60px auto 60px;
-  width: 700px;
-  .error {
-    padding: 80px 160px;
-    text-align: center;
-    &__text {
-      font-size: 24px;
-      font-weight: bold;
-      padding-bottom: 20px;
-    }
-    &__msg {
-      padding-bottom: 30px;
-    }
-    &__image {
-      display: block;
-      justify-content: center;
-      &--logo {
-        width: 300px;
-      }
-    }
-  }
-}
