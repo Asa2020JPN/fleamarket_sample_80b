@@ -22,6 +22,13 @@
               = @selected_product.price
             .product__price--detail
               (税込)送料込み
+          - if current_user.present? && current_user.id != @selected_product.saler_id
+            = link_to purchases_path, class: "product__purchase" do
+              = "購入画面に進む"
+          - elsif current_user.present? && current_user.id == @selected_product.saler_id
+          - else
+            = link_to new_user_session_path, class: "product__purchase" do
+              = "購入画面に進む"
           .product__description
             = @selected_product.detail
           .table
@@ -29,7 +36,8 @@
               %tbody
                 %tr
                   %th 出品者
-                  %td hoge
+                  %td
+                    = @selected_product.saler.nickname
                 %tr
                   %th カテゴリー
                   %td
@@ -97,7 +105,9 @@
               = "後の商品"
             = icon('fa', 'angle-right')
       .related-items
-        = link_to 'ベビー・キッズをもっと見る', "#"
+        = link_to '#' do
+          = @selected_product.saler.nickname
+          さんのその他の出品
         .related-items__lists
           .related-items__lists__product
             = link_to "#" do
@@ -114,5 +124,4 @@
                       1
                   %p
                     （税込）
-.app-banner
-.footer
+  = render 'footer_tmp'
