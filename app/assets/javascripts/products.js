@@ -13,12 +13,14 @@ $(document).on('turbolinks:load', () => {
   }
   
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
+
   $('.hidden-destroy').hide();
 
-  $('#image-box').on('change', '.js-file', function (e) {
+  $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -28,7 +30,7 @@ $(document).on('turbolinks:load', () => {
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
-      $('#uploads-box').append(buildImg(targetIndex, blobUrl));
+      $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();

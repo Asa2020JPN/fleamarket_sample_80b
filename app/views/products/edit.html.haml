@@ -12,7 +12,7 @@
             .registration-item__right--color
               必須
         .max-uploads
-          最大４枚までアップロードできます
+          最大10枚までアップロードできます
         .uploads
           #uploads-box
           .uploads__icon
@@ -23,42 +23,19 @@
                 - if @product.persisted?
                   - @product.images.each_with_index do |image, i|
                     = image_tag image.image.url, data: { index: i }, width: '100', height: '200'
-                = form.fields_for :images do |image|
-                  .js-file_group{"data-index": "#{image.index}"}
-                    = image.file_field :image, class: 'js-file'
-                    %span.js-remove
-                      削除
-                  -if @product.persisted?
-                    = image.check_box :destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              = form.fields_for :images do |image|
+                .js-file_group{"data-index": "#{image.index}"}
+                  = image.file_field :image, class: 'js-file'
+                  %span.js-remove
+                    削除
                 -if @product.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
                   .js-file_group{"data-index" => "#{image.index}"}
-                    = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                    %span.js-remove
-                      削除
+                    -# = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
                 - if @product.errors.include?(:images)
                   %p.error-text
                     = @product.errors.messages[:images][0]
-              
-        -# .post__drop__box__container
-        -#   .prev-content
-        -#     - @product.images.each do |image|
-        -#       .preview-box
-        -#         .upper-box
-        -#           = image_tag image.image.url, width: "112", height: "112", alt: "preview"
-        -#         .lower-box
-        -#           .delete-box
-        -#             .delete-btn
-        -#               %span 削除
-        -#   .label-content
-        -#     %label{for: "product_photos_attributes_#{@product.images.length}_name", class: "label-box", id: "label-box--#{@product.images.length}"}
-        -#       %pre.label-box__text-visible クリックしてファイルをアップロード
-        -#   .hidden-content
-        -#     = form.fields_for :images do |i|
-        -#       = i.file_field :image, class: "hidden-field"
-        -#       = i.check_box :_destroy, class: "hidden-checkbox"
-        -#     - @product.images.length.upto(10) do |i|
-        -#       %input{name: "product[images_attributes][#{i}][image]", id: "product_photos_attributes_#{i}_name", class:"hidden-field", type:"file"}
-
+                    
       .content-02
         .registration-item
           .registration-item__left
@@ -214,3 +191,22 @@
           = image_tag 'material/logo/logo-white.png', class: 'corporate-logo-white__img'
         .corporate-inc
           @Furima.Inc.
+        -# .post__drop__box__container
+        -#   .prev-content
+        -#     - @product.images.each do |image|
+        -#       .preview-box
+        -#         .upper-box
+        -#           = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+        -#         .lower-box
+        -#           .delete-box
+        -#             .delete-btn
+        -#               %span 削除
+        -#   .label-content
+        -#     %label{for: "product_photos_attributes_#{@product.images.length}_name", class: "label-box", id: "label-box--#{@product.images.length}"}
+        -#       %pre.label-box__text-visible クリックしてファイルをアップロード
+        -#   .hidden-content
+        -#     = form.fields_for :images do |i|
+        -#       = i.file_field :image, class: "hidden-field"
+        -#       = i.check_box :_destroy, class: "hidden-checkbox"
+        -#     - @product.images.length.upto(10) do |i|
+        -#       %input{name: "product[images_attributes][#{i}][image]", id: "product_photos_attributes_#{i}_name", class:"hidden-field", type:"file"}

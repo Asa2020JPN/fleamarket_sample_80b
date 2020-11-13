@@ -29,12 +29,9 @@
                   %span.js-remove
                     削除
                 -if @product.persisted?
-                  = image.check_box :destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              -if @product.persisted?
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                  %span.js-remove
-                    削除
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
               - if @product.errors.include?(:images)
                 %p.error-text
                   = @product.errors.messages[:images][0]
