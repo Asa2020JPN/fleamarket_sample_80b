@@ -1,5 +1,5 @@
 .show-top
-  = render 'head_tmp'
+  = render 'products/head_tmp'
 
 .show-wrapper
   .show-main
@@ -22,13 +22,6 @@
               = @selected_product.price
             .product__price--detail
               (税込)送料込み
-          - if current_user.present? && current_user.id != @selected_product.saler_id
-            = link_to purchases_path, class: "product__purchase" do
-              = "購入画面に進む"
-          - elsif current_user.present? && current_user.id == @selected_product.saler_id
-          - else
-            = link_to new_user_session_path, class: "product__purchase" do
-              = "購入画面に進む"
           .product__description
             = @selected_product.detail
           .table
@@ -75,16 +68,12 @@
                   %th 発送日の目安
                   %td
                     = @selected_product.shipping.name
-          .optional-area
-            %ul.like
-              %li.like-btn
-                = icon('fa', 'star')
-                お気に入り1
-            %ul.report
-              %li.report-btn
-                = link_to "#" do
-                  = icon('fa', 'flag')
-                  = "不適切な商品の通報"
+        - if current_user.present? && current_user.id == @selected_product.saler_id
+          .edit-box
+            = link_to '商品の編集', "#"
+            %p
+              or
+            = link_to 'この商品を削除する', "#", id: "delete"
         .comment-box
           = form_with url: '#', class: "comment-box__new", method: :get, local: true do |form|
             = form.text_area :comment, class: "comment-box__new--body"
@@ -93,35 +82,4 @@
             = button_tag type: 'submit', class: "comment-box__new--btn" do
               = icon('fa', 'comment')
               = "コメントする"
-      %ul.links
-        %li
-          = link_to "#" do
-            = icon('fa', 'angle-left')
-            %span
-              = "前の商品"
-        %li
-          = link_to "#" do
-            %sapn
-              = "後の商品"
-            = icon('fa', 'angle-right')
-      .related-items
-        = link_to '#' do
-          = @selected_product.saler.nickname
-          さんのその他の出品
-        .related-items__lists
-          .related-items__lists__product
-            = link_to "#" do
-              %figure.related-items__lists__product--img
-                = image_tag 'material/pict/a001.png'
-              .related-items__lists__product--body
-                %h3.product-name product1
-                .product-price
-                  %ul
-                    %li
-                      1000円
-                    %li
-                      = icon('fa', 'star')
-                      1
-                  %p
-                    （税込）
-  = render 'footer_tmp'
+= render 'products/footer_tmp'
