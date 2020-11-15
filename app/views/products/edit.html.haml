@@ -73,8 +73,15 @@
             .registration-item__right--color
               必須
         .input-string
+          -# .input-string__category
+            -# = form.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択してください'}, {class: 'input-string__category--form', id: 'parent-category'}
+          -# =f.collection_select :category_id, @category_children_array, :id, :name, {selected:@child_array}, {class:"serect_field"}
           .input-string__category
-            = form.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択してください'}, {class: 'input-string__category--form', id: 'parent-category'}
+            = form.collection_select :category_id, @category_parent_array, :id, :name, { selected: @product.category.parent.parent.id}, {class: 'input-string__category--form', id: 'parent-category'}
+            #child-wrapper.input-string__category
+              = form.collection_select :category_id, @product_children_category, :id, :name, {selected: @product.category.parent.id}, {class: 'input-string__category--form'}
+              #grandchild-wrapper.input-string__category
+                = form.collection_select :category_id, @product_grandcildren_category, :id, :name, {selected: @product.category.id}, {class: 'input-string__category--form'}
             - if @product.errors.include?(:category)
               %p.error-text
                 = @product.errors.messages[:category][1]
@@ -82,7 +89,7 @@
         .registration-item
           .registration-item__left
             ブランド
-          .registration-item__rightgray
+          .registration-item__rightgray 
             .registration-item__rightgray--gray
               任意
         .input-string
@@ -193,22 +200,3 @@
           = image_tag 'material/logo/logo-white.png', class: 'corporate-logo-white__img'
         .corporate-inc
           @Furima.Inc.
-        -# .post__drop__box__container
-        -#   .prev-content
-        -#     - @product.images.each do |image|
-        -#       .preview-box
-        -#         .upper-box
-        -#           = image_tag image.image.url, width: "112", height: "112", alt: "preview"
-        -#         .lower-box
-        -#           .delete-box
-        -#             .delete-btn
-        -#               %span 削除
-        -#   .label-content
-        -#     %label{for: "product_photos_attributes_#{@product.images.length}_name", class: "label-box", id: "label-box--#{@product.images.length}"}
-        -#       %pre.label-box__text-visible クリックしてファイルをアップロード
-        -#   .hidden-content
-        -#     = form.fields_for :images do |i|
-        -#       = i.file_field :image, class: "hidden-field"
-        -#       = i.check_box :_destroy, class: "hidden-checkbox"
-        -#     - @product.images.length.upto(10) do |i|
-        -#       %input{name: "product[images_attributes][#{i}][image]", id: "product_photos_attributes_#{i}_name", class:"hidden-field", type:"file"}
