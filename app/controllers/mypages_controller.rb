@@ -9,4 +9,10 @@ class MypagesController < ApplicationController
     end
   end
 
+  def destroy
+    delete_product = Product.find(params[:id])
+    delete_product.destroy
+    redirect_to mypages_path
+  end
+
 end

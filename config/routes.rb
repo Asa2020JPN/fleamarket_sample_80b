@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :mypages, only: [:index, :show]
+  resources :mypages, only: [:index, :show, :destroy]
   get 'users', to: 'users#logout'
   
   resources :categories, only: [:show]

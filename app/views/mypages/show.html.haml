@@ -73,7 +73,8 @@
             = link_to '商品の編集', "#"
             %p
               or
-            = link_to 'この商品を削除する', "#", id: "delete"
+            = link_to mypage_path(@selected_product.id), id: "del", method: :delete, data: {confirm: "削除しますか？"} do
+              = "この商品を削除する"
         .comment-box
           = form_with url: '#', class: "comment-box__new", method: :get, local: true do |form|
             = form.text_area :comment, class: "comment-box__new--body"
