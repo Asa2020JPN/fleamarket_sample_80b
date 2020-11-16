@@ -31,7 +31,7 @@
                   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
               -if @product.persisted?
                 .js-file_group{"data-index" => "#{@product.images.count}"}
-                  = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+                  = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file'
                   %span.js-remove
                     削除
               - if @product.errors.include?(:images)

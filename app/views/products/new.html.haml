@@ -32,7 +32,7 @@
                   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
               - if @product.errors.include?(:images)
                 %p.error-text
-                  = @product.errors.messages[:images][0]
+                  = @product.errors.messages[:images][0]  
       .content-02
         .registration-item
           .registration-item__left

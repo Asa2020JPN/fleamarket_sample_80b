@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
     product_parent_category = @product.category.parent
     @product_grandcildren_category = product_parent_category.children
   end
-
+  
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
