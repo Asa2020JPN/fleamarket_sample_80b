@@ -41,14 +41,13 @@ class ProductsController < ApplicationController
   end
   
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to root_path
     else
     @category_parent_array = Category.roots
-    @product_root_category = @product.category.root
+    @product_root_category = Product.find(params[:id]).category.root
     @product_children_category = @product_root_category.children
-    product_parent_category = @product.category.parent
+    product_parent_category = Product.find(params[:id]).category.parent
     @product_grandcildren_category = product_parent_category.children
     render :edit
     end
