@@ -74,14 +74,14 @@
               必須
         .input-string
           .input-string__category
-            = form.collection_select :category_id, @category_parent_array, :id, :name, { selected: Product.find(params[:id]).category.parent.parent.id}, {class: 'input-string__category--form', id: 'parent-category'}
+            = form.collection_select :category_id, @category_parent_array, :id, :name, { prompt: '選択してください', selected: Product.find(params[:id]).category.parent.parent.id}, {class: 'input-string__category--form', id: 'parent-category'}
             #child-wrapper.input-string__category
               = form.collection_select :category_id, @product_children_category, :id, :name, {selected: Product.find(params[:id]).category.parent.id}, {class: 'input-string__category--form'}
               #grandchild-wrapper.input-string__category
                 = form.collection_select :category_id, @product_grandcildren_category, :id, :name, {selected: Product.find(params[:id]).category.id}, {class: 'input-string__category--form'}
-            - if @product.errors.include?(:category)
-              %p.error-text
-                = @product.errors.messages[:category][1]
+          - if @product.errors.include?(:category)
+            %p.error-text
+              = @product.errors.messages[:category][1]
         .registration-item
           .registration-item__left
             ブランド
