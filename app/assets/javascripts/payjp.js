@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  Payjp.setPublicKey('PK入れる');
+  Payjp.setPublicKey('');
   $(document).on("click", "#token_submit", function(e) {
     e.preventDefault();
     $('.icon_load').show();
