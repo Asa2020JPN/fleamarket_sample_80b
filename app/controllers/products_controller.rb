@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show ]
+  before_action :authenticate_user!, except: [:index, :show, :get_category_children, :get_category_grandchildren ]
   before_action :set_product, except: [:index, :show, :new, :create, :get_category_children, :get_category_grandchildren]
   def index
     @new_products = Product.includes(:images).where(buyer_id: nil).order('created_at DESC').limit(5)

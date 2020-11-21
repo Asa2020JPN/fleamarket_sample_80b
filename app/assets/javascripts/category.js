@@ -30,8 +30,8 @@ $(function() {
 
 
 // 親カテゴリー選択後のイベント
-  $("#parent-category").on('change', function () {
-    let parentID = $("#parent-category").val();    
+  $("#parent-category").on('change', function(){
+    let parentID = $("#parent-category").val();
     if (parentID != "") { //親カテゴリーが初期値でないことを確認してAjax通信を開始
       $.ajax( {
         type: 'GET',
@@ -40,7 +40,6 @@ $(function() {
         dataType: 'json'
       })
         .done(function (children) {
-          // console.log(children);
         $('#child-wrapper').remove(); //親が変更された時、子以下を削除する
         let insertHTML = '';
         children.forEach(function(children){
