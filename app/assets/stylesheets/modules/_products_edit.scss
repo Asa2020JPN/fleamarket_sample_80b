@@ -1,0 +1,320 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin registration-item {
+  display: flex;
+  &__left {
+    margin-right: 10px;
+  }
+  &__right {
+    background-color: #7fd9d2;
+    border-radius: 2px;
+    padding: 0 3px;
+    &--color {
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 24px
+    }
+  }
+  &__rightgray {
+    background-color: gray;
+    border-radius: 2px;
+    padding: 0 3px;
+    &--gray {
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 24px
+    }
+  }
+}
+
+@mixin input-string {
+  margin: 20px 0;
+  &__form {
+    height: 50px;
+    width: 620px;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+    padding: 0 20px;
+  }
+}
+
+@mixin input-warning {
+  font-size: 13px;
+  color: red;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.product-wrapper {
+  width: 700px;
+  margin: 0 auto;
+  background-color: white;
+  &__top {
+    height: 125px;
+    width: 100%;
+    background-color: whitesmoke;
+    .corporate-logo {
+      &__img {
+        width: 184px;
+        height: 45px;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+      }
+    }
+  }
+  &__middle {
+    width: 100%;
+    .content-01 {
+      padding: 40px 40px;
+      border-bottom: 1px solid whitesmoke;
+      .registration-item {
+        @include registration-item;
+      }
+      .max-uploads {
+        margin: 20px 0;
+      }
+    }
+  }
+  .content-02 {
+    height: 487px;
+    padding: 40px 40px;
+    border-bottom: 1px solid whitesmoke;
+    .registration-item {
+      @include registration-item;
+    }
+    .input-string {
+      @include input-string;
+    }
+    .input-warning {
+      @include input-warning;
+    }
+    .input-text {
+      margin: 20px 0;
+      &__form {
+        height: 155px;
+        width: 620px;
+        border: 0.5px solid lightgray;
+        border-radius: 5px;
+        padding: 0 20px;
+      }
+    }
+    .count-length {
+      text-align: right;
+      font-size: 10px;
+    }
+  }
+  
+  .content-03 {
+    padding: 40px 40px;
+    border-bottom: 1px solid whitesmoke;
+    .title-03 {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: gray;
+      font-weight: bold;
+    }
+    .registration-item {
+      @include registration-item;
+    }
+    .input-warning {
+      @include input-warning;
+    }
+    .input-string {
+      @include input-string;
+      &__category {
+        margin: 20px 0;
+        &--form {
+          height: 50px;
+        width: 620px;
+        border: 0.5px solid lightgray;
+        border-radius: 5px;
+        padding: 0 20px;
+        }
+      }
+    }
+  }
+  .content-04 {
+    padding: 40px 40px;
+    border-bottom: 1px solid whitesmoke;
+    .title-box {
+      display: flex;
+      &__title04 {
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: gray;
+        font-weight: bold;
+      }
+      &__question {
+        margin-left: 5px;
+        font-size: 14px;
+        color: blue;
+        font-weight: bold;
+      }
+    }
+    .registration-item {
+      @include registration-item;
+    }
+    .input-string {
+      @include input-string;
+    }
+    .input-warning {
+      @include input-warning;
+    }
+    .registration-item {
+      @include registration-item;
+    }
+  }
+  .content-05 {
+    height: 650 px;
+    padding: 40px 40px;
+    border-bottom: 1px solid whitesmoke;
+    .title-box {
+      display: flex;
+      &__title04 {
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: gray;
+        font-weight: bold;
+      }
+      &__question {
+        margin-left: 5px;
+        font-size: 14px;
+        color: blue;
+        font-weight: bold;
+      }
+    }
+    .price-box {
+      margin-top: 20px;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      &__left {
+        padding-top: 20px;
+        .registration-item {
+          @include registration-item;
+        }
+      }
+      &__right {
+        .coin-box {
+          width: 310px;
+          display: flex;
+          &__left {
+            line-height: 50px;
+            margin-right: 5px;
+          }
+          &__right {
+            &--input {
+              width: 285px;
+              height: 50px;
+              border: 0.5px solid lightgray;
+              border-radius: 5px;
+              text-align: right;
+              padding: 0 20px;
+            }
+          }
+        }
+      }
+    }
+    .margin-box {
+      padding: 30px 0;
+      margin-bottom: 1px solid;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid whitesmoke;
+      &__left {
+        font-size: 14px;
+      }
+    }
+    .salesprofit-box {
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1px solid ;
+      &__left {
+        font-size: 14px;
+      }
+    }
+    .register-btn {
+      margin: 25px 0;
+      text-align: center;
+      &__product {
+        background-color:#7fd9d2;
+        color: white;
+        width: 360px;
+        height: 50px;
+        border: none;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+    }
+    
+    .save-btn {
+      text-align: center;
+      &__save {
+        width: 360px;
+        height: 50px;
+        border: none;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+    }
+    
+    .back-top {
+      margin: 25px 0;
+      text-align: center;
+      &__font {
+        font-size: 13px;
+        text-decoration: none;
+      }
+    }
+    .caution-message {
+      width: 610px;
+      height: 30px;
+      font-size: 12px;
+    }
+  }
+  &__bottom {
+    height: 220px;
+    padding-top: 45px;
+    width: 100%;
+    background-color: whitesmoke;
+      .policy-box {
+      display: flex;
+      justify-content: center;
+      &__left, &__center, &__right {
+        font-size: 11px;
+        margin: 0 10px;
+      }
+    }
+    .corporate-logo-white {
+      position: relative;
+      &__img {
+        width: 184px;
+        height: 45px;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+      }
+    }
+    .corporate-inc {
+      margin: 76px;
+      text-align: center;
+      font-size: 10px;
+      color: gray;
+    }
+  }
+}

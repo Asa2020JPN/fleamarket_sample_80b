@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :get_category_children, :get_category_grandchildren ]
   before_action :set_product, except: [:index, :show, :new, :create, :get_category_children, :get_category_grandchildren]
-  # before_action :move_to_index, except: [:index,]
   def index
     @new_products = Product.includes(:images).order('created_at DESC').limit(5)
-   end
-
+  end
+  
   def show
     @selected_product = Product.includes(:images).find(params[:id])
     @categories = Category.all
@@ -33,13 +33,24 @@ class ProductsController < ApplicationController
 
 
   def edit
+    @product = Product.find(params[:id])
+    @category_parent_array = Category.roots
+    @product_root_category = @product.category.root
+    @product_children_category = @product_root_category.children
+    product_parent_category = @product.category.parent
+    @product_grandcildren_category = product_parent_category.children      
   end
-
+  
   def update
     if @product.update(product_params)
       redirect_to root_path
     else
-      redirect_to new_product_path
+    @category_parent_array = Category.roots
+    @product_root_category = Product.find(params[:id]).category.root
+    @product_children_category = @product_root_category.children
+    product_parent_category = Product.find(params[:id]).category.parent
+    @product_grandcildren_category = product_parent_category.children
+    render :edit
     end
   end
 
@@ -63,10 +74,4 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
-
-  # def move_to_index
-  #   unless user_signed_in?
-  #     redirect_to action: :index
-  #   end
-  # end
 end
