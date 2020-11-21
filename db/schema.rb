@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_071227) do
+ActiveRecord::Schema.define(version: 2020_11_15_061846) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(version: 2020_11_08_071227) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "customer_id"
+    t.string "card_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "identifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "last_name", null: false
@@ -71,6 +83,17 @@ ActiveRecord::Schema.define(version: 2020_11_08_071227) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_images_on_product_id"
+  end
+
+  create_table "payment_selecteds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "card_selected", null: false
+    t.bigint "card_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "id_path"
+    t.index ["card_id"], name: "index_payment_selecteds_on_card_id"
+    t.index ["user_id"], name: "index_payment_selecteds_on_user_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -106,4 +129,6 @@ ActiveRecord::Schema.define(version: 2020_11_08_071227) do
   add_foreign_key "cards", "users"
   add_foreign_key "identifications", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "payment_selecteds", "cards"
+  add_foreign_key "payment_selecteds", "users"
 end

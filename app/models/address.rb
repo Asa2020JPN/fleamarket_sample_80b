@@ -5,4 +5,7 @@ class Address < ApplicationRecord
   validates :last_name_kana, :first_name_kana, format: { with:  /\A[ァ-ヶー－]+\z/}
   validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :phone_number, format: {with: /\A\d{10,11}\z/}, allow_blank: true
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end

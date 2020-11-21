@@ -4,46 +4,72 @@ class CardController < ApplicationController
 
 
   def new
-    card = Card.where(user_id: current_user.id)
-    binding.pry
-    redirect_to action: "show" if card.exists?
   end
 
-def pay
-  Payjp.api_key = 'sk_test_53ccdafb23cf6ca58c7ac797'
-  if params['payjp-token'].blank?
-    redirect_to action: "new"
-  else
-    
-    binding.pry
-    
-    customer = Payjp::Customer.create(
-      description: '登録テスト', #なくてもOK
-      email: current_user.email, #なくてもOK
-      card: params['payjp-token'],
-      metadata: {user_id: current_user.id}
-    )
-    @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+  def pay
+
+    Payjp.api_key = ''
+
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(
+        description: '登録テスト',
+        card: params['payjp-token'],
+        metadata: {user_id: current_user.id, email: current_user.email}
+      )
+
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+    end
+
     if @card.save
-      redirect_to action: "show"
+      cards = Card.where(user_id: current_user.id)
+      @card_selected = PaymentSelected.find_by(user_id: current_user.id)
+      @card_selected.update(card_selected: cards.length, card_id: @card.id)
+      @card_selected.save
     else
       redirect_to action: "pay"
     end
-  end
-end
 
-
-  def show
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "new" 
+    if params[:id].blank?
+      redirect_to payment_method_purchases_path
     else
-      
-      binding.pry
-      
-      Payjp.api_key = 'sk_test_53ccdafb23cf6ca58c7ac797'
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      redirect_to payment_method_purchases_path(id: params[:id])
+    end
+  end
+
+  def delete
+
+    selected = PaymentSelected.find_by(user_id: current_user.id)
+
+    if selected.card_selected > params[:card_value]
+      selected.update(card_selected: selected.card_selected.to_i - 1)
+    elsif selected.card_selected == params[:card_value]
+      selected.update(card_selected: "0", card_id: "")
+    end
+
+    # カード削除
+    cards = Card.where(user_id: current_user.id)
+    card = cards[params[:card_value].to_i - 1]
+    card.delete
+
+    # payjp側の削除
+    Payjp.api_key = ''
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    customer.delete
+
+    if selected.card_selected.blank?
+      if params[:params_id].blank?
+        redirect_to payment_method_purchases_path
+      else
+        redirect_to payment_method_purchases_path(id: params[:params_id])
+      end
+    end
+
+    if params[:params_id].blank?
+      redirect_to payment_method_purchases_path
+    else
+      redirect_to payment_method_purchases_path(id: params[:params_id])
     end
   end
 

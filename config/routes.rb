@@ -12,14 +12,25 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  resources :purchases, only: [:index, :new]
-  get 'purchases/edit', to: 'purchases#edit'
+  resources :purchases, only: [:index, :create] do
+    collection do
+      get 'payment_method'
+      get 'address'
+    end
+  end
+  # get 'purchases/edit', to: 'purchases#edit'
+  get 'purchases/:id', to: 'purchases#index'
+  # post 'purchases/payment_method', to: "purchases#paymethod_selected"
+  post 'purchases/pay', to: 'purchases#pay'
+  post 'purchases/pay/:id', to: 'purchases#pay'
+
+  post 'purchases/paymethod_selected'
+  get 'purchases/payment_method/:id', to: 'purchases#payment_method'
+
   resources :tops, only: :show
   resources :products, only: [:index]
   resources :registrations, only: [:index]
   root 'products#index'
-  get 'purchases/edit', to: 'purchases#edit'
-  resources :purchases, only: [:index, :new]
   # resources :tops, only: [:index, :show]
   # resources :products, only: [:index]
   resources :products, only: [:index, :show, :new, :create, :edit, :create] do
@@ -34,8 +45,11 @@ Rails.application.routes.draw do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
-      end
+    end
   end
 
+  post 'pay/:id', to: 'card#pay'
+
+  get 'card/new/:id', to: 'card#new'
   # resources :credits
 end
