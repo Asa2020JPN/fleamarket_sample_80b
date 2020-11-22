@@ -1,9 +1,8 @@
 class Product < ApplicationRecord
-  # belongs_to :saler, class_name: "User"
-  # belongs_to :buyer, class_name: "User"
+  belongs_to :saler, class_name: "User"
   belongs_to :category
-  has_many :images
-  has_one :brand
+  has_many :images, dependent: :destroy
+  has_one :brand, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :brand, allow_destroy: true
 

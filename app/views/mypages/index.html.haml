@@ -1,0 +1,41 @@
+=render partial: "header" 
+.mypage-wrapper
+  .main-body
+    =render partial: "side_bar"
+    .mypage__right-main
+      .main-box
+        = image_tag "user-bg.jpg", size: "700x200"
+        .user
+          .user__img
+            = image_tag "mypage-logo.jpg", size: "50x50", class: "user__img--img"
+          .user-name
+            テスト
+          .info-box
+            .info-box__left
+              .info-box__left--text
+                評価
+              .info-box__left--num
+                0
+            .info-box__right
+              .info-box__right--text
+                出品数
+              .info-box__right--num
+                0
+      .menu-head__tab 購入した商品
+      %ul.menu
+        %li.menu__list.active
+          #about.menu__item 過去の取引商品
+        %li.menu__list.non-active
+          #about.menu__item 出品中の商品
+      %ul.contents
+        %li.content.show
+          出品中の商品はありません
+          = image_tag "logo-white.png", size: "250x80", class:"content-image"
+        %li.content.no-display
+          過去の取引はありません
+          = image_tag "logo-white.png", size: "250x80", class:"content-image"
+  =render partial: "footer"
+
+      
+
+ 

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+
   get 'card/new'
   get 'card/show'
+
+  resources :mypages, only: [:index, :show, :destroy]
+  get 'users', to: 'users#logout'
+
   resources :categories, only: [:show]
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -12,15 +17,16 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
+
   resources :purchases, only: [:index, :create] do
     collection do
       get 'payment_method'
       get 'address'
     end
   end
-  # get 'purchases/edit', to: 'purchases#edit'
+
   get 'purchases/:id', to: 'purchases#index'
-  # post 'purchases/payment_method', to: "purchases#paymethod_selected"
+
   post 'purchases/pay', to: 'purchases#pay'
   post 'purchases/pay/:id', to: 'purchases#pay'
 
@@ -31,9 +37,9 @@ Rails.application.routes.draw do
   resources :products, only: [:index]
   resources :registrations, only: [:index]
   root 'products#index'
-  # resources :tops, only: [:index, :show]
-  # resources :products, only: [:index]
+
   resources :products, only: [:index, :show, :new, :create, :edit, :create] do
+
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -51,5 +57,5 @@ Rails.application.routes.draw do
   post 'pay/:id', to: 'card#pay'
 
   get 'card/new/:id', to: 'card#new'
-  # resources :credits
+
 end

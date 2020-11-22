@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_one :identification
   has_one :address
   has_one :payment_selected
+  has_many :products
 end 

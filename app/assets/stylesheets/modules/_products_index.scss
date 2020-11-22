@@ -345,6 +345,25 @@
           overflow: hidden;
           margin: 0;
           z-index: auto;
+          &--sold-box {
+            width: 0;
+            height: 0;
+            border-top: 40px solid #3CCACE;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-left: 40px solid #3CCACE;
+            z-index: 1;
+            position: relative;
+          }
+          &--sold-text {
+            position: absolute;
+            top: 15px;
+            left: 5px;
+            z-index: 2;
+            color: #fff;
+            font-weight: bold;
+            transform: rotate(-45deg);
+          }
           .productImg{
             position: absolute;
             top: 0;
