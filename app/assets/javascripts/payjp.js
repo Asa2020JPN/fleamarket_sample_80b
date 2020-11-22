@@ -1,6 +1,6 @@
-$(document).on('turbolinks:load', function() {
-  Payjp.setPublicKey('');
-  $(document).on("click", "#token_submit", function(e) {
+$(document).on('turbolinks:load', function () {
+  Payjp.setPublicKey('pk_test_9aff1c031fd8e8710ea0c6e1');
+  $(document).on("click", "#token_submit", function (e) {
     e.preventDefault();
     $('.icon_load').show();
 
@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
       cvc: $("#cvc").val()
     };
 
-    Payjp.createToken(card, function(status, response) {
+    Payjp.createToken(card, function (status, response) {
       if (status === 200) {
         $("#card_number").removeAttr("name");
         $("#exp_month").removeAttr("name");

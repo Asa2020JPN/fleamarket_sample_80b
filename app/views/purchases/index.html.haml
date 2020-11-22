@@ -56,7 +56,21 @@
             = @address.last_name + @address.first_name
     %section.buy-button
       .btn
-        = form_tag(purchases_pay_path(id: @product.id)) do
-          -# = submit_tag "購入する", class: "btn--purchase"
-          %button.btn--purchase 購入する
+        %button.btn--purchase 購入する
+    %section.buy-button-modal
+      .sign_modal_wrapper.sign_modal_bg
+        .sign_modal
+          .sign_up_modal.sign_modal_content
+            購入画面確認
+          .imageg
+            = image_tag @product.images.first.image.url, class: "product-img"
+          .price
+            %p.total__price
+              = "¥" + @product.price.to_s
+          .last-confirmation
+            .buyBtn
+              = form_tag(purchases_pay_path(id: @product.id)) do
+                %button.byModal-button 購入ボタン
+            .cancellBtn
+              .cancell-button キャンセル
 = render "purchases/form-info"

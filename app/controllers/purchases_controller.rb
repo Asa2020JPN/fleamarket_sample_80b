@@ -8,7 +8,7 @@ class PurchasesController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     @card_selected = PaymentSelected.find_by(user_id: current_user.id)
 
-    Payjp.api_key = ''
+    Payjp.api_key = 'sk_test_f3238d610769f2868ab6711a'
 
     if @card_selected.card_selected.to_i != 0
       @card_selected.card.customer_id
@@ -26,7 +26,7 @@ class PurchasesController < ApplicationController
       redirect_to controller: :purchases, action: :index, id: @product.id
     else
 
-      Payjp.api_key = ''
+      Payjp.api_key = 'sk_test_f3238d610769f2868ab6711a'
 
       Payjp::Charge.create(
         amount: @product.price,
@@ -48,7 +48,7 @@ class PurchasesController < ApplicationController
     @cards_info = []
 
     cards.each do |card|
-      Payjp.api_key = ''
+      Payjp.api_key = 'sk_test_f3238d610769f2868ab6711a'
       ninzin = Payjp::Customer.retrieve(card.customer_id)
       @cards_info << ninzin.cards.retrieve(card.card_id)
     end
