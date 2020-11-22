@@ -8,7 +8,7 @@ class CardController < ApplicationController
 
   def pay
 
-    Payjp.api_key = 'sk_test_f3238d610769f2868ab6711a'
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -54,7 +54,7 @@ class CardController < ApplicationController
     card.delete
 
     # payjp側の削除
-    Payjp.api_key = 'sk_test_f3238d610769f2868ab6711a'
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(card.customer_id)
     customer.delete
 
