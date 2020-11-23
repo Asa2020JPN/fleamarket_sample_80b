@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get 'card/new'
-  get 'card/show'
 
   resources :mypages, only: [:index, :show, :destroy]
   get 'users', to: 'users#logout'
@@ -39,7 +38,6 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resources :products, only: [:index, :show, :new, :create, :edit, :create] do
-
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }

@@ -49,7 +49,6 @@
     .current-user {
       display: flex;
       justify-content: space-between;
-      // margin-bottom: 32px;
       &__info {
         display: flex;
         align-items: center;
@@ -100,7 +99,6 @@
   }
   .add-card {
     margin: 0 0 32px 0;
-    // border-top: $border-info;
     &--btn {
       color: #0095ee;
       font-size: 14px;
@@ -145,7 +143,6 @@
       display: none;
     }
     &__back {
-      // どこに聞いてるのかわからない
       margin-top: 32px;
       .back-button {
         color: #0095ee;
