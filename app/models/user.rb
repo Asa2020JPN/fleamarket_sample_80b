@@ -7,5 +7,6 @@ class User < ApplicationRecord
   validates :email, format: { with:  /\A\S+@\S+\.\S+\z/}
   has_one :identification
   has_one :address
+  has_one :payment_selected
   has_many :products
 end 

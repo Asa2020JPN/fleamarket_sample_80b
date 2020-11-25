@@ -1,0 +1,56 @@
+.section
+  %section.section-top
+    %h2.title 支払い方法
+  .payments
+    -# = form_with  payment_method_purchases_path do |f|
+    = form_for @payment_selected, :url => url_for(:controller => 'purchases', :action => 'paymethod_selected') do |f|
+      .atm
+        .contents
+          .mark
+            = f.radio_button :card_selected, "0", class: "check-img", checked: @card_selected.card_selected.to_i == 0
+          .pay-atm
+            %p.name コンビニ/ATM払い
+            %p.fee （手数料¥100）
+      - @cards_info.each.with_index(1) do |card_info, i|
+        .credit-card
+          .current-user
+            .current-user__info
+              .credit-check
+                = f.radio_button :card_selected, i, class: "credit-check__button", checked: @card_selected.card_selected.to_i == i
+              .credit-info
+                %p.number
+                  = "************" + card_info.last4
+                %p.expiration
+                  - exp_month = card_info.exp_month.to_s
+                  - exp_year = card_info.exp_year.to_s.slice(2,3)
+                  = "有効期限 " + exp_month + " / " + exp_year
+                .image
+                  - case card_info.brand
+                  - when "Visa"
+                    = image_tag 'material/card-logo/logo_visa.gif', class: 'img'
+                  - when "MasterCard"
+                    = image_tag 'material/card-logo/logo_mastercard.gif', class: 'img'
+                  - when "JCB"
+                    = image_tag 'material/card-logo/credit-card-logo-jcb.gif', class: 'img'
+                  - when "American Express"
+                    = image_tag 'material/card-logo/amex-logomark.gif', class: 'img'
+                  - when "Diners Club"
+                    = image_tag 'material/card-logo/diners-logomark.gif', class: 'img'
+                  - when "Discover"
+                    = image_tag 'material/card-logo/discover-logomark.gif', class: 'img'
+            .current-user__delete
+              .current-user__delete--btn 削除する
+      .add-card.add-border
+        - if params[:id].blank?
+          = link_to " クレジットカードを追加", new_card_path, class: "add-card--btn", "data-turbolinks": false
+        - else
+          = link_to " クレジットカードを追加", new_card_path(id: params[:id].to_i), class: "add-card--btn", "data-turbolinks": false
+      .button
+        .button__enter
+          = f.hidden_field :id_path, value: params[:id]
+          = f.submit "選択した支払い方法を使う", class: "enter-button"
+          = image_tag 'material/ajax-load.gif', class: "icon_load"
+        - if params[:id].blank?
+          = link_to "支払い方法について >", "#", class: "about-paymethod"
+        - else
+          = link_to "もどる", purchases_path(id: params[:id].to_i), class: "back-btn"

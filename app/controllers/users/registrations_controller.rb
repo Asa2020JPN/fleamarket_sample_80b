@@ -46,6 +46,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.ident_data"]["identification"].clear
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
+
+    PaymentSelected.create(user_id: current_user.id, card_selected: "0")
+    
   end
   # GET /resource/sign_up
   # def new
