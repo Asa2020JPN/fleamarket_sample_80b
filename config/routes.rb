@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'card/new'
 
   resources :mypages, only: [:index, :show, :destroy]
   get 'users', to: 'users#logout'
@@ -19,18 +18,15 @@ Rails.application.routes.draw do
 
   resources :purchases, only: [:index, :create] do
     collection do
-      get 'payment_method'
-      get 'address'
+      get  'payment_method'
+      get  'address'
+      get  ':id', to: 'purchases#index'
+      post 'pay', to: 'purchases#pay'
+      post 'pay/:id', to: 'purchases#pay'
+      post 'paymethod_selected'
+      get  'payment_method/:id', to: 'purchases#payment_method'
     end
   end
-
-  get 'purchases/:id', to: 'purchases#index'
-
-  post 'purchases/pay', to: 'purchases#pay'
-  post 'purchases/pay/:id', to: 'purchases#pay'
-
-  post 'purchases/paymethod_selected'
-  get 'purchases/payment_method/:id', to: 'purchases#payment_method'
 
   resources :tops, only: :show
   resources :products, only: [:index]

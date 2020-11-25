@@ -1,6 +1,7 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
+  console.log('test');
   //購入ボタンを押すと、モーダル画面を表示させる
-  $('button').on('click', function () {
+  $('.btn--purchase').on('click', function () {
     $('.sign_modal_wrapper').show();
     $('.sign_modal').show();
     if ($(this).hasClass('sign_up_button')) {

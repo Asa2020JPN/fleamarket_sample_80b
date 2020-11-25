@@ -42,9 +42,9 @@
               .current-user__delete--btn 削除する
       .add-card.add-border
         - if params[:id].blank?
-          = link_to " クレジットカードを追加", card_new_path, class: "add-card--btn", "data-turbolinks": false
+          = link_to " クレジットカードを追加", new_card_path, class: "add-card--btn", "data-turbolinks": false
         - else
-          = link_to " クレジットカードを追加", card_new_path(id: params[:id].to_i), class: "add-card--btn", "data-turbolinks": false
+          = link_to " クレジットカードを追加", new_card_path(id: params[:id].to_i), class: "add-card--btn", "data-turbolinks": false
       .button
         .button__enter
           = f.hidden_field :id_path, value: params[:id]
@@ -54,4 +54,3 @@
           = link_to "支払い方法について >", "#", class: "about-paymethod"
         - else
           = link_to "もどる", purchases_path(id: params[:id].to_i), class: "back-btn"
-    

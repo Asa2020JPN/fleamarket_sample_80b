@@ -22,7 +22,7 @@
             .product__price--detail
               (税込)送料込み
           - if current_user.present? && current_user.id != @selected_product.saler_id
-            = link_to purchases_path, class: "product__purchase" do
+            = link_to purchases_path(id: @selected_product.id), class: "product__purchase" do
               = "購入画面に進む"
           - elsif current_user.present? && current_user.id == @selected_product.saler_id
           - else
