@@ -32,7 +32,7 @@ class CardController < ApplicationController
     end
 
     if params[:id].blank?
-      redirect_to payment_method_purchases_path
+      redirect_to payment_method_mypages_path
     else
       redirect_to payment_method_purchases_path(id: params[:id])
     end
@@ -60,14 +60,14 @@ class CardController < ApplicationController
 
     if selected.card_selected.blank?
       if params[:params_id].blank?
-        redirect_to payment_method_purchases_path
+        redirect_to payment_method_mypages_path
       else
         redirect_to payment_method_purchases_path(id: params[:params_id])
       end
     end
 
     if params[:params_id].blank?
-      redirect_to payment_method_purchases_path
+      redirect_to payment_method_mypages_path
     else
       redirect_to payment_method_purchases_path(id: params[:params_id])
     end

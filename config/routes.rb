@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :mypages, only: [:index, :show, :destroy] do
+    collection do
+      get 'payment_method'
+      get 'payment_method/card', to: 'mypages#card_new'
+    end
+  end
 
-  resources :mypages, only: [:index, :show, :destroy]
   get 'users', to: 'users#logout'
 
   resources :categories, only: [:show]
@@ -40,16 +45,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :card, only: [:new, :show] do
+  resources :card do
     collection do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
+      post 'pay/:id', to: 'card#pay'
       post 'delete', to: 'card#delete'
+      get 'card/new/:id', to: 'card#new'
     end
   end
 
-  post 'pay/:id', to: 'card#pay'
+  # post 'pay/:id', to: 'card#pay'
 
-  get 'card/new/:id', to: 'card#new'
+  # get 'card/new/:id', to: 'card#new'
 
 end

@@ -1,8 +1,7 @@
-.section
+.card
   %section.section-top
     %h2.title 支払い方法
   .payments
-    -# = form_with  payment_method_purchases_path do |f|
     = form_for @payment_selected, :url => url_for(:controller => 'purchases', :action => 'paymethod_selected') do |f|
       .atm
         .contents
@@ -42,7 +41,7 @@
               .current-user__delete--btn 削除する
       .add-card.add-border
         - if params[:id].blank?
-          = link_to " クレジットカードを追加", new_card_path, class: "add-card--btn", "data-turbolinks": false
+          = link_to " クレジットカードを追加", payment_method_card_mypages_path, class: "add-card--btn", "data-turbolinks": false
         - else
           = link_to " クレジットカードを追加", new_card_path(id: params[:id].to_i), class: "add-card--btn", "data-turbolinks": false
       .button

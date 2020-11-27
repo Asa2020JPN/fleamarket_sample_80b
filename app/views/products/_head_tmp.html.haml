@@ -19,7 +19,7 @@
       %ul.listRight
         - if user_signed_in?
           %li.listRight__login
-            = link_to "マイページ", '#', {class: 'link-text'}
+            = link_to "マイページ", mypages_path, {class: 'link-text'}
         - else
           %li.listRight__new
             = link_to "ログイン", new_user_session_path, {class: 'link-text'}

@@ -5,7 +5,6 @@ class PurchasesController < ApplicationController
   def index
     @product = Product.includes(:images).find(params[:id])
     @address = Address.find(current_user.id)
-    # card = Card.where(user_id: current_user.id).first
     @card_selected = PaymentSelected.find_by(user_id: current_user.id)
 
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
@@ -70,7 +69,7 @@ class PurchasesController < ApplicationController
     end
 
     if @card_selected.id_path.blank?
-      redirect_to payment_method_purchases_path
+      redirect_to payment_method_mypages_path
     else
       redirect_to purchases_path(id: @card_selected.id_path)
     end
