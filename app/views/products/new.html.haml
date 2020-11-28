@@ -22,22 +22,17 @@
               #previews
                 - if @product.persisted?
                   - @product.images.each_with_index do |image, i|
-                    = image_tag image.image.url, data: { index: i }, width: '100', height: '200'
+                    = image_tag image.image.url, data: { index: i }
               = form.fields_for :images do |image|
                 .js-file_group{"data-index": "#{image.index}"}
                   = image.file_field :image, class: 'js-file'
                   %span.js-remove
                     削除
                 -if @product.persisted?
-                  = image.check_box :destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              -if @product.persisted?
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                  %span.js-remove
-                    削除
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
               - if @product.errors.include?(:images)
                 %p.error-text
-                  = @product.errors.messages[:images][0]
+                  = @product.errors.messages[:images][0]  
       .content-02
         .registration-item
           .registration-item__left
@@ -57,7 +52,7 @@
             .registration-item__right--color
               必須
         .input-text
-          = form.text_field :detail, class: 'input-text__form', placeholder: '商品の説明（必須1000文字以内）'
+          = form.text_area :detail, class: 'input-text__form', maxlength: "1000", placeholder: "商品の説明（必須 1,000文字以内);(色、素材、重さ、定価、注意点など)     例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
           - if @product.errors.include?(:detail)
             %p.error-text
               = @product.errors.messages[:detail][0]

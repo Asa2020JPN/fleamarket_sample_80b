@@ -6,37 +6,70 @@
     %section.product
       .detail
         .image
-          = image_tag 'material/water.png', class: 'product-img'
+          = image_tag @product.images.first.image.url, class: "product-img"
         .product-info
-          %p.product-info__name おいしい水ですよーーーーーーーーーーーーーーーー
+          %p.product-info__name
+            = @product.name
           .product-info__price
             %span.product-info__price--tax 送料込み（税込）
-            %span.product-info__price--number ¥2,000
+            %span.product-info__price--number
+              = "¥" + @product.price.to_s
     %section.pay-fee
       .total
         %p.total__font 支払金額
-        .total__price
-          %p.total__price
-          %p ¥5,678
-    %section.pay-method
-      .payment
-        .payment-top
-          %h3.title 支払い方法
-          = link_to "変更します >", "purchases/new", class: "change-btn"
-        .payment__method
-          %p.credit-card クレジットカード
-          %p.number 00000000000
-          %p.expiration 有効期限 01/01
+        %p.total__price
+          = "¥" + @product.price.to_s
+    - if @card_selected.card_selected.to_i == 0
+      %section.pay-method
+        .payment
+          .payment-top
+            %h3.title 支払い方法
+            = link_to "変更します >", payment_method_purchases_path(id: @product.id), class: "change-btn"
+          .payment__method
+            %p.credit-card コンビニ/ATM払い
+            %p.fee (手数料¥100)
+    - else
+      %section.pay-method
+        .payment
+          .payment-top
+            %h3.title 支払い方法
+            = link_to "変更します >", payment_method_purchases_path(id: @product.id), class: "change-btn"
+          .payment__method
+            %p.credit-card クレジットカード
+            %p.number
+              = "************" + @card_info.last4
+            %p.expiration
+              - exp_month = @card_info.exp_month.to_s
+              - exp_year = @card_info.exp_year.to_s.slice(2,3)
+              = "有効期限 " + exp_month + " / " + exp_year
     %section.address
       .address__user
         .address__user--top
           %h3.title 配送先
-          = link_to "変更します >", "purchases/edit", class: "change-btn"
         .address-font
-          %p.address-font--postcode 000-0000
-          %p.address-font--city 東京都練馬区
-          %p.address-font--name 佐藤匠
+          %p.address-font--postcode
+            = @address.postcode
+          %p.address-font--city
+            = @address.prefecture.name + " " + @address.city + " " + @address.block + " " + @address.building
+          %p.address-font--name
+            = @address.last_name + @address.first_name
     %section.buy-button
       .btn
-      =link_to "購入する", "#", class: "btn--purchase"
+        %button.btn--purchase 購入する
+    %section.buy-button-modal
+      .sign_modal_wrapper.sign_modal_bg
+        .sign_modal
+          .sign_up_modal.sign_modal_content
+            購入確認画面
+          .imageg
+            = image_tag @product.images.first.image.url, class: "product-img"
+          .price
+            %p.total__price
+              = "¥" + @product.price.to_s
+          .last-confirmation
+            .cancellBtn
+              .cancell-button キャンセル
+            .buyBtn
+              = form_tag(pay_purchases_path(id: @product.id)) do
+                %button.byModal-button 購入確定
 = render "purchases/form-info"

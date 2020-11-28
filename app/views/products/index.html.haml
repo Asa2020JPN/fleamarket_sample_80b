@@ -100,23 +100,26 @@
           = link_to "新規投稿商品", '#', {class: 'productHead__text'}
         .productLists
           - @new_products.each do |product|
-            -unless product.buyer_id.present? 
-              .productList
-                = link_to product_path(product), {class: 'productList__link'} do
-                  .productList__img
-                    = image_tag product.images[0].image.url, alt: "image_url", class: 'productImg'
-                  .productList__body
-                    %h3.name
-                      = product.name
-                    .details
-                      %ul 
-                        %li
-                          = product.price
-                          円
-                        %li 
-                          = icon('fa', 'star')
-                          1
-                      %p.tax (税込)
+            .productList
+              = link_to product_path(product), {class: 'productList__link'} do
+                .productList__img
+                  - if product.buyer_id.present?
+                    .productList__img--sold-box
+                    %p.productList__img--sold-text
+                      SOLD
+                  = image_tag product.images[0].image.url, alt: "image_url", class: 'productImg'
+                .productList__body
+                  %h3.name
+                    = product.name
+                  .details
+                    %ul 
+                      %li
+                        = product.price
+                        円
+                      %li 
+                        = icon('fa', 'star')
+                        1
+                    %p.tax (税込)
     %section.pickupContainer.last-child
       %h2.head
         ピックアップブランド

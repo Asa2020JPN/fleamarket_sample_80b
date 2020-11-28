@@ -5,7 +5,6 @@
       %h2.head--title 商品送付先住所情報
     .devise-form
       = form_for @address do |f|
-        -# = render "devise/shared/error_messages", resource: @address
         .contents
           %section#top-field.field
             = f.label :last_name, "姓", class: "field--name"
@@ -62,7 +61,7 @@
             %span.field--required 必須
             %br/
             .input
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: 'input--style'}
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: 'input--style'}
             - if @address.errors.include?(:prefecture_id)
               %p.error-text
                 = @address.errors.messages[:prefecture_id][0]

@@ -95,3 +95,5 @@ gem 'ancestry'
 gem 'fog-aws'
 
 gem 'tzinfo-data'
+
+gem 'payjp'
