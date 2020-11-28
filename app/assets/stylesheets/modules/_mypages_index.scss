@@ -5,13 +5,10 @@
   padding: 0 4%;
   font-size: 16px;
 }
-
-
 .mypage-wrapper {
   background-color: #f5f5f5;
   padding: 40px 0;
 }
-
 .main-body{
   padding: 0 0 40px;
   margin: 0 auto;
@@ -99,36 +96,75 @@
     .menu__{
       text-decoration: none;
     }
-    .menu__list.active{
+    .menu__list{
       @include menu_list;
-      background-color: #d3d3d3;
       text-decoration: none;
     }
-    .menu__list.non-active{
-      @include menu_list;
-      background-color:#ffff;
-      display: block;
-  
+    .active {
+      background-color: #d3d3d3;
+    }
+    .non-active {
+      background-color: #ffffff;
     }
   }
-  .contents{
-    display: flex;
-    background-color:  #d3d3d3;
-    margin: 0 auto;
-    display: block;
-    .content{
-     padding: 160px 0 60px;
-     text-align: center;
-     color: white;
-     text-align: center;
-    }
-    .content-image {
-      margin: 0 auto;
-      display: block;
+  .menu__product {
+    .display {
+      position: relative;
+      .content-image {
+        position: absolute;
+        margin-top: 50px; 
+        margin-left: -150px;
+      }
+      .saler-product {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        .product-item {
+          display: flex;
+          .produit-details {
+            margin-left: 20px;
+            font-size: 0;
+            .name {
+              font-size: 14px;
+            }
+            .mypage-item-status {
+              font-size: 12px;
+              font-weight: bold;
+              color: #fff;
+              background-color: grey;
+              margin: 5px 0 0 0;
+              width: 80px;
+            }
+          }
+        }
+        .menu-myitem__right {
+          display: flex;
+          align-items: center;
+        }
+      }
     }
   }
 }
 
-.no-display {
+.products_info {
   display: none;
+}
+
+.display_none {
+  display: none;
+}
+
+.second-display {
+  display: block;
+  background-color: #d3d3d3;
+  text-align: center;
+}
+.show {
+  padding: 160px 0 60px;
+  text-align: center;
+  background-color: #d3d3d3;
+  display: block;
+  color: white;
+  font-weight: bold;
 }
