@@ -38,14 +38,14 @@ Rails.application.routes.draw do
   resources :registrations, only: [:index]
   root 'products#index'
 
-  resources :products, only: [:index, :show, :new, :create, :edit, :create] do
+  resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
 
-  resources :card do
+  resources :card, only: :new do
     collection do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'

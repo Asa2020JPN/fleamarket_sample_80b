@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.addEventListener("turbolinks:load", function() {
   // タブのDOMを取得し、変数で定義
   let tabs = document.getElementsByClassName("menu__list");
  
@@ -39,6 +39,5 @@ window.addEventListener("load", function() {
   // タブメニューの中でクリックイベントが発生した場所を探し、下で定義したtabSwitch関数を呼び出す
   tabsAry.forEach(function(value) {
     value.addEventListener("click", tabSwitch);
-    
   });
 });
