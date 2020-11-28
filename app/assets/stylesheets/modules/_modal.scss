@@ -50,9 +50,8 @@
   background-color: #fff;
   width: 650px;
   height: 600px;
-  top: 0;
   left: 0;
-  bottom: 0;
+  bottom: 200px;
   right: 0;
   margin: 300px auto 0;
   display: none;
@@ -93,10 +92,10 @@
 .buyBtn{
   width: 50%;
   margin-left: 50px;
+  margin-right: 50px;
 }
 
 .cancellBtn{
   width: 50%;
   margin-left: 50px;
-  margin-right: 50px
 }
