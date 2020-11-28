@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', function () {
-  console.log('test');
   //購入ボタンを押すと、モーダル画面を表示させる
   $('.btn--purchase').on('click', function () {
     $('.sign_modal_wrapper').show();
