@@ -10,7 +10,6 @@ window.addEventListener("turbolinks:load", function() {
   // tabsを配列に変換する
   displaysAry = Array.prototype.slice.call(displays);
 
-  console.log('comment');
   // クラスの切り替えをtabSwitch関数で定義
   function tabSwitch() {
 
