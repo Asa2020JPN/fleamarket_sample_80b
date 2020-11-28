@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.addEventListener("turbolinks:load", function() {
   // タブのDOMを取得し、変数で定義
   let tabs = document.getElementsByClassName("menu__list");
   // tabsを配列に変換する
