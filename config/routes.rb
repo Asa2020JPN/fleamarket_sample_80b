@@ -55,8 +55,4 @@ Rails.application.routes.draw do
     end
   end
 
-  # post 'pay/:id', to: 'card#pay'
-
-  # get 'card/new/:id', to: 'card#new'
-
 end
