@@ -37,10 +37,7 @@
   .footer__logo
     = link_to image_tag("material/logo/logo-white.png",width: '160',  height: '46.34', alt: "FURIMA画像"), root_path, {class: 'appLogo'}
   %p © FURIMA
-.cameraBtn
-  %span.cameraBtn__text 出品する
-  .cameraBtn__rootPath
-    - if user_signed_in?
-      = link_to image_tag("material/icon/icon_camera.png",width: '54', height: '54', alt: "App画像"), new_product_path, {class: 'appIcon'}
-    - else
-      = link_to image_tag("material/icon/icon_camera.png",width: '54', height: '54', alt: "App画像"), new_user_session_path, {class: 'appIcon'}
+= link_to new_product_path do
+  .cameraBtn
+    %span.cameraBtn__text 出品する
+    = image_tag 'material/icon/icon_camera.png', width: '54', height: '54' ,alt: 'App画像',  class: 'appIcon'
