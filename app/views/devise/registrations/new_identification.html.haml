@@ -5,7 +5,6 @@
       %h2.head--title 本人確認情報
     .devise-form
       = form_for @identification do |f|
-        /= render "devise/shared/error_messages", resource: @identification
         .contents
           %section#top-field.field
             = f.label :last_name, "姓", class: "field--name"
@@ -53,5 +52,4 @@
                 = @identification.errors.messages[:birthday][0]
           .actions
             = f.submit "次へ進む", class: "actions__btn"
-      //= render "devise/shared/links"
 = render "purchases/form-info"
