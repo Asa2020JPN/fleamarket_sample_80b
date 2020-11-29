@@ -5,7 +5,6 @@
       %h2.head--title ユーザー情報登録
     .devise-form
       = form_for(@user, url: user_registration_path) do |f|
-        -# = render "devise/shared/error_messages", resource: @user
         .contents
           %section#top-field.field
             = f.label :nickname, "ニックネーム", class: "field--name"
@@ -38,7 +37,6 @@
               %p.error-text
                 = @user.errors.messages[:password][0]
 
-
           %section.field
             = f.label :password_confirmation, "パスワード確認", class: "field--name"
             %span.field--required 必須
@@ -47,5 +45,4 @@
               = f.password_field :password_confirmation, autocomplete: "new-password", class: "input--style", placeholder: "7文字以上半角英数字"
           .actions
             = f.submit "次へ進む", class: "actions__btn"
-      //= render "devise/shared/links"
 = render "purchases/form-info"
