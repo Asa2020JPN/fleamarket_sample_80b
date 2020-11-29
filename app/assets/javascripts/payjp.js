@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function () {
-  Payjp.setPublicKey('pk_test_9aff1c031fd8e8710ea0c6e1');
+  Payjp.setPublicKey('pk_test_ddf9485b852f0c1dc033a1b3');
   $(document).on("click", "#token_submit", function (e) {
     e.preventDefault();
     $('.icon_load').show();
