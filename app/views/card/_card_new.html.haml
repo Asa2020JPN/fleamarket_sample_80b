@@ -58,7 +58,6 @@
         #card_token.change
           = submit_tag "登録する", id: "token_submit", class: "change__btn"
           = image_tag 'material/ajax-load.gif', class: "icon_load"
-          -# = link_to "もどる", :back, class: "back-button"
           - if params[:id].blank?
             = link_to "もどる", payment_method_mypages_path, class: "back-button"
           - else
