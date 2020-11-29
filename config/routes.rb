@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   resources :registrations, only: [:index]
   root 'products#index'
 
-  resources :products do
+  resources :products, except: :destroy do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
