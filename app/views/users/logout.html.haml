@@ -3,7 +3,6 @@
   .logout-body
     =render "mypages/side_bar"
     .logout-content
-      .logout-message
-        = link_to "ログアウト", destroy_user_session_path, { method: :delete, data: {confirm: "ログアウトしますか？"}, class: "logout-message__text"}
+      = link_to "ログアウト", destroy_user_session_path, { method: :delete, data: {confirm: "ログアウトしますか？"}, class: "logout-btn"}
 
 =render partial: "products/footer_tmp" 

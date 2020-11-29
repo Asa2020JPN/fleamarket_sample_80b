@@ -9,23 +9,20 @@
     .logout-content {
       width: 700px;
       height: 175px;
-      position: relative;
       background-color: white;
-      .logout-message {
-        position: absolute;
-        background-color: red;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        padding: 14px 125px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .logout-btn {
+        width: 320px;
+        height: 50px;
+        line-height: 50px;
         border-radius: 5px;
-        &__text {
-          color: white;
-          text-decoration: none;
-          font-size: 14px;
-        }
+        background-color: red;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        font-size: 14px;
       }
     }
   }

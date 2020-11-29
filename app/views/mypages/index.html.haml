@@ -9,7 +9,7 @@
           .user__img
             = image_tag "mypage-logo.jpg", size: "50x50", class: "user__img--img"
           .user-name
-            テスト
+            = @user.nickname
           .info-box
             .info-box__left
               .info-box__left--text
@@ -20,7 +20,7 @@
               .info-box__right--text
                 出品数
               .info-box__right--num
-                0
+                = @saler.length
       .menu-head__tab 購入した商品
       .menu
         .menu__list.active
