@@ -48,6 +48,7 @@
   width: 700px;
   .main-box {
     position: relative;
+    font-size: 0;
     .user {
       position: absolute;
       top: 50%;
@@ -120,6 +121,8 @@
         display: flex;
         justify-content: space-between;
         padding: 10px;
+        text-decoration: none;
+        color: #333333;
         .product-item {
           display: flex;
           .produit-details {

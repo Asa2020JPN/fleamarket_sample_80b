@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load',function() {
   // 子カテゴリーにてoptionタグの作成
   function appendOption(category) {
     let html = 

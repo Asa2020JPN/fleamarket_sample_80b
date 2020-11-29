@@ -26,7 +26,7 @@
         .menu__list.active
           #about.menu__item 過去の取引商品
         .menu__list
-          #about.menu__item 出品中の商品
+          #about.menu__item 出品した商品
       .menu__product
         .display.products_info.second-display
           -if @buyer.length == 0
@@ -35,7 +35,7 @@
               過去の取引はありません
           -else 
             - @buyer.each do |test|
-              %li.saler-product
+              = link_to product_path(test.id), class: "saler-product" do
                 .product-item
                   = image_tag test.images[0].image.url, size: "50x50"
                   .produit-details
@@ -52,14 +52,18 @@
               出品中の商品はありません
           -else 
             - @saler.each do |test|
-              %li.saler-product
+              = link_to edit_product_path(test.id), class: "saler-product" do
                 .product-item
                   = image_tag test.images[0].image.url, size: "50x50"
                   .produit-details
                     %p.name
                       = test.name;
-                    .mypage-item-status
-                      出品中
+                    -if test.buyer_id.blank?
+                      .mypage-item-status
+                        出品中
+                    -else
+                      .mypage-item-status
+                        取引完了
                 .menu-myitem__right
                   = icon("fas", "chevron-right")     
 =render partial: "products/footer_tmp"
