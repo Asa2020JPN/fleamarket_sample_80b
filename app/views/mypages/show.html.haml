@@ -70,7 +70,7 @@
                     = @selected_product.shipping.name
         - if current_user.present? && current_user.id == @selected_product.saler_id
           .edit-box
-            = link_to '商品の編集', "#"
+            = link_to '商品の編集', edit_product_path(@selected_product.id)
             %p
               or
             = link_to mypage_path(@selected_product.id), id: "del", method: :delete, data: {confirm: "削除しますか？"} do
