@@ -139,7 +139,7 @@
       }
       .contentbtn{
         display: flex;
-        .test {
+        .app-btn {
           margin-right: 10px;
         }
       }
@@ -491,8 +491,8 @@
     text-decoration: none;
     margin-bottom: 5px;
   }
-  &__test{
-    vertical-align: bottom;
-    
-  }
+}
+
+.appIcon{
+  vertical-align: bottom;
 }
