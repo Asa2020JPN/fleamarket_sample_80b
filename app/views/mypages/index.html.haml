@@ -20,7 +20,7 @@
               .info-box__right--text
                 出品数
               .info-box__right--num
-                = @saler.length
+                = @saler_products.length
       .menu-head__tab 購入した商品
       .menu
         .menu__list.active
@@ -29,36 +29,36 @@
           #about.menu__item 出品した商品
       .menu__product
         .display.products_info.second-display
-          -if @buyer.length == 0
+          -if @buyer_products.length == 0
             = image_tag "logo-white.png", size: "250x80", class:"content-image"
             %li.content.show
               過去の取引はありません
           -else 
-            - @buyer.each do |test|
-              = link_to product_path(test.id), class: "saler-product" do
+            - @buyer_products.each do |buyer_product|
+              = link_to product_path(buyer_product.id), class: "saler-product" do
                 .product-item
-                  = image_tag test.images[0].image.url, size: "50x50"
+                  = image_tag buyer_product.images[0].image.url, size: "50x50"
                   .produit-details
                     %p.name
-                      = test.name;
+                      = buyer_product.name
                     .mypage-item-status
                       取引完了 
                 .menu-myitem__right
                   = icon("fas", "chevron-right")
         .display.products_info
-          -if @saler.length == 0
+          -if @saler_products.length == 0
             = image_tag "logo-white.png", size: "250x80", class:"content-image"
             %li.content.show
               出品中の商品はありません
           -else 
-            - @saler.each do |test|
-              = link_to edit_product_path(test.id), class: "saler-product" do
+            - @saler_products.each do |saler_product|
+              = link_to mypage_path(saler_product.id), class: "saler-product" do
                 .product-item
-                  = image_tag test.images[0].image.url, size: "50x50"
+                  = image_tag saler_product.images[0].image.url, size: "50x50"
                   .produit-details
                     %p.name
-                      = test.name;
-                    -if test.buyer_id.blank?
+                      = saler_product.name
+                    -if saler_product.buyer_id.blank?
                       .mypage-item-status
                         出品中
                     -else
