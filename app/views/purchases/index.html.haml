@@ -66,8 +66,8 @@
           %p.total__price
             = "¥" + @product.price.to_s
         .last-confirmation
-          .cancellBtn
-            .cancell-button キャンセル
+          .cancelBtn
+            .cancel-button キャンセル
           .buyBtn
             = form_tag(pay_purchases_path(id: @product.id)) do
               %button.byModal-button 購入確定

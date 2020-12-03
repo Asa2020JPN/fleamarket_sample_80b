@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function () {
   });
 
   //キャンセルボタンを押した後にモーダル画面を消す
-  $('.cancell-button').off().click(function () {
+  $('.cancel-button').off().click(function () {
     $('.buy-button-modal').fadeOut();
   })
 }); 
