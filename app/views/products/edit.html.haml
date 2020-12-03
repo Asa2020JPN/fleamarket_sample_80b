@@ -1,7 +1,7 @@
 .product-wrapper
   = form_with model: @product, local: true do |form|
     .product-wrapper__top
-      .corporate-logo
+      = link_to root_path, class: "corporate-logo" do
         = image_tag 'material/logo/logo.png', class: 'corporate-logo__img'
     .product-wrapper__middle
       .content-01
@@ -175,12 +175,10 @@
           .salesprofit-box__right
             ー
         .register-btn
-          = form.submit '出品する', class: 'register-btn__product'
+          = form.submit '変更する', class: 'register-btn__product'
         .save-btn
-          = form.submit '下書きに保存', class: 'save-btn__save'
-        .back-top
-          = link_to "#", class: "back-top__font" do
-            もどる
+          = link_to mypage_path, class: 'save-btn__save' do
+            キャンセル
         .caution-message
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律に
           より処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
@@ -193,6 +191,7 @@
           .policy-box__right
             特定商取引に関する表記
         .corporate-logo-white
-          = image_tag 'material/logo/logo-white.png', class: 'corporate-logo-white__img'
+          = link_to root_path do
+            = image_tag 'material/logo/logo-white.png', class: 'corporate-logo-white__img'
         .corporate-inc
           @Furima.Inc.
