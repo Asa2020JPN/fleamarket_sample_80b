@@ -177,11 +177,8 @@
         .register-btn
           = form.submit '変更する', class: 'register-btn__product'
         .save-btn
-          = link_to mypage_path, class: 'save-btn__save' do
+          = link_to mypage_path(saler_product.id), class: 'save-btn__cancel' do
             キャンセル
-        .caution-message
-          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律に
-          より処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
       .product-wrapper__bottom
         .policy-box
           .policy-box__left
