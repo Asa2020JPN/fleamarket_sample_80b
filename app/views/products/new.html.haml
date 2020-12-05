@@ -1,7 +1,7 @@
 .product-wrapper
   = form_with model: @product, local: true do |form|
     .product-wrapper__top
-      .corporate-logo
+      = link_to root_path, class: "corporate-logo" do
         = image_tag 'material/logo/logo.png', class: 'corporate-logo__img'
     .product-wrapper__middle
       .content-01
