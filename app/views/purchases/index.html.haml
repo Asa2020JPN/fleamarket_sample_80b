@@ -57,19 +57,18 @@
       .btn
         %button.btn--purchase 購入する
     %section.buy-button-modal
-      .sign_modal_wrapper.sign_modal_bg
-        .sign_modal
-          .sign_up_modal.sign_modal_content
-            購入確認画面
-          .imageg
-            = image_tag @product.images.first.image.url, class: "product-img"
-          .price
-            %p.total__price
-              = "¥" + @product.price.to_s
-          .last-confirmation
-            .cancellBtn
-              .cancell-button キャンセル
-            .buyBtn
-              = form_tag(pay_purchases_path(id: @product.id)) do
-                %button.byModal-button 購入確定
+      .sign_modal
+        .content-text
+          購入確認画面
+        .imageg
+          = image_tag @product.images.first.image.url, class: "product-img"
+        .price
+          %p.total__price
+            = "¥" + @product.price.to_s
+        .last-confirmation
+          .cancelBtn
+            .cancel-button キャンセル
+          .buyBtn
+            = form_tag(pay_purchases_path(id: @product.id)) do
+              %button.byModal-button 購入確定
 = render "purchases/form-info"
