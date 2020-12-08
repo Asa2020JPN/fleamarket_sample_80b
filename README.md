@@ -88,7 +88,7 @@
 |user_id       |references|null: false, foreign_key: true|
 |id_path       |string    |                              |
 ### Association
-- has_one :payment_selected
+- belongs_to :user
 - belongs_to :card
 
 ## identificationsテーブル
